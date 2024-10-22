@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --colore-primario: #0d4fd1;
+  --grigio: #f7f9ff;
+  --bianco: #fff;
+  --unita-base: 12px;
+  --grigio-hover: #e0e7ff;
+  --colore-secondario: #e30b21;
+  --margine: calc(var(--unita-base) * 20);
+}
+
+body {
+  font-family: neue-haas-grotesk-display;
+}
