@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import Header from "./header";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +13,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="stylesheet" href="https://use.typekit.net/qxk4lzc.css"></link>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://use.typekit.net/qxk4lzc.css"
+        ></link>
+      </head>
+      <Header />
       <body>{children}</body>
     </html>
   );
