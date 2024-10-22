@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useParams } from "next/navigation";
-import { usePathname } from "next/navigation";
-import AccordionComponent from "@/components/accordion";
+
 import DropdownComponent from "@/components/dropdown";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,7 +21,6 @@ export default function Header() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   const { locale } = useParams();
-  const pathname = usePathname();
 
   const handleToggleSidebar = () => setShowSidebar(!showSidebar);
 
