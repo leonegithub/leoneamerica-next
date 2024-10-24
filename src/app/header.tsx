@@ -1,4 +1,5 @@
 "use client";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import SearchBar from "@/components/searchbar";
@@ -7,7 +8,6 @@ import DropdownComponent from "@/components/dropdown";
 import Link from "next/link";
 import Image from "next/image";
 import logoAmerica from "./Logo-LeoneAmerica2023-2.png";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./header.css";
 import {
