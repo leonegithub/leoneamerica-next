@@ -17,7 +17,7 @@ import {
   getOptions4,
 } from "@/components/header-options";
 
-const Header = () => {
+export default function Header() {
   const [show, setShow] = useState(false);
 
   const options1 = getOptions1();
@@ -103,6 +103,4 @@ const Header = () => {
       </header>
     </>
   );
-};
-
-export default Header;
+}
