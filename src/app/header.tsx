@@ -26,8 +26,6 @@ export default function Header() {
   const options3 = getOptions3();
   const options4 = getOptions4();
 
-  const { locale } = useParams();
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -35,7 +33,7 @@ export default function Header() {
     <>
       <header className={`p-5 flex items-center`}>
         <div className=" logo">
-          <Link href={`/${locale}`}>
+          <Link href={`/`}>
             <Image src={logoAmerica} width={250} alt="logo-america" />
           </Link>
         </div>
