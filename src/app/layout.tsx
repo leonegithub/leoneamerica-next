@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import Header from "./Header";
 import Footer from "./Footer";
+import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
   title: "Leone America",
