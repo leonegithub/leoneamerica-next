@@ -6,7 +6,7 @@ import AccordionComponent from "@/components/accordion";
 import DropdownComponent from "@/components/dropdown";
 import Link from "next/link";
 import Image from "next/image";
-import logoAmerica from "./Logo-Leone®America2023-2.png";
+import logoAmerica from "./Logo-LeoneAmerica2023-2.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./header.css";
