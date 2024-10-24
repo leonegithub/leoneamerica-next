@@ -10,8 +10,8 @@ export default function Carousel({ items }: CarouselProps) {
   const length = items.length;
 
   const handlePrevious = () => {
-    const newIndex = index - 1;
-    setIndex(newIndex < 0 ? length - 1 : newIndex);
+    const oldIndex = index - 1;
+    setIndex(oldIndex < 0 ? length - 1 : oldIndex);
   };
 
   const handleNext = () => {

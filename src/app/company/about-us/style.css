@@ -1,0 +1,11 @@
+h1 {
+  color: var(--colore-primario);
+}
+
+p {
+  font-size: 18px;
+}
+
+.video-container {
+  background-color: var(--grigio);
+}

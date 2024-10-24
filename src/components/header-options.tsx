@@ -9,7 +9,7 @@ export const getOptions1 = () => {
       href: "/company/90-years",
     },
     {
-      label: "Contacs",
+      label: "Contacts",
       href: "/company/contacts",
     },
   ];
