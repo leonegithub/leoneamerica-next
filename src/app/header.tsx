@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { useParams } from "next/navigation";
 import { Offcanvas } from "react-bootstrap";
 import SearchBar from "@/components/searchbar";
 import AccordionComponent from "@/components/accordion";
@@ -18,7 +17,7 @@ import {
   getOptions4,
 } from "@/components/header-options";
 
-export default function Header() {
+const Header = () => {
   const [show, setShow] = useState(false);
 
   const options1 = getOptions1();
@@ -104,4 +103,6 @@ export default function Header() {
       </header>
     </>
   );
-}
+};
+
+export default Header;
