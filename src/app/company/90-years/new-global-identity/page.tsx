@@ -25,16 +25,15 @@ export default function NewGlobalIdentity() {
           Looking to the future with a new image
         </h1>
         <p>
-          Conosciamo bene l’importanza della tradizione, ma siamo anche
-          consapevoli che l’evoluzione è una costante inevitabile. Questo ci ha
-          portato a una profonda riflessione sulla nostra immagine aziendale e
-          ci ha condotti verso un rinnovamento che coniugasse con saggezza il
-          passato e il futuro. Il cambio del logo, una delle parti più visibili
-          e riconoscibili dell’identità aziendale, ha rappresentato un processo
-          complesso. Abbiamo deciso di mantenere intatto il design, elemento
-          distintivo del nostro logo e simbolo che è diventato riconoscibile nel
-          corso dei decenni, ma allo stesso tempo abbiamo apportato modifiche
-          sottili, ma significative.
+          We are well aware of the importance of tradition, but we are also
+          aware that evolution is an inevitable constant. This has led us to a
+          deep reflection on our corporate image and has led us toward a renewal
+          that wisely combines the past and the future. The change of the logo,
+          one of the most visible and recognizable parts of the corporate
+          identity, represented a process complex. We decided to keep the design
+          intact, the hallmark of our logo and a symbol that has become
+          recognizable over the decades, but at the same time we made changes
+          that were subtle, but significant ones.
         </p>
         <div className="image-container gap-4 grid grid-cols-1 py-4 md:grid-cols-2">
           <Image

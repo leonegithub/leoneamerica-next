@@ -1,14 +1,7 @@
 import Image from "next/image";
 import globalIdentity from "./global-identity.png";
 import ninetyYears from "./90-years.png";
-import { StaticImageData } from "next/image";
 import Link from "next/link";
-
-interface FramesProps {
-  src: StaticImageData;
-  text: string;
-  url: string;
-}
 
 const frames = [
   {
@@ -46,7 +39,7 @@ export default function Ninety() {
               <div className="image-container">
                 <Image src={frame.src} alt={frame.text}></Image>
               </div>
-              <h4 className="text-3xl py-3 underline">{frame.text}</h4>
+              <h4 className="text-2xl py-3 underline">{frame.text}</h4>
             </Link>
           </div>
         ))}
