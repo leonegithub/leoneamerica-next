@@ -1,5 +1,5 @@
 "use client";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import SearchBar from "@/components/searchbar";
