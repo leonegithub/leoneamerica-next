@@ -12,16 +12,25 @@
   --margine: calc(var(--unita-base) * 20);
 }
 
+.blue {
+  color: var(--colore-primario);
+}
+
 body {
   font-family: neue-haas-grotesk-display !important;
 }
 
 main {
   margin-top: 100px;
+  padding-bottom: 100px;
 }
 
 h1 {
   font-size: calc(var(--unita-base) * 3);
+}
+
+p {
+  font-size: 18px;
 }
 
 .img-container {

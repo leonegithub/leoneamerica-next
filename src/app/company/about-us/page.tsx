@@ -25,14 +25,14 @@ export default function AboutUs() {
         <div className="container mx:auto py-4">
           {articles.map((article, index) => (
             <div key={index}>
-              <h1 className="py-3 font-bold">{article.title}</h1>
+              <h1 className="py-3 font-bold blue">{article.title}</h1>
               <p>{article.text}</p>
             </div>
           ))}
         </div>
         <div className=" video-container">
           <div className="container mx:auto py-4">
-            <h1 className="py-3 font-bold">
+            <h1 className="py-3 font-bold blue">
               Leone and Leone America work in tandem
             </h1>
             <p className="pb-3">
