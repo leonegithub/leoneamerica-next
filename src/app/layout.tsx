@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
@@ -34,6 +35,7 @@ export default function RootLayout({
       </head>
       <body>
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
