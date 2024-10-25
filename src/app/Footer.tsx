@@ -49,17 +49,13 @@ export default function Footer() {
                 <h4 className="mb-3 fw-bold">Quality</h4>
                 <ul className="m-0 list-unstyled">
                   <li className="mb-1">
-                    <Link href={`/qualita/sistema-di-qualita`}>
-                      Quality system
-                    </Link>
+                    <Link href={`/quality/quality-system`}>Quality system</Link>
                   </li>
                   <li className="mb-1">
-                    <Link href={`/qualita/schede-di-sicurezza`}>
-                      Safety sheets
-                    </Link>
+                    <Link href={`/quality/safety-sheets`}>Safety sheets</Link>
                   </li>
                   <li className="mb-1">
-                    <Link href={`/qualita/istruzioni`}>Instructions</Link>
+                    <Link href={`/quality/instructions`}>Instructions</Link>
                   </li>
                 </ul>
               </div>

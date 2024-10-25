@@ -1,0 +1,7 @@
+.safety-sheets {
+  padding-top: 50px;
+  .list {
+    line-height: 35px;
+    font-size: 20;
+  }
+}

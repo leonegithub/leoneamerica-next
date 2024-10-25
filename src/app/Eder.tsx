@@ -43,15 +43,15 @@ export default function Header() {
             </li>
             <li>
               <DropdownComponent
-                options={options3}
+                options={options2}
                 dropdownLabel="Orthodontics"
               />
             </li>
             <li>
-              <DropdownComponent options={options4} dropdownLabel="Orders" />
+              <DropdownComponent options={options3} dropdownLabel="Orders" />
             </li>
             <li>
-              <DropdownComponent options={options2} dropdownLabel="Events" />
+              <DropdownComponent options={options4} dropdownLabel="Events" />
             </li>
           </ul>
         </nav>
