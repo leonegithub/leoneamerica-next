@@ -29,11 +29,11 @@ export default function OurHistory() {
           In the 1930s and 1940s, the Mario Pozzi company was founded in 1934 to
           produce stainless steel dental caps. During World War II, sourcing raw
           materials becomes difficult due to military priorities, reducing
-          production to a minimum. Florence suffers bombings, but Pozzi's
+          production to a minimum. Florence suffers bombings, but Pozzi&apos;s
           workshop remains unscathed. Despite the difficulties, the company
           perseveres and, at the end of the war, moves production to a larger
-          workshop. In 1945, under the Leone brand, it became Italy's leading
-          manufacturer of steel dental caps and other dental products.
+          workshop. In 1945, under the Leone brand, it became Italy&apos;s
+          leading manufacturer of steel dental caps and other dental products.
         </p>
         <div className="image-container gap-4 grid grid-cols-1 py-4 md:grid-cols-2">
           <Image
@@ -54,7 +54,7 @@ export default function OurHistory() {
           urban centers. In 1961, Mario died at the age of 54. During the
           economic boom, his son Alexander shifted the production of the Leone
           to orthodontics, a growing sector influenced by the American model of
-          health and beauty. Alexander's choice proved to be successful,
+          health and beauty. Alexander&apos;s choice proved to be successful,
           allowing Leone to innovate, grow and be success in the Italian and
           international dental community.
         </p>
@@ -132,8 +132,9 @@ export default function OurHistory() {
           Digital Service Leone, specializing in invisible orthodontics. The
           Covid-19 pandemic in 2020 accelerated digitization and reorganized
           social contacts. Leone has opened branches in America and France, and
-          Elena's children, Olivia and Vittorio, represent the fourth generation
-          of the family, ready to take the company forward with a modern vision
+          Elena&apos;s children, Olivia and Vittorio, represent the fourth
+          generation of the family, ready to take the company forward with a
+          modern vision
         </p>
         <div className="image-container mt-4">
           {" "}

@@ -53,7 +53,7 @@ export default function NewGlobalIdentity() {
           contemporary. This renewal does not represent a departure from our
           tradition, but rather a demonstration of our forward momentum. The
           removal of the oval and the slanting of the letters were tangible
-          symbols of this new direction, testifying to the company's
+          symbols of this new direction, testifying to the company&apos;s
           determination to go beyond predefined boundaries, established
           traditions and limitations. The goal is to remain at the forefront,
           embracing change and giving a global identity to both Leone and its

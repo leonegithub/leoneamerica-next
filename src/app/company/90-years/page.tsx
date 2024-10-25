@@ -29,7 +29,7 @@ export default function Ninety() {
         and, at the same time, look to the future? The answer is simple and we
         can sum it up in a few words: Tradition Meets the Future.The new claim
         represents a bridge between the past and the present, between the
-        company's deep roots and the aspiration to innovate and grow with a
+        company&apos;s deep roots and the aspiration to innovate and grow with a
         bold, future-oriented vision, with a focus on the digital world.
       </p>
       <div className="frames-container py-5 grid gap-4 grid-cols-1 md:grid-cols-2">
