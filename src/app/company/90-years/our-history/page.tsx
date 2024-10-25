@@ -86,15 +86,15 @@ export default function OurHistory() {
           staff, the company resumed production and fulfilled orders after
           little more than a month, demonstrating great resilience in the face
           of devastation.
-          <div className="image-container mt-4">
-            {" "}
-            <Image
-              style={{ width: "100%" }}
-              src={fotoStoriaTre}
-              alt={"global-identity"}
-            ></Image>
-          </div>
         </p>
+        <div className="image-container mt-4">
+          {" "}
+          <Image
+            style={{ width: "100%" }}
+            src={fotoStoriaTre}
+            alt={"global-identity"}
+          ></Image>
+        </div>
         <h1 className="mt-4 py-2 font-bold blue">A new era</h1>
         <p>
           In 1969, when astronaut Neil Armstrong set foot on lunar soil, he
