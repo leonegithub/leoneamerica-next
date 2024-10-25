@@ -1,4 +1,5 @@
-import Footer from "./Header";
+import Header from "./Eder";
+import Footer from "./Footer";
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
