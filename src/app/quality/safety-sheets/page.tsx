@@ -22,12 +22,27 @@ const QualitySheets = () => {
       });
   }, []);
 
+  // ordina per nome scheda
+  result.sort((a, b) => {
+    const nameA = a.nomeScheda.toUpperCase();
+    const nameB = b.nomeScheda.toUpperCase();
+
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    return 0;
+  });
+
   return (
     <div className="safety-sheets container mx:auto">
       <ul>
         {result &&
-          result.map((element, index) => (
-            <li className="list blue" key={index}>
+          result.sort().map((element, index) => (
+            <li className="list list-disc blue" key={index}>
               <span className="font-bold">{element.codiceRev}</span> &nbsp;
               <span>{element.data}</span> &nbsp;
               <Link href={element.url}>{element.nomeScheda}</Link>
