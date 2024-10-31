@@ -4,8 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import "./style.css";
 
+interface SafetySheet {
+  codiceScheda: string;
+  codiceRev: string;
+  data: string;
+  nomeScheda: string;
+  url: string;
+}
+
 const QualitySheets = () => {
-  const [result, setResult] = useState<any[]>([]);
+  const [result, setResult] = useState<SafetySheet[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,7 +28,7 @@ const QualitySheets = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setResult(data.ReturnedObject);
+        setResult(data.ReturnedObject as SafetySheet[]);
         setLoading(false);
       });
   }, []);
