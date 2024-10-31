@@ -1,20 +1,20 @@
 "use client";
 
 import React, { useState, FormEvent } from "react";
-import { Input, Button } from "@nextui-org/react";
-import parse from "html-react-parser";
 import "./style.css";
 
-export default function Page() {
+const Contatti = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [message, setMessage] = useState<string | null>(null);
-  const [messageColor, setMessageColor] = useState<string>("");
+  const [responseMessage, setResponseMessage] = useState<string>(""); // Inizializza come stringa vuota
+  const [exitCode, setExitCode] = useState<number>(0); // Inizializza come 0
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsLoading(true);
-    setError(null); // Clear previous errors when a new request starts
+    setError(null);
+    setExitCode(0); // Inizializza exitCode a 0
+    setResponseMessage(""); // Inizializza responseMessage come stringa vuota
 
     try {
       const formData = new FormData(event.currentTarget);
@@ -32,24 +32,17 @@ export default function Page() {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Failed to submit the data. Please try again.");
-      }
+      const data = await response.json();
+      console.log(data);
 
-      const result = await response.json();
-      console.log(result);
-      if (result.ExitCode === 0) {
-        setMessage(result.ReturnedObject);
-        setMessageColor("green"); // Successo
-      } else {
-        setMessage(result.ReturnedError.join("<br/>"));
-        setMessageColor("red"); // Errore
-      }
+      setResponseMessage(
+        data.ReturnedObject || data.ReturnedError.join("<br/>")
+      );
+      setExitCode(data.exitCode);
     } catch (error) {
+      // Type assertion per gestire errori come `Error`
       if (error instanceof Error) {
         setError(error.message);
-      } else {
-        setError("An unknown error occurred.");
       }
       console.error(error);
     } finally {
@@ -58,90 +51,120 @@ export default function Page() {
   }
 
   return (
-    <div className="contacts container py-4">
-      <h1 className="py-3 font-bold blue text-5xl">Contact us</h1>
-      {error && <div style={{ color: "red" }}>{error}</div>}
-      <div className="blocchi mt-5 md:flex">
-        <div className="right flex justify-center items-center w-full md:w-1/2 gap-4">
-          <div className="info p-5 leading-loose">
-            <h1>
-              <span className="uppercase">leoneamerica </span>
-              <br />
-              Dental Products, Inc
-            </h1>
+    <div className="container mx:auto">
+      <h1 className="py-4 font-bold blue">Contact us</h1>
+      <div className="row">
+        <div className="col-sm-6 col-12 py-5">
+          <h3 className="blue text-5xl w-400 pb-4">Leone America</h3>
+        </div>
+        <div className="col-sm-6 col-12">
+          <div className="upper">
+            <ul>
+              <li>
+                1400 Graves Ave. <br />
+                Unit AB <br />
+                Oxnard, CA 93030-7918
+              </li>
 
-            <p>
-              <i className="fa-solid fa-location-dot"></i> 1400 Graves Ave. Unit
-              AB Oxnard, CA 93030-7918
-            </p>
-            <p>
-              <i className="fa-solid fa-phone"></i> (805) 487-9860
-            </p>
-            <p>
-              <i className="fa-solid fa-envelope"></i> info@leoneamerica.com
-            </p>
+              <li> (805) 487-9860</li>
+              <a href="mailto:info@leone.it">
+                <li>info@leoneamerica.com</li>
+              </a>
+            </ul>
           </div>
         </div>
-        <form className="left p-2 w-full md:w-1/2 gap-4" onSubmit={onSubmit}>
-          <Input
-            color="primary"
-            type="text"
-            label="Name"
-            variant="underlined"
-            name="nome"
-            required
-            isRequired
-            fullWidth
-            size="lg"
-          />
-          <Input
-            color="primary"
-            type="text"
-            label="Surname"
-            variant="underlined"
-            name="cognome"
-            required
-            isRequired
-            fullWidth
-            size="lg"
-          />
-          <Input
-            color="primary"
-            type="email"
-            label="Email"
-            variant="underlined"
-            name="email"
-            required
-            fullWidth
-            isRequired
-            size="lg"
-          />
-          <Input
-            color="primary"
-            type="text"
-            label="Message"
-            variant="underlined"
-            name="messaggio"
-            fullWidth
-            size="lg"
-            required
-            isRequired
-          />
-          <Button
-            type="submit"
-            isLoading={isLoading}
-            className="my-4 bg-blue text-white"
-            radius="sm"
-          >
-            Submit
-          </Button>
-          {message && (
-            <div style={{ color: messageColor }} className="mt-4">
-              {parse(message)}
-            </div>
-          )}
-        </form>
       </div>
+
+      <form onSubmit={onSubmit}>
+        {/* Nome e Cognome sulla stessa riga */}
+        <div className="row">
+          <div className="col-md-6 col-12">
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                className="form-control"
+                placeholder="Name"
+                required
+              />
+              <label htmlFor="nome" className="form-label">
+                Name
+              </label>
+            </div>
+          </div>
+          <div className="col-md-6 col-12">
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                id="cognome"
+                name="cognome"
+                className="form-control"
+                placeholder="Surname"
+                required
+              />
+              <label htmlFor="cognome" className="form-label">
+                Surname
+              </label>
+            </div>
+          </div>
+        </div>
+
+        {/* Email su una riga intera */}
+        <div className="row">
+          <div className="col-12">
+            <div className="form-floating mb-3">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="form-control"
+                placeholder="email"
+                required
+              />
+              <label htmlFor="email" className="form-label">
+                E-mail
+              </label>
+            </div>
+          </div>
+        </div>
+
+        {/* Messaggio su una riga intera */}
+        <div className="row">
+          <div className="col-12">
+            <div className="form-floating mb-3">
+              <textarea
+                className="form-control"
+                placeholder="Write a message"
+                name="messaggio"
+                id="messaggio"
+                required
+              ></textarea>
+              <label htmlFor="messaggio">Write a message</label>
+            </div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="btn btn-primary my-1 text-xl"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+
+        {responseMessage && (
+          <div
+            className="response-message text-center"
+            style={{
+              fontStyle: "italic",
+              color: exitCode === 0 ? "green" : "red",
+            }}
+            dangerouslySetInnerHTML={{ __html: responseMessage }}
+          ></div>
+        )}
+      </form>
     </div>
   );
-}
+};
+
+export default Contatti;

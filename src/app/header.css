@@ -37,6 +37,12 @@ ul {
 
   button {
     border: 0 !important;
+    span {
+      padding: 0 !important;
+    }
+    svg {
+      margin: 0;
+    }
   }
 
   button,

@@ -1,3 +1,31 @@
-.blocchi .right {
-  background-color: var(--grigio);
+ul {
+  list-style-type: none;
+  color: var(--colore-primario);
+}
+
+a {
+  color: unset;
+}
+
+h2,
+h4 {
+  font-weight: 700;
+  color: var(--colore-primario);
+}
+
+.row {
+  align-items: center;
+  margin: 20px 0;
+}
+
+.upper {
+  font-size: 18px;
+}
+
+#reparto {
+  padding: 15px;
+}
+
+.response-message {
+  font-size: 20px;
 }
