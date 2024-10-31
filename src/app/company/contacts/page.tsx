@@ -86,7 +86,7 @@ export default function Page() {
           <Input
             color="primary"
             type="text"
-            label="Nome"
+            label="Name"
             variant="underlined"
             name="nome"
             required
@@ -97,7 +97,7 @@ export default function Page() {
           <Input
             color="primary"
             type="text"
-            label="Cognome"
+            label="Surname"
             variant="underlined"
             name="cognome"
             required
@@ -119,11 +119,13 @@ export default function Page() {
           <Input
             color="primary"
             type="text"
-            label="Messaggio"
+            label="Message"
             variant="underlined"
             name="messaggio"
             fullWidth
             size="lg"
+            required
+            isRequired
           />
           <Button
             type="submit"
@@ -131,7 +133,7 @@ export default function Page() {
             className="my-4 bg-blue text-white"
             radius="sm"
           >
-            Invio
+            Submit
           </Button>
           {message && (
             <div style={{ color: messageColor }} className="mt-4">
