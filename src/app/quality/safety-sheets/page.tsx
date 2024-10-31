@@ -43,7 +43,8 @@ const QualitySheets = () => {
   return (
     <div className="safety-sheets container mx:auto">
       <ul>
-        {result &&
+        {!isLoading &&
+          result &&
           result.sort().map((element, index) => (
             <li className="list list-disc blue" key={index}>
               <span className="font-bold">{element.codiceRev}</span> &nbsp;
