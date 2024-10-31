@@ -3,6 +3,8 @@ import Footer from "./Footer";
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import { Providers } from "./providers";
+
 export const metadata: Metadata = {
   title: "Leone America",
 };
@@ -36,7 +38,9 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
-        <main>{children}</main>
+        <Providers>
+          <main>{children}</main>
+        </Providers>
         <Footer />
       </body>
     </html>

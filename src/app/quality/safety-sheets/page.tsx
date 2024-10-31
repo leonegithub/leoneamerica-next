@@ -9,12 +9,15 @@ const QualitySheets = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://php.leone.it/api/GetSchedeSicurezza.php?lingua=EN", {
-      headers: {
-        Authorization:
-          "Bearer fraQ-Wk3P_HA27zd_g5JZ_4bH0-Vj1GqCgtx-e6K24_X5Lu-FYpm0p8-bNrc_nce",
-      },
-    })
+    fetch(
+      "https://php.leone.it/api/GetSchedeSicurezza.php?lingua=EN&mercato=US",
+      {
+        headers: {
+          Authorization:
+            "Bearer fraQ-Wk3P_HA27zd_g5JZ_4bH0-Vj1GqCgtx-e6K24_X5Lu-FYpm0p8-bNrc_nce",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setResult(data.ReturnedObject);
@@ -24,8 +27,8 @@ const QualitySheets = () => {
 
   // ordina per nome scheda
   result.sort((a, b) => {
-    const nameA = a.nomeScheda.toUpperCase();
-    const nameB = b.nomeScheda.toUpperCase();
+    const nameA = a.codiceScheda.toUpperCase();
+    const nameB = b.codiceScheda.toUpperCase();
 
     if (nameA < nameB) {
       return -1;

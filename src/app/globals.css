@@ -16,6 +16,10 @@
   color: var(--colore-primario);
 }
 
+.bg-blue {
+  background-color: var(--colore-primario);
+}
+
 body {
   font-family: neue-haas-grotesk-display !important;
 }
@@ -39,5 +43,15 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+.mobile-searchbar .input-group {
+  flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 1192px) {
+  header .mobile-searchbar {
+    display: none;
   }
 }
