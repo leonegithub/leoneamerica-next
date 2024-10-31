@@ -29,3 +29,6 @@ h4 {
 .response-message {
   font-size: 20px;
 }
+main {
+  padding: 0;
+}
