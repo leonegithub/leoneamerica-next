@@ -39,6 +39,7 @@ const Contatti = () => {
         data.ReturnedObject || data.ReturnedError.join("<br/>")
       );
       setExitCode(data.exitCode);
+      setError(error);
     } catch (error) {
       // Type assertion per gestire errori come `Error`
       if (error instanceof Error) {
@@ -52,7 +53,7 @@ const Contatti = () => {
 
   return (
     <div className="container mx:auto">
-      <h1 className="py-4 font-bold blue">Contact us</h1>
+      <h3 className="py-4 text-4xl font-bold blue">Contact us</h3>
       <div className="row">
         <div className="col-sm-6 col-12 py-5">
           <h3 className="blue text-5xl w-400 pb-4">Leone America</h3>
