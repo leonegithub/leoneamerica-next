@@ -45,7 +45,9 @@ export default function QualitySystem() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"quality-info/"}>Product Label Symbols</Link>
+                  <Link href={"quality-system/quality-info/"}>
+                    Product Label Symbols
+                  </Link>
                 </li>
               </ul>
             </div>
