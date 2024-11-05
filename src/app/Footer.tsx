@@ -10,9 +10,9 @@ export default function Footer() {
       <section className="py-4 py-md-5 py-xl-6 py-xxl-8">
         <div className="container ">
           <div className="row gy-3">
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-4">
               <div className="link-wrapper">
-                <h4 className="mb-3 fw-bold">Newlist</h4>
+                <h4 className="mb-3 fw-bold">Services</h4>
                 <ul className="m-0 list-unstyled">
                   <li className="mb-1">
                     <Link href={"/servizi/download"}>Downloads</Link>
@@ -25,16 +25,10 @@ export default function Footer() {
                       Customer support
                     </Link>
                   </li>
-                  <li className="mb-1">
-                    <a href="#!">Restricted Area</a>
-                  </li>
-                  <li className="mb-1">
-                    <Link href={`/azienda/whistleblowing`}>Whistleblowing</Link>
-                  </li>
                 </ul>
               </div>
             </div>
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-4">
               <div className="link-wrapper">
                 <h4 className="mb-3 fw-bold">Scientific publications</h4>
                 <ul className="m-0 list-unstyled">
@@ -44,28 +38,15 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div className="col-6 col-md-3">
+            <div className="col-6 col-md-4">
               <div className="link-wrapper">
                 <h4 className="mb-3 fw-bold">Quality</h4>
                 <ul className="m-0 list-unstyled">
                   <li className="mb-1">
-                    <Link href={`/quality/quality-system`}>Quality system</Link>
-                  </li>
-                  <li className="mb-1">
                     <Link href={`/quality/safety-sheets`}>Safety sheets</Link>
                   </li>
                   <li className="mb-1">
-                    <Link href={`/quality/instructions`}>Instructions</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="link-wrapper">
-                <h4 className="mb-3 fw-bold">Distributors</h4>
-                <ul className="m-0 list-unstyled">
-                  <li className="mb-1">
-                    <Link href={`/distributori/ortodonzia`}>Ortodonzia</Link>
+                    <Link href={`/quality/quality-system`}>Quality system</Link>
                   </li>
                 </ul>
               </div>

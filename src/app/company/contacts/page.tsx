@@ -6,15 +6,15 @@ import "./style.css";
 const Contatti = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [responseMessage, setResponseMessage] = useState<string>(""); // Inizializza come stringa vuota
-  const [exitCode, setExitCode] = useState<number>(0); // Inizializza come 0
+  const [responseMessage, setResponseMessage] = useState<string>("");
+  const [exitCode, setExitCode] = useState<number>(0);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsLoading(true);
     setError(null);
-    setExitCode(0); // Inizializza exitCode a 0
-    setResponseMessage(""); // Inizializza responseMessage come stringa vuota
+    setExitCode(0);
+    setResponseMessage("");
 
     try {
       const formData = new FormData(event.currentTarget);
@@ -41,7 +41,6 @@ const Contatti = () => {
       setExitCode(data.exitCode);
       setError(error);
     } catch (error) {
-      // Type assertion per gestire errori come `Error`
       if (error instanceof Error) {
         setError(error.message);
       }

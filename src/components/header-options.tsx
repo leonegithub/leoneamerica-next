@@ -19,45 +19,20 @@ export const getOptions2 = () => {
   return [
     {
       label: "Products",
-      href: "orthodontics/products",
+      href: "/orthodontics/products",
     },
     {
       label: "Digital Orthodontics",
-      href: "orthodontics/digital-orthodontics",
+      href: "/orthodontics/digital-orthodontics",
     },
-    {
-      label: "News",
-      href: "orthodontics/news",
-    },
+
     {
       label: "Ortho News",
-      href: "orthodontics/ortho-news",
+      href: "/orthodontics/ortho-news",
     },
     {
       label: "Publications",
-      href: "orthodontics/publications",
-    },
-  ];
-};
-
-export const getOptions3 = () => {
-  return [
-    {
-      label: "Orders",
-      href: "orders/template",
-    },
-  ];
-};
-
-export const getOptions4 = () => {
-  return [
-    {
-      label: "Orthodontics courses",
-      href: "events/orthodontics-courses",
-    },
-    {
-      label: "Events",
-      href: "events/events",
+      href: "/orthodontics/publications",
     },
   ];
 };

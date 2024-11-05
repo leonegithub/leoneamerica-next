@@ -10,20 +10,13 @@ import Image from "next/image";
 import logoAmerica from "./Logo-LeoneAmerica2023-2.png";
 
 import "./header.css";
-import {
-  getOptions1,
-  getOptions2,
-  getOptions3,
-  getOptions4,
-} from "@/components/header-options";
+import { getOptions1, getOptions2 } from "@/components/header-options";
 
 export default function Header() {
   const [show, setShow] = useState(false);
 
   const options1 = getOptions1();
   const options2 = getOptions2();
-  const options3 = getOptions3();
-  const options4 = getOptions4();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -37,7 +30,7 @@ export default function Header() {
           </Link>
         </div>
         <nav className="nav-menu">
-          <ul className={`flex space-x-4`}>
+          <ul className="flex items-center space-x-4">
             <li>
               <DropdownComponent options={options1} dropdownLabel="Company" />
             </li>
@@ -48,10 +41,10 @@ export default function Header() {
               />
             </li>
             <li>
-              <DropdownComponent options={options3} dropdownLabel="Orders" />
+              <Link href={`/orders`}>Orders</Link>
             </li>
             <li>
-              <DropdownComponent options={options4} dropdownLabel="Events" />
+              <Link href={`/events`}>Events</Link>
             </li>
           </ul>
         </nav>
@@ -77,21 +70,15 @@ export default function Header() {
                 </li>
                 <li>
                   <AccordionComponent
-                    options={options3}
+                    options={options2}
                     accordionLabel="Orthodontics"
                   />
                 </li>
                 <li>
-                  <AccordionComponent
-                    options={options4}
-                    accordionLabel="Orders"
-                  />
+                  <Link href={`/orders`}>Orders</Link>
                 </li>
                 <li>
-                  <AccordionComponent
-                    options={options2}
-                    accordionLabel="Events"
-                  />
+                  <Link href={`/events`}>Events</Link>
                 </li>
                 <li className="mobile-searchbar">
                   <SearchBar />
