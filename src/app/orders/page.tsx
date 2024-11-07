@@ -17,6 +17,13 @@ export default function Orders() {
           ensures you, our customer, comes first. Give us a call and discover
           our elevated customer service standards for yourself.
         </p>
+        <h2>Contact sales</h2>
+        <p>orders@test.leoneamerica.com</p>
+        <h2>Trusted sellers</h2>
+        <p>
+          For more information on how to purchase Leone products, please call us
+          at (805) 487-9860
+        </p>
       </div>
     </div>
   );
