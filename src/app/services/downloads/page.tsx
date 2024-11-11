@@ -2,58 +2,42 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import SidebarComponent from "@/components/sidebar";
 import "./style.css";
 
-interface SafetySheet {
-  codiceScheda: string;
-  codiceRev: string;
-  data: string;
-  nomeScheda: string;
-  url: string;
-}
-
-const QualitySheets = () => {
-  const [result, setResult] = useState<SafetySheet[]>([]);
+const Downloads = () => {
+  const [data, setData] = useState<[]>([]);
   const [isLoading, setLoading] = useState(true);
 
+  const url = "https://php.leone.it/api/GetDownload.php?lingua=IT";
+  const fetchOptions = {
+    headers: {
+      Authorization:
+        "Bearer wlfca9P8Zn0zQt4zwpcDne4KJROqEOAzIy3dr0Eyxhbzhqz4ydddgjc",
+    },
+  };
+
   useEffect(() => {
-    fetch(
-      "https://php.leone.it/api/GetSchedeSicurezza.php?lingua=EN&mercato=US",
-      {
-        headers: {
-          Authorization:
-            "Bearer fraQ-Wk3P_HA27zd_g5JZ_4bH0-Vj1GqCgtx-e6K24_X5Lu-FYpm0p8-bNrc_nce",
-        },
-      }
-    )
+    fetch(url, fetchOptions)
       .then((res) => res.json())
       .then((data) => {
-        setResult(data.ReturnedObject as SafetySheet[]);
+        setData(data.ReturnedObject);
+        console.log(data);
         setLoading(false);
       });
   }, []);
 
-  // ordina per nome scheda
-  result.sort((a, b) => {
-    const nameA = a.codiceScheda.toUpperCase();
-    const nameB = b.codiceScheda.toUpperCase();
-
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-
-    return 0;
-  });
+  if (!data)
+    return (
+      <div className="container mx:auto">
+        <h1>No record found</h1>
+      </div>
+    );
 
   return (
-    <div className="flex">
-      <SidebarComponent title="buliccio" description="bulicciasso" />
-      <div className="safety-sheets container mx:auto">
-        <ul>
+    <div className="downloads">
+      <div className="container">
+        <h1 className="blue py-4 text-5xl font-bold">Downloads</h1>
+        <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
           {isLoading ? (
             <div role="status">
               <svg
@@ -75,19 +59,30 @@ const QualitySheets = () => {
               <span className="sr-only">Loading...</span>
             </div>
           ) : (
-            result &&
-            result.sort().map((element, index) => (
-              <li className="list list-disc blue" key={index}>
-                <span className="font-bold">{element.codiceRev}</span> &nbsp;
-                <span>{element.data}</span> &nbsp;
-                <Link href={element.url}>{element.nomeScheda}</Link>
-              </li>
+            data.map((journal, index) => (
+              <div className="py-2 flex flex-col" id="magazine" key={index}>
+                <Link
+                  href={`https://php.leone.it${journal["url"]}`}
+                  target="_blank"
+                >
+                  <img
+                    src={`https://php.leone.it${journal["thumb"]}`}
+                    alt={journal["nome"]}
+                  />
+                </Link>
+                <Link
+                  href={`https://php.leone.it${journal["url"]}`}
+                  target="_blank"
+                >
+                  <h5 className="text-lg p-2">{journal["nome"]}</h5>
+                </Link>
+              </div>
             ))
           )}
-        </ul>
+        </div>
       </div>
     </div>
   );
 };
 
-export default QualitySheets;
+export default Downloads;

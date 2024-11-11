@@ -17,7 +17,12 @@ export default function DropdownComponent({
   dropdownLabel,
 }: DropdownComponentProps) {
   return (
-    <Dropdown label={dropdownLabel} dismissOnClick={false} className="relative">
+    <Dropdown
+      label={dropdownLabel}
+      inline
+      dismissOnClick={false}
+      className="relative"
+    >
       {options.map((option, index) => (
         <Dropdown.Item key={index}>
           <Link href={option.href}>

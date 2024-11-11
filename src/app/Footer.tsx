@@ -15,7 +15,7 @@ export default function Footer() {
                 <h4 className="mb-3 fw-bold">Services</h4>
                 <ul className="m-0 list-unstyled">
                   <li className="mb-1">
-                    <Link href={"/servizi/download"}>Downloads</Link>
+                    <Link href={"/services/downloads"}>Downloads</Link>
                   </li>
                   <li className="mb-1">
                     <a href="#!">Newlist</a>

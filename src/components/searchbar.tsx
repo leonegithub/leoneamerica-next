@@ -5,7 +5,7 @@ const SearchBar: React.FC = () => {
   const [value, setValue] = useState("");
 
   return (
-    <div className="input-group">
+    <div className="input-group flex items-center">
       <input
         type="text"
         value={value}

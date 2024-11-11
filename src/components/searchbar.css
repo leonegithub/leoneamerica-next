@@ -1,7 +1,8 @@
 .searchbar {
   border: 0;
-  background-color: var(--grigio);
+  background-color: var(--grigio) !important;
   border-radius: 50px;
+  padding: 0 !important;
 }
 
 .input-group {
