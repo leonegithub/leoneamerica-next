@@ -3,11 +3,13 @@ interface SidebarComponentProps {
   description: string;
 }
 
-const SidebarComponent: React.FC<SidebarComponentProps> = ({
-  title,
+const SidebarComponent: React.FC<SidebarComponentProps> = (
+  {
+    /* title,
   description,
-  ...props
-}) => {
+  ...props */
+  }
+) => {
   return (
     <div className="w-64  p-4">
       <h2 className="font-bold text-lg mb-4">Menu</h2>
