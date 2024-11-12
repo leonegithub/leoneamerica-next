@@ -17,9 +17,16 @@ export default function Orders() {
           ensures you, our customer, comes first. Give us a call and discover
           our elevated customer service standards for yourself.
         </p>
-        <h2 className="blue font-bold py-2 text-3xl">Contact sales</h2>
+        <h2 className="blue font-bold pt-4 pb-3 text-xl">Contact sales</h2>
         <p className="underline">
-          <a href="mailto:">orders@test.leoneamerica.com</a>
+          <a href="mailto:">
+            <button
+              type="button"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-2.5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              orders@test.leoneamerica.com
+            </button>
+          </a>
         </p>
         <h2 className="blue font-bold py-2 text-3xl">Trusted sellers</h2>
         <p>
