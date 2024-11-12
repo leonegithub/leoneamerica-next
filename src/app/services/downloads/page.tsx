@@ -5,7 +5,7 @@ import Link from "next/link";
 import "./style.css";
 
 const Downloads = () => {
-  const [data, setData] = useState<[]>([]);
+  const [result, setResult] = useState<[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   const url = "https://php.leone.it/api/GetDownload.php?lingua=IT";
@@ -20,13 +20,13 @@ const Downloads = () => {
     fetch(url, fetchOptions)
       .then((res) => res.json())
       .then((data) => {
-        setData(data.ReturnedObject);
+        setResult(data.ReturnedObject);
         console.log(data);
         setLoading(false);
       });
   }, []);
 
-  if (!data)
+  if (!result)
     return (
       <div className="container mx:auto">
         <h1>No record found</h1>
@@ -59,7 +59,7 @@ const Downloads = () => {
               <span className="sr-only">Loading...</span>
             </div>
           ) : (
-            data.map((journal, index) => (
+            result.map((journal, index) => (
               <div className="py-2 flex flex-col" id="magazine" key={index}>
                 <Link
                   href={`https://php.leone.it${journal["url"]}`}

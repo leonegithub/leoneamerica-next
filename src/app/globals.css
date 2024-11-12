@@ -46,6 +46,22 @@ p {
   }
 }
 
+input {
+  border-radius: var(--bs-border-radius) !important;
+  border-color: var(--bs-border-color) !important;
+}
+
+.form-control {
+  border-radius: var(--bs-border-radius);
+  border: 1px solid var(--bs-border-color);
+}
+
+.form-control:focus {
+  border-color: var(--bs-border-color); /* Colore primario per il focus */
+  outline: 0; /* Rimuove l'outline predefinito del browser */
+  box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color); /* Focus ring */
+}
+
 .mobile-searchbar .input-group {
   flex-wrap: nowrap;
 }

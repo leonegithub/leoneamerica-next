@@ -14,11 +14,3 @@ footer a {
   text-decoration: none;
   color: var(--bianco);
 }
-
-@media screen and (max-width: 576px) {
-  footer {
-    .container {
-      text-align: center;
-    }
-  }
-}

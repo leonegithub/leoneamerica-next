@@ -8,7 +8,7 @@ export default function Orders() {
         <Image src={customer} alt="customer"></Image>
       </div>
       <div className="container">
-        <h1 className="blue py-3 font-bold">Orders</h1>
+        <h1 className="blue py-3 mt-3 text-6xl">Orders</h1>
         <p>
           Our most important resources are our customers, and we seek to care
           for these resources above all others. When you choose Leone products,
@@ -17,12 +17,17 @@ export default function Orders() {
           ensures you, our customer, comes first. Give us a call and discover
           our elevated customer service standards for yourself.
         </p>
-        <h2>Contact sales</h2>
-        <p>orders@test.leoneamerica.com</p>
-        <h2>Trusted sellers</h2>
+        <h2 className="blue font-bold py-2 text-3xl">Contact sales</h2>
+        <p className="underline">
+          <a href="mailto:">orders@test.leoneamerica.com</a>
+        </p>
+        <h2 className="blue font-bold py-2 text-3xl">Trusted sellers</h2>
         <p>
           For more information on how to purchase Leone products, please call us
-          at (805) 487-9860
+          at{" "}
+          <a className="underline" href="tel:+(805) 487-9860">
+            (805) 487-9860
+          </a>
         </p>
       </div>
     </div>
