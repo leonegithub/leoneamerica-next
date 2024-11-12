@@ -21,7 +21,7 @@ export default function Footer() {
                     <a href="#!">Newlist</a>
                   </li>
                   <li className="mb-1">
-                    <Link href={`/servizi/assistenza-clienti`}>
+                    <Link href={`/services/customer-support`}>
                       Customer support
                     </Link>
                   </li>
