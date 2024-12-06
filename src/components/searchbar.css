@@ -9,10 +9,6 @@
   padding: calc(var(--unita-base) / 2);
 }
 
-.searchbar:focus {
-  outline: none;
-}
-
 #lens {
   background-color: var(--grigio);
   border-radius: 0 50px 50px 0;
