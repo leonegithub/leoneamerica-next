@@ -24,11 +24,11 @@ export default function QualitySystem() {
           requirements of ISO 13485 and according to the FDA Code of Federal
           Regulations (CFR) 21 Part 820 provisions.
         </p>
-        <div className="descrizione flex py-5">
+        <div className="descrizione flex flex-col md:flex-row py-5">
           <div className="left w-full md:w-1/2">
-            <Image src={fotoEsempio} alt="foto-esempio"></Image>
+            <Image src={fotoEsempio} alt="foto-esempio" />
           </div>
-          <div className="right ps-5 flex flex-column  justify-center w-full md:w-1/2">
+          <div className="right flex flex-col justify-center w-full md:w-1/2 pl-5">
             <div className="resources-protocols">
               <h4>Resources</h4>
               <ul>
@@ -85,6 +85,7 @@ export default function QualitySystem() {
             </div>
           </div>
         </div>
+
         <h1 className="blue font-bold pb-3">General Indications</h1>
         <p>
           Leone products are intended exclusively for orthodontic, implantology,

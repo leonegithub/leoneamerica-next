@@ -7,12 +7,12 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   return (
-    <div className="input-group flex items-center">
+    <div className="input-group searchbar flex items-center">
       <input
         type="text"
         value={value}
         onChange={onChange}
-        className="searchbar"
+        className="searchbar focus:ring-0"
         placeholder="Cerca..."
       />
       <div id="lens">

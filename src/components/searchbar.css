@@ -2,11 +2,8 @@
   border: 0;
   background-color: var(--grigio) !important;
   border-radius: 50px;
-  padding: 0 !important;
-}
-
-.input-group {
-  padding: calc(var(--unita-base) / 2);
+  flex-wrap: nowrap;
+  padding: 2px !important;
 }
 
 #lens {
