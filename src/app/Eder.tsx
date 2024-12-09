@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
-import SearchBar from "@/components/searchbar";
 import AccordionComponent from "@/components/accordion";
 import DropdownComponent from "@/components/dropdown";
 import Link from "next/link";
