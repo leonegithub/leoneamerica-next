@@ -12,11 +12,13 @@ export default function Carousel({ items }: CarouselProps) {
   const handlePrevious = () => {
     const oldIndex = index - 1;
     setIndex(oldIndex < 0 ? length - 1 : oldIndex);
+    console.log("ho cliccato indietro");
   };
 
   const handleNext = () => {
     const newIndex = index + 1;
     setIndex(newIndex >= length ? 0 : newIndex);
+    console.log("ho cliccato avanti");
   };
 
   return (

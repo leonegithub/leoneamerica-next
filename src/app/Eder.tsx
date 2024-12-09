@@ -49,9 +49,7 @@ export default function Header() {
           </ul>
         </nav>
         <div className={`searchbar flex items-center`}>
-          <div className="mobile-searchbar">
-            <SearchBar />
-          </div>
+          <div className="mobile-searchbar"></div>
           <button className="hamburger" onClick={handleShow} aria-label="Menu">
             <i className="fa-solid fa-bars"></i>
           </button>
@@ -79,9 +77,6 @@ export default function Header() {
                 </li>
                 <li>
                   <Link href={`/events`}>Events</Link>
-                </li>
-                <li className="mobile-searchbar">
-                  <SearchBar />
                 </li>
               </ul>
             </nav>

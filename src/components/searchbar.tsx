@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import "./searchbar.css";
 
-const SearchBar: React.FC = () => {
-  const [value, setValue] = useState("");
+interface SearchBarProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   return (
     <div className="input-group flex items-center">
       <input
         type="text"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         className="searchbar"
         placeholder="Cerca..."
       />

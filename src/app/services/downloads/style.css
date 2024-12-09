@@ -5,3 +5,7 @@ h5 {
   color: var(--bianco);
   padding: var(--unita-base) 0;
 }
+
+.downloads {
+  min-height: var(--altezza-corpo);
+}

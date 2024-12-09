@@ -10,6 +10,7 @@
   --grigio-hover: #e0e7ff;
   --colore-secondario: #e30b21;
   --margine: calc(var(--unita-base) * 20);
+  --altezza-corpo: 800px;
 }
 
 .blue {

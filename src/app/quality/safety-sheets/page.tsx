@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import SearchBar from "@/components/searchbar";
 import Link from "next/link";
-import SidebarComponent from "@/components/sidebar";
 import "./style.css";
 
 interface SafetySheet {
@@ -16,6 +16,7 @@ interface SafetySheet {
 const QualitySheets = () => {
   const [result, setResult] = useState<SafetySheet[]>([]);
   const [isLoading, setLoading] = useState(true);
+  const [filteredValue, setFilteredValue] = useState("");
 
   useEffect(() => {
     fetch(
@@ -34,8 +35,13 @@ const QualitySheets = () => {
       });
   }, []);
 
+  // filtro
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilteredValue(e.target.value);
+  };
+
   // ordina per nome scheda
-  result.sort((a, b) => {
+  const sortedResult = result.sort((a, b) => {
     const nameA = a.codiceScheda.toUpperCase();
     const nameB = b.codiceScheda.toUpperCase();
 
@@ -49,9 +55,20 @@ const QualitySheets = () => {
     return 0;
   });
 
+  const filteredResults = sortedResult.filter((element) => {
+    return (
+      element.codiceRev.toLowerCase().includes(filteredValue.toLowerCase()) ||
+      element.data.toLowerCase().includes(filteredValue.toLowerCase()) ||
+      element.nomeScheda.toLowerCase().includes(filteredValue.toLowerCase())
+    );
+  });
+
   return (
-    <div className="flex">
-      <SidebarComponent title="buliccio" description="bulicciasso" />
+    <div className="flex h-100">
+      <aside className="w-64 p-4">
+        <h1 className="text-4xl mb-4">Filter results</h1>
+        <SearchBar value={filteredValue} onChange={handleChange} />
+      </aside>
       <div className="safety-sheets container mx:auto">
         <ul>
           {isLoading ? (
@@ -74,15 +91,16 @@ const QualitySheets = () => {
               </svg>
               <span className="sr-only">Loading...</span>
             </div>
-          ) : (
-            result &&
-            result.sort().map((element, index) => (
+          ) : filteredResults.length > 0 ? (
+            filteredResults.map((element, index) => (
               <li className="list list-disc blue" key={index}>
                 <span className="font-bold">{element.codiceRev}</span> &nbsp;
                 <span>{element.data}</span> &nbsp;
                 <Link href={element.url}>{element.nomeScheda}</Link>
               </li>
             ))
+          ) : (
+            <h1>No elements found</h1>
           )}
         </ul>
       </div>
