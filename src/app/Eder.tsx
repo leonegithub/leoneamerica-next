@@ -20,7 +20,7 @@ export default function Header() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function handleChange(_e: ChangeEvent<HTMLInputElement>): void {
+  function handleChange(): void {
     throw new Error("Function not implemented.");
   }
 
