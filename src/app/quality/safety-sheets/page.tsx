@@ -35,7 +35,7 @@ const QualitySheets = () => {
       });
   }, []);
 
-  // filtro
+  // funzione per filtrare
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilteredValue(e.target.value);
   };
@@ -55,13 +55,17 @@ const QualitySheets = () => {
     return 0;
   });
 
-  const filteredResults = sortedResult.filter((element) => {
+  // filtro effettivo dei risultati
+
+  const isIncluded = (element: SafetySheet) => {
     return (
       element.codiceRev.toLowerCase().includes(filteredValue.toLowerCase()) ||
       element.data.toLowerCase().includes(filteredValue.toLowerCase()) ||
       element.nomeScheda.toLowerCase().includes(filteredValue.toLowerCase())
     );
-  });
+  };
+
+  const filteredResults = sortedResult.filter(isIncluded);
 
   return (
     <div className="flex h-100">
@@ -94,9 +98,11 @@ const QualitySheets = () => {
           ) : filteredResults.length > 0 ? (
             filteredResults.map((element, index) => (
               <li className="list list-disc blue" key={index}>
-                <span className="font-bold">{element.codiceRev}</span> &nbsp;
-                <span>{element.data}</span> &nbsp;
-                <Link href={element.url}>{element.nomeScheda}</Link>
+                <Link href={element.url}>
+                  <span className="font-bold">{element.codiceRev}</span> &nbsp;
+                  <span>{element.data}</span> &nbsp;
+                  {element.nomeScheda}
+                </Link>
               </li>
             ))
           ) : (

@@ -1,14 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Offcanvas } from "react-bootstrap";
-
+import SearchBar from "@/components/searchbar";
 import AccordionComponent from "@/components/accordion";
 import DropdownComponent from "@/components/dropdown";
 import Link from "next/link";
 import Image from "next/image";
 import logoAmerica from "./Logo-LeoneAmerica2023-2.png";
-
 import "./header.css";
 import { getOptions1, getOptions2 } from "@/components/header-options";
 
@@ -20,6 +19,10 @@ export default function Header() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <>
@@ -49,6 +52,7 @@ export default function Header() {
           </ul>
         </nav>
         <div className={`searchbar flex items-center`}>
+          <SearchBar value="" onChange={handleChange} />
           <div className="mobile-searchbar"></div>
           <button className="hamburger" onClick={handleShow} aria-label="Menu">
             <i className="fa-solid fa-bars"></i>
