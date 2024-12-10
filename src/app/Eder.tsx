@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import SearchBar from "@/components/searchbar";
 import AccordionComponent from "@/components/accordion";
