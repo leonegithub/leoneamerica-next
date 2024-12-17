@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import "./footer.css";
 
@@ -18,7 +16,7 @@ export default function Footer() {
                     <Link href={"/services/downloads"}>Downloads</Link>
                   </li>
                   <li className="mb-1">
-                    <a href="#!">Newlist</a>
+                    <Link href={`/services/newlist`}>Newlist</Link>
                   </li>
                   <li className="mb-1">
                     <Link href={`/services/customer-support`}>
