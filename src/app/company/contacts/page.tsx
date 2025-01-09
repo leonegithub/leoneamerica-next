@@ -168,8 +168,9 @@ const Contatti = () => {
         </form>
         <div className="map-container"></div>
       </div>
+
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265648.8885443473!2d-119.13659581437997!3d34.205736982675745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e84f3202b0edd1%3A0x7c51c124cacad3d!2sLeoneAmerica!5e1!3m2!1sit!2sit!4v1730389537419!5m2!1sit!2sit"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29381.227776436714!2d-119.15368156680894!3d34.211456880280736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e84f3202b0edd1%3A0x7c51c124cacad3d!2sLeoneAmerica!5e0!3m2!1sit!2sit!4v1736435187836!5m2!1sit!2sit"
         width={"100%"}
         height={600}
         style={{ border: 0, marginTop: 100 }}
