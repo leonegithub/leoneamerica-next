@@ -27,6 +27,7 @@ const Newslist = () => {
       }
 
       const data = await response.json();
+      console.log(data);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
