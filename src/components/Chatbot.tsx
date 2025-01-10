@@ -20,25 +20,8 @@ const Chatbot = () => {
     if (lastMessageRef.current) {
       lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages]);
-
-  // Invia un messaggio al bot all'avvio
-  useEffect(() => {
     if (messages.length === 0) sendMessage("Buongiorno");
   }, [messages]);
-
-  // salvataggio messaggi local storage
-  useEffect(() => {
-    localStorage.setItem("messages", JSON.stringify(messages));
-  }, [messages]);
-
-  // caricamento messaggi dal local storage all'avvio della pagina
-  useEffect(() => {
-    const savedMessages = localStorage.getItem("messages");
-    if (savedMessages) {
-      setMessages(JSON.parse(savedMessages));
-    }
-  }, []);
 
   interface FormDataResponse {
     ReturnedObject: string;
