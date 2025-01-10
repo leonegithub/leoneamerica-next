@@ -36,7 +36,7 @@ const Downloads = () => {
   return (
     <div className="downloads">
       <div className="container">
-        <h1 className="blue py-4 text-5xl font-bold">Downloads</h1>
+        <h1 className="blue py-5 text-5xl font-bold">Downloads</h1>
         <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
           {isLoading ? (
             <div role="status">
