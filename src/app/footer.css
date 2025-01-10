@@ -1,5 +1,6 @@
 footer {
   background-color: var(--colore-primario);
+  min-height: 350px;
 
   .row {
     align-items: start;

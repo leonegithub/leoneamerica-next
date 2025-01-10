@@ -8,7 +8,8 @@ const Downloads = () => {
   const [result, setResult] = useState<[]>([]);
   const [isLoading, setLoading] = useState(true);
 
-  const url = "https://php.leone.it/api/GetDownload.php?lingua=IT";
+  const url =
+    "https://php.leone.it/api/GetDownload.php?lingua=EN&progetto=leoneamerica";
   const fetchOptions = {
     headers: {
       Authorization:
