@@ -1,0 +1,11 @@
+h5 {
+  text-align: center;
+  background-color: var(--colore-primario);
+  margin-bottom: 0 !important;
+  color: var(--bianco);
+  padding: var(--unita-base) 0;
+}
+
+.downloads {
+  min-height: var(--altezza-corpo);
+}
