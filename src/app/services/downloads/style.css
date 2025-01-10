@@ -9,3 +9,7 @@ h5 {
 .downloads {
   min-height: var(--altezza-corpo);
 }
+
+.download-magazines {
+  min-height: 200px;
+}

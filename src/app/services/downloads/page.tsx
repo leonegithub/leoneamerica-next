@@ -5,7 +5,15 @@ import Link from "next/link";
 import "./style.css";
 
 const Downloads = () => {
-  const [result, setResult] = useState<[]>([]);
+  interface Journal {
+    id: string;
+    url: string;
+    thumb: string;
+    nome: string;
+    posizione: number;
+  }
+
+  const [result, setResult] = useState<Journal[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   const url =
@@ -34,6 +42,8 @@ const Downloads = () => {
       </div>
     );
 
+  result.sort((a, b) => a.posizione - b.posizione);
+
   return (
     <div className="downloads">
       <div className="container">
@@ -61,21 +71,25 @@ const Downloads = () => {
             </div>
           ) : (
             result.map((journal, index) => (
-              <div className="py-2 flex flex-col" id="magazine" key={index}>
+              <div
+                className="py-2 download-magazines flex flex-col"
+                id={journal.id}
+                key={index}
+              >
                 <Link
-                  href={`https://php.leone.it${journal["url"]}`}
+                  href={`https://php.leone.it${journal.url}`}
                   target="_blank"
                 >
                   <img
-                    src={`https://php.leone.it${journal["thumb"]}`}
+                    src={`https://php.leone.it${journal.thumb}`}
                     alt={journal["nome"]}
                   />
                 </Link>
                 <Link
-                  href={`https://php.leone.it${journal["url"]}`}
+                  href={`https://php.leone.it${journal.url}`}
                   target="_blank"
                 >
-                  <h5 className="text-lg p-2">{journal["nome"]}</h5>
+                  <h5 className="text-lg p-2">{journal.nome}</h5>
                 </Link>
               </div>
             ))

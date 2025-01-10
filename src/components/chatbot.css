@@ -33,10 +33,10 @@
   flex-grow: 1;
   overflow-y: auto;
   margin-bottom: 15px;
-  padding-right: 5px; /* Aggiungi un po' di spazio tra i messaggi e la scrollbar */
+  padding-right: 5px;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Distanza tra i messaggi */
+  gap: 10px;
 }
 
 /* Singolo messaggio (bot o utente) */
@@ -53,22 +53,22 @@
 .user {
   background-color: #5c6bc0;
   color: #fff;
-  align-self: flex-end; /* Posiziona il messaggio dell'utente a destra */
+  align-self: flex-end;
   border-radius: 15px;
   padding: 8px 15px;
   max-width: 70%;
-  word-wrap: break-word; /* Gestisci il testo lungo */
+  word-wrap: break-word;
 }
 
 /* Messaggi del bot */
 .bot {
   background-color: #e3f2fd;
   color: #333;
-  align-self: flex-start; /* Posiziona il messaggio del bot a sinistra */
+  align-self: flex-start;
   border-radius: 15px;
   padding: 8px 15px;
   max-width: 70%;
-  word-wrap: break-word; /* Gestisci il testo lungo */
+  word-wrap: break-word;
 }
 
 /* Area di input (posizionata in basso) */
@@ -81,7 +81,6 @@
   border-top: 1px solid #ddd;
 }
 
-/* Stile dell'input */
 .input-area input {
   flex-grow: 1;
   padding: 10px;
@@ -92,7 +91,6 @@
   outline: none;
 }
 
-/* Stile del bottone Send */
 .input-area button {
   background-color: #5c6bc0;
   color: #fff;
