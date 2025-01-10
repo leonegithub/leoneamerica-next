@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import Chatbot from "../components/Chatbot";
 
 export const metadata: Metadata = {
   title: "Leone America",
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body>
         <Header />
         <main>{children}</main>
+        <Chatbot />
         <Footer />
       </body>
     </html>
