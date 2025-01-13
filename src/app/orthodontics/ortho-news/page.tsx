@@ -79,21 +79,26 @@ const Downloads = () => {
             </div>
           ) : (
             result.map((journal, index) => (
-              <div className="py-2 flex flex-col" id="magazine" key={index}>
+              <div
+                className="py-2 flex magazine-column flex-col"
+                id="magazine"
+                key={index}
+              >
                 <Link
-                  href={`https://php.leone.it${journal["url"]}`}
+                  className="magazine-link"
+                  href={`https://php.leone.it${journal.url}`}
                   target="_blank"
                 >
                   <img
-                    src={`https://php.leone.it${journal["thumb"]}`}
-                    alt={journal["nome"]}
+                    src={`https://php.leone.it${journal.thumb}`}
+                    alt={journal.nome}
                   />
                 </Link>
                 <Link
-                  href={`https://php.leone.it${journal["url"]}`}
+                  href={`https://php.leone.it${journal.nome}`}
                   target="_blank"
                 >
-                  <h5 className="text-lg p-2">{journal["nome"]}</h5>
+                  <h5 className="text-lg p-2">{journal.nome}</h5>
                 </Link>
               </div>
             ))
