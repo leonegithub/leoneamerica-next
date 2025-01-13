@@ -11,5 +11,11 @@ h5 {
 }
 
 .download-magazines {
-  min-height: 200px;
+  background-color: var(--grigio);
+  .download-link {
+    height: 100%;
+    img {
+      width: 100%;
+    }
+  }
 }
