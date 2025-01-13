@@ -9,3 +9,15 @@ h5 {
 .downloads {
   min-height: var(--altezza-corpo);
 }
+
+.magazine-column {
+  justify-content: space-between;
+  .magazine-link {
+    height: 100%;
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
