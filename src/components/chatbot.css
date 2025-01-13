@@ -19,6 +19,16 @@
   justify-content: center;
 }
 
+.opening-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chatbot-title {
+  font-weight: 700;
+  color: var(--colore-primario);
+}
+
 #little {
   height: 20px;
   width: 30%;
@@ -51,7 +61,7 @@
 
 /* Messaggi dell'utente */
 .user {
-  background-color: #5c6bc0;
+  background-color: var(--colore-primario);
   color: #fff;
   align-self: flex-end;
   border-radius: 15px;
@@ -92,7 +102,7 @@
 }
 
 .input-area button {
-  background-color: #5c6bc0;
+  background-color: var(--colore-primario);
   color: #fff;
   padding: 10px 15px;
   border: none;

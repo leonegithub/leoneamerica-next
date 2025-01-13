@@ -53,7 +53,6 @@ const Chatbot = () => {
         }
       );
       const data: FormDataResponse = await response.json();
-      console.log(data);
 
       setMessages([
         ...newMessages,
@@ -71,13 +70,23 @@ const Chatbot = () => {
       {isOpen ? (
         <div className="chatbot-container">
           <div className="opening-line">
-            <span>Chatbot </span>
+            <span className="chatbot-title">Chatbot </span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}
               style={{ cursor: "pointer" }}
             >
-              {isOpen ? "🔽" : "🔼"}
+              {isOpen ? (
+                <i
+                  className="fa-sharp fa-solid fa-angle-down"
+                  style={{ color: "#0d4fd1" }}
+                ></i>
+              ) : (
+                <i
+                  className="fa-sharp fa-solid fa-angle-up"
+                  style={{ color: "#0d4fd1" }}
+                ></i>
+              )}
             </span>
           </div>
           <div className="messages">
@@ -129,13 +138,23 @@ const Chatbot = () => {
       ) : (
         <div className="chatbot-container" id="little">
           <div className="opening-line">
-            <span>Chatbot </span>
+            <span className="chatbot-title">Chatbot </span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}
               style={{ cursor: "pointer" }}
             >
-              {isOpen ? "🔽" : "🔼"}
+              {isOpen ? (
+                <i
+                  className="fa-sharp fa-solid fa-angle-down"
+                  style={{ color: "#0d4fd1" }}
+                ></i>
+              ) : (
+                <i
+                  className="fa-sharp fa-solid fa-angle-up"
+                  style={{ color: "#0d4fd1" }}
+                ></i>
+              )}
             </span>
           </div>
         </div>
