@@ -7,7 +7,12 @@ import "./style.css";
 const Newslist = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [data, setData] = useState<any>(null);
+  interface ResponseData {
+    ExitCode: number;
+    ReturnedObject: string;
+  }
+
+  const [data, setData] = useState<ResponseData | null>(null);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

@@ -1,8 +1,4 @@
 export const LoadingButton = () => {
-  interface Option {
-    disabled: boolean;
-  }
-
   return (
     <>
       <button
