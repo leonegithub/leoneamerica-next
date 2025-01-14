@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import parse from "html-react-parser";
 import "./style.css";
 
 const Events = () => {
@@ -60,21 +62,25 @@ const Events = () => {
         </div>
       ) : (
         data?.map((event) => (
-          <div key={event.id} className="event">
-            <h2>{event.nome}</h2>
-            <p>{event.data_visualizzata}</p>
-            <p>{event.location}</p>
+          <div key={event.id} className="event flex align-items-center">
             <Image
-              width={100}
+              width={200}
               height={100}
               src={`https://php.leone.it${event.thumb}`}
               alt={event.nome}
             />
-            {event.link1 && (
-              <p>
-                <a href={event.link1}>{event.testo_link1}</a>
-              </p>
-            )}
+            <div className="event-container ps-4">
+              <h2>{event.nome}</h2>
+              <p>{parse(event.data_visualizzata)}</p>
+              <p>{parse(event.location)}</p>
+              {event.link1 && (
+                <p>
+                  <Link href={event.link1} target="_blank">
+                    {event.testo_link1}
+                  </Link>
+                </p>
+              )}
+            </div>
           </div>
         ))
       )}
