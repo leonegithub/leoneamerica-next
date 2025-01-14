@@ -25,7 +25,7 @@ const Events = () => {
 
   return (
     <div className="container">
-      <h1 className="blue font-bold py-5">Events</h1>
+      <h1 className="blue font-bold py-4">Events</h1>
       {isLoading ? (
         <div className="event">
           <div role="status">
