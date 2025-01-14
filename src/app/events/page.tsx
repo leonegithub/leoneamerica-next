@@ -5,7 +5,17 @@ import Image from "next/image";
 import "./style.css";
 
 const Events = () => {
-  const [data, setData] = useState<any>(null);
+  interface Event {
+    id: string;
+    nome: string;
+    data_visualizzata: string;
+    location: string;
+    thumb: string;
+    link1?: string;
+    testo_link1?: string;
+  }
+
+  const [data, setData] = useState<Event[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
