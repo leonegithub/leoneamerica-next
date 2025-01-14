@@ -66,7 +66,7 @@ export default function Footer() {
                 <ul className="m-0 list-unstyled d-flex justify-content-sm-end gap-3 gap-xl-4">
                   <li>
                     <Link
-                      className="pe-3 link-opacity-75-hover link-dark"
+                      className="pe-3 link-opacity-75-hover "
                       href={`https://www.youtube.com/channel/UCFZrA3tM3vtwFsb16Q3PmKw`}
                       target="_blank"
                     >
@@ -75,7 +75,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      className="px-3 link-opacity-75-hover link-dark"
+                      className="px-3 link-opacity-75-hover "
                       href={`https://www.facebook.com/LeoneOrtodoziaImplantologia`}
                       target="_blank"
                     >
@@ -85,7 +85,7 @@ export default function Footer() {
 
                   <li>
                     <Link
-                      className="ps-3 link-opacity-75-hover link-dark"
+                      className="ps-3 link-opacity-75-hover "
                       href={`https://it.linkedin.com/company/leone-spa`}
                       target="_blank"
                     >
