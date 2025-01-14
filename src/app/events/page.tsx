@@ -59,8 +59,7 @@ const Events = () => {
           </div>
         </div>
       ) : (
-        data &&
-        data.map((event: any) => (
+        data?.map((event) => (
           <div key={event.id} className="event">
             <h2>{event.nome}</h2>
             <p>{event.data_visualizzata}</p>
