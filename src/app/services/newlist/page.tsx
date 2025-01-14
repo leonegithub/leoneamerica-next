@@ -24,6 +24,7 @@ const Newslist = () => {
 
       formData.append("lingua", "EN");
       formData.append("paese", "US");
+      formData.append("flg_privacy", "1");
 
       const response = await fetch("https://php.leone.it/api/SendLead.php", {
         method: "POST",
@@ -120,7 +121,7 @@ const Newslist = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div>
+          {/* <div>
             <label className="block mb-2 text-gray-900 dark:text-white">
               Personal data processing
             </label>
@@ -166,7 +167,7 @@ const Newslist = () => {
                 I do not consent
               </label>
             </div>
-          </div>
+          </div> */}
 
           <div>
             <label className="block mb-2 text-gray-900 dark:text-white">
