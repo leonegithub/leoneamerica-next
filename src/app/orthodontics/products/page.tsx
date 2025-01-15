@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import "./style.css";
 
 const Products = () => {
@@ -25,6 +26,7 @@ const Products = () => {
   }
   const [data, setData] = useState<Product[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const router = useRouter();
 
   useEffect(() => {
     fetch("https://php.leone.it/api/GetProdottiWeb.php", {
@@ -40,6 +42,12 @@ const Products = () => {
         setIsLoading(false);
       });
   }, []);
+
+  const handleProductClick = (product: Product) => {
+    sessionStorage.setItem("selectedProduct", JSON.stringify(product));
+    router.push(`/orthodontics/products/${product.id}`);
+  };
+
   return (
     <div className="container">
       <h1 className="blue font-bold py-4">Products</h1>
@@ -66,16 +74,18 @@ const Products = () => {
           </div>
         ) : (
           data?.map((product, index) => (
-            <div key={index}>
-              <div className="grid-item">
-                <Image
-                  width={100}
-                  height={100}
-                  src={`https://php.leone.it/${product.immagine_focus}`}
-                  alt={product.nome}
-                  className="product-image"
-                />
-              </div>
+            <div
+              key={index}
+              className="grid-item"
+              onClick={() => handleProductClick(product)}
+            >
+              <Image
+                width={100}
+                height={100}
+                src={`https://php.leone.it/${product.immagine_focus}`}
+                alt={product.nome}
+                className="product-image"
+              />
               <p className="text-center">{product.nome}</p>
             </div>
           ))
