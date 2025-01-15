@@ -76,13 +76,13 @@ const Products = () => {
           data?.map((product, index) => (
             <div
               key={index}
-              className="grid-item"
+              className={`grid-item col-span-6 sm:col-span-3 md:col-span-2 lg:col-span-1`}
               onClick={() => handleProductClick(product)}
             >
               <Image
-                width={100}
-                height={100}
-                src={`https://php.leone.it/${product.immagine_focus}`}
+                width={1920}
+                height={1080}
+                src={`https://php.leone.it${product.immagine_focus}`}
                 alt={product.nome}
                 className="product-image"
               />

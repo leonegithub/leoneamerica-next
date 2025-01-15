@@ -7,6 +7,16 @@
     font-size: calc(var(--unita-base) * 2);
   }
 
+  p {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  li {
+    list-style: disc;
+    list-style-position: inner;
+  }
+
   img {
     width: 105%;
     height: 105%;
@@ -17,7 +27,7 @@
       width: 100%;
       height: 100%;
     }
-    color: #40c7bc;
+    color: var(--verde);
     display: flex;
     align-items: center;
     .pop-title {
