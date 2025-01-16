@@ -61,18 +61,19 @@ const Products = () => {
           </div>
         ) : (
           data?.map((product, index) => (
-            <div
-              key={index}
-              className="grid-item"
-              onClick={() => handleProductClick(product)}
-            >
-              <Image
-                width={1920}
-                height={1080}
-                src={`https://php.leone.it${product.immagine_focus}`}
-                alt={product.nome}
-                className="product-image"
-              />
+            <div key={index} className="grid-item-wrapper">
+              <div
+                className="grid-item"
+                onClick={() => handleProductClick(product)}
+              >
+                <Image
+                  width={1920}
+                  height={1080}
+                  src={`https://php.leone.it${product.immagine_focus}`}
+                  alt={product.nome}
+                  className="product-image"
+                />
+              </div>
               <p className="text-center">{product.nome}</p>
             </div>
           ))
