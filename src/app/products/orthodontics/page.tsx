@@ -32,7 +32,7 @@ const Products = () => {
 
   const handleProductClick = (product: Product) => {
     sessionStorage.setItem("selectedProduct", JSON.stringify(product));
-    router.push(`/orthodontics/products/${product.id}`);
+    router.push(`/products/orthodontics/${product.id}`);
   };
 
   return (

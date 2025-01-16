@@ -18,21 +18,25 @@ export const getOptions1 = () => {
 export const getOptions2 = () => {
   return [
     {
-      label: "Products",
-      href: "/orthodontics/products",
+      label: "Orthodontics",
+      href: "/products/orthodontics",
+    },
+    {
+      label: "Pedodontics",
+      href: "/products/pedodontics",
     },
     {
       label: "Digital Orthodontics",
-      href: "/orthodontics/digital-orthodontics",
+      href: "/products/digital-orthodontics",
     },
 
     {
       label: "Ortho News",
-      href: "/orthodontics/ortho-news",
+      href: "/products/ortho-news",
     },
     {
       label: "Publications",
-      href: "/orthodontics/publications",
+      href: "/products/publications",
     },
   ];
 };

@@ -38,10 +38,7 @@ export default function Header() {
               <DropdownComponent options={options1} dropdownLabel="Company" />
             </li>
             <li>
-              <DropdownComponent
-                options={options2}
-                dropdownLabel="Orthodontics"
-              />
+              <DropdownComponent options={options2} dropdownLabel="Products" />
             </li>
             <li>
               <Link href={`/orders`}>Orders</Link>
