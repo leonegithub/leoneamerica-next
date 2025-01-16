@@ -1,9 +1,7 @@
-import Image, { StaticImageData } from "next/image";
 import "./home-card.css";
 
 interface HomeCardProps {
   items: {
-    image: StaticImageData;
     title: string;
     text: string;
   }[];
