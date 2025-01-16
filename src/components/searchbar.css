@@ -4,6 +4,7 @@
   border-radius: 50px;
   flex-wrap: nowrap;
   padding: 2px !important;
+  visibility: hidden;
 }
 
 #lens {
@@ -14,7 +15,7 @@
 
 @media screen and (max-width: 1192px) {
   .searchbar {
-    display: none;
+    visibility: visible;
   }
   .input-group {
     display: none !important;

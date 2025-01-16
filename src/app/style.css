@@ -34,3 +34,10 @@
     top: 40%;
   }
 }
+
+.small-container {
+  max-width: 600px;
+  text-align: center;
+  font-size: 20px;
+  padding: var(--unita-base) 0;
+}

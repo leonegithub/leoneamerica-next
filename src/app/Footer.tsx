@@ -57,8 +57,17 @@ export default function Footer() {
         <div className="container">
           <div className="row align-items-sm-center gy-3">
             <div className="col-12 col-sm-6">
-              <div className="link-wrapper">
-                <p>Copyright Leone </p>
+              <div className="link-wrapper" style={{ color: "white" }}>
+                <strong>LeoneAmerica Dental Products, Inc</strong>
+                <br />
+                1400 Graves Ave. Unit A | Oxnard, CA 93030
+                <br />
+                info@leoneamerica.com
+                <br />
+                <em>
+                  Sole distributor of Leone SpA orthodontic products in the USA,
+                  Canada, and Puerto Rico
+                </em>
               </div>
             </div>
             <div className="col-12 col-sm-6">
@@ -67,16 +76,16 @@ export default function Footer() {
                   <li>
                     <Link
                       className="pe-3 link-opacity-75-hover "
-                      href={`https://www.youtube.com/channel/UCFZrA3tM3vtwFsb16Q3PmKw`}
+                      href={`https://www.instagram.com/leone__america/`}
                       target="_blank"
                     >
-                      <i className="fa-brands fa-youtube"></i>
+                      <i className="fa-brands fa-instagram"></i>
                     </Link>
                   </li>
                   <li>
                     <Link
                       className="px-3 link-opacity-75-hover "
-                      href={`https://www.facebook.com/LeoneOrtodoziaImplantologia`}
+                      href={`https://www.facebook.com/LeoneAmericaDentalProducts/`}
                       target="_blank"
                     >
                       <i className="fa-brands fa-square-facebook"></i>
@@ -86,7 +95,7 @@ export default function Footer() {
                   <li>
                     <Link
                       className="ps-3 link-opacity-75-hover "
-                      href={`https://it.linkedin.com/company/leone-spa`}
+                      href={`https://www.linkedin.com/company/leone-america`}
                       target="_blank"
                     >
                       <i className="fa-brands fa-linkedin"></i>

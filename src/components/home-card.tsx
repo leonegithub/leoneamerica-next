@@ -1,9 +1,11 @@
 import "./home-card.css";
+import Link from "next/link";
 
 interface HomeCardProps {
   items: {
     title: string;
     text: string;
+    link: string;
   }[];
 }
 
@@ -27,7 +29,11 @@ export default function HomeCard({ items }: HomeCardProps) {
           /> */}
           <h4>{item.title}</h4>
           <p>{item.text}</p>
-          <button>Learn more</button>
+          <button>
+            <Link href={item.link} target="_blank">
+              Learn more
+            </Link>
+          </button>
         </div>
       ))}
     </>

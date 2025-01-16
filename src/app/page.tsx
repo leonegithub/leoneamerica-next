@@ -30,26 +30,29 @@ export default function Home() {
   const homeCards = [
     {
       image: homeMad,
-      title: "Home Mad",
-      text: "Descrizione per Home Mad.",
+      title: "Orthodontics",
+      text: "Clinicians and their staff are presented with products such as direct bonding brackets and archwires, while laboratory technicians can find an extensive range of expansion screws, wire, and acrylic.",
+      link: "products/orthodontics",
     },
     {
       image: homeOrtho,
-      title: "Ortodonzia Avanzata",
-      text: "Trattamenti ortodontici personalizzati.",
+      title: "Pedodontics",
+      text: "Products specifically designed or recommended for pediatric or early-stage orthodontic uses can be found as part of our “OK, Orthodontics for Kids” line",
+      link: "products/pedodontics",
     },
     {
       image: homePedo,
-      title: "Pedodonzia",
-      text: "Servizi odontoiatrici per i più piccoli.",
+      title: "Sleep Apnea",
+      text: "These intraoral nighttime appliances can treat snoring by acting directly on the cause by pushing the lower jaw forward.",
+      link: "products/sleep-apnea",
     },
   ];
 
   return (
     <div>
       <Carousel items={items} />
-      <div className="container ">
-        <p>
+      <div className="container flex justify-center">
+        <p className="small-container">
           At Leone and LeoneAmerica, quality and customer service are paramount.
           These two goals drive the day-to-day functioning of both campuses and
           are considered at each step of the way
