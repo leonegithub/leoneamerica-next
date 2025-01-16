@@ -8,21 +8,8 @@ import "./style.css";
 const Products = () => {
   interface Product {
     id: string;
-    codice: string;
     nome: string;
-    descrizione: string;
-    immagine_header: string;
     immagine_focus: string;
-    sezione: string;
-    famiglia: string;
-    tag: string;
-    testo_link1: string;
-    link1: string;
-    testo_link2: string;
-    link2: string;
-    video: string;
-    progetto: string;
-    data_inserimento: string;
   }
   const [data, setData] = useState<Product[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -45,7 +32,7 @@ const Products = () => {
 
   const handleProductClick = (product: Product) => {
     sessionStorage.setItem("selectedProduct", JSON.stringify(product));
-    router.push(`products/${product.id}`);
+    router.push(`/orthodontics/products/${product.id}`);
   };
 
   return (
@@ -76,7 +63,7 @@ const Products = () => {
           data?.map((product, index) => (
             <div
               key={index}
-              className={`grid-item col-span-6 sm:col-span-3 md:col-span-2 lg:col-span-1`}
+              className="grid-item"
               onClick={() => handleProductClick(product)}
             >
               <Image
