@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 
 interface CarouselProps {
   items: { image: StaticImageData; text: string }[];
@@ -22,17 +22,11 @@ export default function Carousel({ items }: CarouselProps) {
   };
 
   return (
-    <div className="carousel">
+    <div className="carousel" style={{ backgroundColor: "var(--grigio)" }}>
       <button className="prev" onClick={handlePrevious}>
         <i className="fa-solid fa-arrow-left"></i>
       </button>
-      <Image
-        className="carousel-image"
-        src={items[index].image}
-        alt={`carousel ${index}`}
-        width={3840}
-        height={2160}
-      />
+
       <p className="carousel-text">{items[index].text}</p>
       <button className="next" onClick={handleNext}>
         <i className="fa-solid fa-arrow-right"></i>
