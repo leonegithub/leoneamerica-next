@@ -1,7 +1,5 @@
 .pop {
-  display: flex;
-  padding: calc(var(--unita-base) * 4) calc(var(--unita-base) * 13);
-
+  max-width: 1700px;
   .text {
     color: rgb(82, 86, 89);
     font-size: calc(var(--unita-base) * 2);
