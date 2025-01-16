@@ -6,7 +6,14 @@ const nextConfig: NextConfig = {
 
 module.exports = {
   images: {
-    domains: ["php.leone.it"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "php.leone.it",
+        port: "",
+        pathname: "/img/**",
+      },
+    ],
   },
 };
 

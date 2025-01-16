@@ -1,5 +1,5 @@
 .pop {
-  max-width: 1700px;
+  max-width: 1650px;
   .text {
     color: rgb(82, 86, 89);
     font-size: calc(var(--unita-base) * 2);

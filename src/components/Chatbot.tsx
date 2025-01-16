@@ -39,6 +39,7 @@ const Chatbot = () => {
     const formData = new FormData();
 
     formData.append("messaggio", input);
+    formData.append("progetto", "leoneamerica");
 
     try {
       const response = await fetch(
@@ -70,7 +71,7 @@ const Chatbot = () => {
       {isOpen ? (
         <div className="chatbot-container" id="little">
           <div className="opening-line">
-            <span className="chatbot-title">Assistente Essenza</span>
+            <span className="chatbot-title">Baby</span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}
@@ -93,7 +94,7 @@ const Chatbot = () => {
       ) : (
         <div className="chatbot-container">
           <div className="opening-line">
-            <span className="chatbot-title">Assistente Essenza</span>
+            <span className="chatbot-title">Baby</span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}

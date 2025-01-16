@@ -17,6 +17,7 @@ const Products = () => {
 
   useEffect(() => {
     fetch("https://php.leone.it/api/GetProdottiWeb.php", {
+      cache: "no-cache",
       method: "GET",
       headers: {
         Authorization:
