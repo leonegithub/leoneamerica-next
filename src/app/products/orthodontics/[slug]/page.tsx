@@ -63,7 +63,7 @@ export default function Pop() {
         </div>
         <div className="right col-12 col-lg-6">
           <Image
-            src={`https://php.leone.it${product.immagine_header}`}
+            src={`https://php.leone.it${product.immagine_focus}`}
             alt={product.nome}
             width={3840}
             height={2160}
@@ -77,7 +77,7 @@ export default function Pop() {
         <div className="right col-12 col-lg-6">
           <Image
             className="desc"
-            src={`https://php.leone.it${product.immagine_focus}`}
+            src={`https://php.leone.it${product.immagine_header}`}
             alt="desc"
             width={1920}
             height={1080}

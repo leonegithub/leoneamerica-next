@@ -33,7 +33,11 @@ const Products = () => {
 
   const handleProductClick = (product: Product) => {
     sessionStorage.setItem("selectedProduct", JSON.stringify(product));
-    router.push(`/products/orthodontics/${product.id}`);
+    router.push(
+      `/products/orthodontics/${product.nome
+        .toLowerCase()
+        .replace(/\s+/g, "-")}`
+    );
   };
 
   return (
