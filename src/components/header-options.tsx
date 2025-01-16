@@ -26,6 +26,10 @@ export const getOptions2 = () => {
       href: "/products/pedodontics",
     },
     {
+      label: "Sleep Apnea",
+      href: "/products/sleep-apnea",
+    },
+    {
       label: "Digital Orthodontics",
       href: "/products/digital-orthodontics",
     },
