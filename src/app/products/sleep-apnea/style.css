@@ -20,6 +20,15 @@
   left: 0;
 }
 
+.product-name {
+  text-decoration: underline;
+}
+
+.product-image:hover,
+.product-name:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 1024px) {
   .grid-container {
     grid-template-columns: repeat(6, 1fr); /* Maximum 6 items per row */

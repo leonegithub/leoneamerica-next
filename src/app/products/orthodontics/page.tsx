@@ -79,7 +79,12 @@ const Products = () => {
                   className="product-image"
                 />
               </div>
-              <p className="text-center">{product.nome}</p>
+              <p
+                onClick={() => handleProductClick(product)}
+                className="product-name text-center"
+              >
+                {product.nome}
+              </p>
             </div>
           ))
         )}

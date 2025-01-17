@@ -4,6 +4,15 @@
   gap: 16px;
 }
 
+.product-image:hover,
+.product-name:hover {
+  cursor: pointer;
+}
+
+.product-name {
+  text-decoration: underline;
+}
+
 .grid-item {
   border: 3px solid var(--verde);
   text-align: center;
