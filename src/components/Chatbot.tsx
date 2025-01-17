@@ -20,7 +20,7 @@ const Chatbot = () => {
     if (lastMessageRef.current) {
       lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    if (messages.length === 0) sendMessage("Buongiorno");
+    if (messages.length === 0) sendMessage("Hello");
   }, [messages]);
 
   interface FormDataResponse {
@@ -71,7 +71,7 @@ const Chatbot = () => {
       {isOpen ? (
         <div className="chatbot-container" id="little">
           <div className="opening-line">
-            <span className="chatbot-title">Baby</span>
+            <span className="chatbot-title">LeoneAmerica Demo</span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}
@@ -94,7 +94,7 @@ const Chatbot = () => {
       ) : (
         <div className="chatbot-container">
           <div className="opening-line">
-            <span className="chatbot-title">Baby</span>
+            <span className="chatbot-title">LeoneAmerica Demo</span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}
@@ -149,13 +149,13 @@ const Chatbot = () => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Chiedimi qualcosa..."
+              placeholder="Ask me something..."
               onKeyDown={(e) => e.key === "Enter" && sendMessage(input)}
             />
             {input.length > 0 ? (
-              <button onClick={() => sendMessage(input)}>Invia</button>
+              <button onClick={() => sendMessage(input)}>Send</button>
             ) : (
-              <button disabled>Invia</button>
+              <button disabled>Send</button>
             )}
           </div>
         </div>
