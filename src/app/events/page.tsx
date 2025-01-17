@@ -70,11 +70,11 @@ const Events = () => {
               alt={event.nome}
             />
             <div className="event-container ps-4">
-              <h2>{event.nome}</h2>
-              <p>{parse(event.data_visualizzata)}</p>
-              <p>{parse(event.location)}</p>
+              <h2 className="event-name">{event.nome}</h2>
+              <p className="event-date">{parse(event.data_visualizzata)}</p>
+              <p className="event-location">{parse(event.location)}</p>
               {event.link1 && (
-                <p>
+                <p className="event-details">
                   <Link href={event.link1} target="_blank">
                     {event.testo_link1}
                   </Link>

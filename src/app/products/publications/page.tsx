@@ -69,7 +69,7 @@ const GetPublications = () => {
                 {publication.pubblicazione}
               </div>
               {publication.link !== "" && (
-                <Link href={publication.link} className="link">
+                <Link target="_blank" href={publication.link} className="link">
                   Go to publication
                 </Link>
               )}

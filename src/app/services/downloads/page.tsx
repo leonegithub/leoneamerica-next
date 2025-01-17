@@ -104,6 +104,12 @@ const Downloads = () => {
         ) : (
           <>
             <div className="section">
+              <h1 className=" blue my-4">Catalogues</h1>
+              <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
+                {displayingSection(catalogoSection)}
+              </div>
+            </div>
+            <div className="section">
               <h1 className=" blue mb-4">Depliants</h1>
               <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
                 {displayingSection(depliantSection)}
@@ -113,12 +119,6 @@ const Downloads = () => {
               <h1 className=" blue my-4">Bulletins</h1>
               <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
                 {displayingSection(bollettinoSection)}
-              </div>
-            </div>
-            <div className="section">
-              <h1 className=" blue my-4">Catalogues</h1>
-              <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
-                {displayingSection(catalogoSection)}
               </div>
             </div>
           </>

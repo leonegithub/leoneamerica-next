@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import SearchBar from "@/components/searchbar";
 import Link from "next/link";
+import parse from "html-react-parser";
 import "./style.css";
 
 interface SafetySheet {
@@ -101,7 +102,7 @@ const QualitySheets = () => {
                 <Link href={element.url}>
                   <span className="font-bold">{element.codiceRev}</span> &nbsp;
                   <span>{element.data}</span> &nbsp;
-                  {element.nomeScheda}
+                  {parse(element.nomeScheda)}
                 </Link>
               </li>
             ))

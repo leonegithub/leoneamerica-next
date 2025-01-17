@@ -33,10 +33,13 @@ export default function QualitySystem() {
               <h4>Resources</h4>
               <ul>
                 <li>
-                  <Link href={"safety-sheets/"}>MSDS (Safety Data Sheets)</Link>
+                  <Link target="_blank" href={"safety-sheets/"}>
+                    MSDS (Safety Data Sheets)
+                  </Link>
                 </li>
                 <li>
                   <Link
+                    target="_blank"
                     href={
                       "https://www.leone.it/servizi/qualita/LeoneSpa_RMI-TC_January2017.pdf"
                     }
@@ -45,7 +48,7 @@ export default function QualitySystem() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"quality-system/quality-info/"}>
+                  <Link target="_blank" href={"quality-system/quality-info/"}>
                     Product Label Symbols
                   </Link>
                 </li>
@@ -56,6 +59,7 @@ export default function QualitySystem() {
               <ul>
                 <li>
                   <Link
+                    target="_blank"
                     href={
                       "https://www.leone.it/servizi/qualita/Scheda-Attivazione-Espansore-Rapido.pdf"
                     }
@@ -65,6 +69,7 @@ export default function QualitySystem() {
                 </li>
                 <li>
                   <Link
+                    target="_blank"
                     href={
                       "https://www.leone.it/english/services/download/Leaf_Expander-protocol.pdf"
                     }
@@ -74,6 +79,7 @@ export default function QualitySystem() {
                 </li>
                 <li>
                   <Link
+                    target="_blank"
                     href={
                       "https://www.leone.it/english/services/download/Proc_Mini-Implants_Eng.pdf"
                     }

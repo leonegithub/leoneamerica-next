@@ -5,6 +5,7 @@
 
 .event {
   padding: 10px 0;
+  font-size: 20px;
 }
 
 .event:last-child {
@@ -15,17 +16,25 @@
   margin: 0;
 }
 
+.event-name {
+  font-weight: 700;
+  color: var(--colore-primario);
+}
+
 .event p {
   margin: 5px 0;
 }
 
 .event-date {
   font-weight: bold;
-  color: #333;
 }
 
 .event-location {
   font-style: italic;
+}
+
+.event-details {
+  text-decoration: underline;
 }
 
 .button {
