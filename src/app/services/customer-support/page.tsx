@@ -16,7 +16,7 @@ export default function AssistenzaClienti() {
         <div className="container jumbo">
           <div className="info">
             <div className="section">
-              <h2 className="ads">Expertise and Availability</h2>
+              <h2 className="blue">Expertise and Availability</h2>
               <p>
                 The assistance department, composed of technicians and engineers
                 constantly undergoing professional updates, is always available

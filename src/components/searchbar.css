@@ -4,7 +4,6 @@
   border-radius: 50px;
   flex-wrap: nowrap;
   padding: 2px !important;
-  visibility: hidden;
 }
 
 #lens {
@@ -13,11 +12,11 @@
   color: var(--colore-primario);
 }
 
-@media screen and (max-width: 1192px) {
+/* @media screen and (max-width: 1192px) {
   .searchbar {
     visibility: visible;
   }
-  .input-group {
+   .input-group {
     display: none !important;
   }
-}
+} */

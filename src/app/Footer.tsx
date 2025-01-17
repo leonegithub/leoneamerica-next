@@ -18,11 +18,11 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link href={`/services/newlist`}>Newlist</Link>
                   </li>
-                  <li className="mb-1">
+                  {/*  <li className="mb-1">
                     <Link href={`/services/customer-support`}>
                       Customer support
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

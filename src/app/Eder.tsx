@@ -48,13 +48,13 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div className={`searchbar flex items-center`}>
+        <div className={`searchbar invisible flex items-center`}>
           <SearchBar value="" onChange={handleChange} />
           <div className="mobile-searchbar"></div>
-          <button className="hamburger" onClick={handleShow} aria-label="Menu">
-            <i className="fa-solid fa-bars"></i>
-          </button>
         </div>
+        <button className="hamburger" onClick={handleShow} aria-label="Menu">
+          <i className="fa-solid fa-bars"></i>
+        </button>
 
         <Offcanvas show={show} onHide={handleClose} placement="end">
           <Offcanvas.Header closeButton></Offcanvas.Header>
