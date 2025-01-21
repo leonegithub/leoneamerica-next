@@ -1,5 +1,6 @@
 import Image from "next/image";
 import customer from "./Leone90_stabilimento-61.jpg";
+import "./style.css";
 
 export default function Orders() {
   return (

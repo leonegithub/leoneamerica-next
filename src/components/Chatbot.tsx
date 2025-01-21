@@ -71,7 +71,13 @@ const Chatbot = () => {
       {isOpen ? (
         <div className="chatbot-container" id="little">
           <div className="opening-line">
-            <span className="chatbot-title">LeoneAmerica Demo</span>
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => setIsOpen(!isOpen)}
+              className="chatbot-title"
+            >
+              LeoneAmerica Demo
+            </span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}
@@ -94,7 +100,13 @@ const Chatbot = () => {
       ) : (
         <div className="chatbot-container">
           <div className="opening-line">
-            <span className="chatbot-title">LeoneAmerica Demo</span>
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => setIsOpen(!isOpen)}
+              className="chatbot-title"
+            >
+              LeoneAmerica Demo
+            </span>
             <span
               className="close-icon"
               onClick={() => setIsOpen(!isOpen)}

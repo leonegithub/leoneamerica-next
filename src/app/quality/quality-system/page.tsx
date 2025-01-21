@@ -8,7 +8,7 @@ export default function QualitySystem() {
   return (
     <div className="quality-system">
       <div className="img-container">
-        <Image src={qualita} alt="qualita"></Image>
+        <Image className="quality-img" src={qualita} alt="qualita"></Image>
       </div>
       <div className="container pt-2">
         <h1 className="blue font-bold my-4">Our products are the standard</h1>
@@ -26,7 +26,11 @@ export default function QualitySystem() {
         </p>
         <div className="descrizione flex flex-col md:flex-row py-5">
           <div className="left w-full md:w-1/2">
-            <Image src={fotoEsempio} alt="foto-esempio" />
+            <Image
+              className="quality-img"
+              src={fotoEsempio}
+              alt="foto-esempio"
+            />
           </div>
           <div className="right flex flex-col justify-center w-full md:w-1/2 pl-5">
             <div className="resources-protocols">

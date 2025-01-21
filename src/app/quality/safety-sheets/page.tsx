@@ -99,7 +99,7 @@ const QualitySheets = () => {
           ) : filteredResults.length > 0 ? (
             filteredResults.map((element, index) => (
               <li className="list list-disc blue" key={index}>
-                <Link href={element.url}>
+                <Link href={element.url} target="_blank">
                   <span className="font-bold">{element.codiceRev}</span> &nbsp;
                   <span>{element.data}</span> &nbsp;
                   {parse(element.nomeScheda)}

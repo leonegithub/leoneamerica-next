@@ -30,7 +30,7 @@ export default function Footer() {
               <div className="link-wrapper">
                 <h4 className="mb-3 fw-bold">Scientific publications</h4>
                 <ul className="m-0 list-unstyled">
-                  <Link className="mb-1" href={`/products/orthodontics`}>
+                  <Link className="mb-1" href={`/products/publications`}>
                     Orthodontics
                   </Link>
                 </ul>

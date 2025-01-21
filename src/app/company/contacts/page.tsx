@@ -160,7 +160,7 @@ const Contatti = () => {
               className="response-message text-center"
               style={{
                 fontStyle: "italic",
-                color: exitCode === 0 ? "green" : "red",
+                color: "green",
               }}
               dangerouslySetInnerHTML={{ __html: responseMessage }}
             ></div>

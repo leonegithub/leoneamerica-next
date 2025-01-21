@@ -113,11 +113,11 @@
 }
 
 .input-area button:hover {
-  background-color: #3f4db0;
+  background-color: #1a5bd1;
 }
 
 .input-area button:active {
-  background-color: #2c358c;
+  background-color: #0d4fd1;
 }
 
 @media screen and (max-width: 768px) {

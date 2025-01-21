@@ -32,10 +32,6 @@ const GetPublications = () => {
       });
   }, []);
 
-  if (loading) {
-    return <div className="container">Loading...</div>;
-  }
-
   return (
     <div className="container">
       <h1 className="blue font-bold py-5">Publications and literature</h1>

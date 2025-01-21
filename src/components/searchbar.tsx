@@ -13,7 +13,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
         className="searchbar focus:ring-0"
-        placeholder="Cerca..."
+        placeholder="Search..."
       />
       <div id="lens">
         <i className="fa-solid fa-magnifying-glass"></i>
