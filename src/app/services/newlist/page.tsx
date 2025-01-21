@@ -25,6 +25,7 @@ const Newslist = () => {
       formData.append("lingua", "EN");
       formData.append("paese", "US");
       formData.append("flg_privacy", "1");
+      formData.append("progetto", "leoneamerica");
 
       const response = await fetch("https://php.leone.it/api/SendLead.php", {
         method: "POST",
