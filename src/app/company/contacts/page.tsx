@@ -7,13 +7,11 @@ const Contatti = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [responseMessage, setResponseMessage] = useState<string>("");
-  const [exitCode, setExitCode] = useState<number>(0);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsLoading(true);
     setError(null);
-    setExitCode(0);
     setResponseMessage("");
 
     try {
@@ -38,7 +36,6 @@ const Contatti = () => {
       setResponseMessage(
         data.ReturnedObject || data.ReturnedError.join("<br/>")
       );
-      setExitCode(data.exitCode);
       setError(error);
     } catch (error) {
       if (error instanceof Error) {
