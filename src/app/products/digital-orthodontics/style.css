@@ -1,67 +1,48 @@
-.pop {
-  max-width: 1650px;
-  .text {
-    color: rgb(82, 86, 89);
-    font-size: calc(var(--unita-base) * 2);
-  }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
 
-  p {
-    margin: 10px 0;
-    font-size: 18px;
-  }
+.product-image:hover,
+.product-name:hover {
+  cursor: pointer;
+}
 
-  ul {
-    font-size: 18px;
-  }
+.product-name {
+  text-decoration: underline;
+}
 
-  li {
-    list-style: disc;
-    list-style-position: inner;
-  }
+.grid-item {
+  border: 3px solid var(--verde);
+  text-align: center;
+  aspect-ratio: 1 / 1; /* Ensures the grid items are square */
+  position: relative; /* Required for positioning the image inside */
+}
 
-  img {
-    width: 105%;
-    height: 105%;
-    object-fit: cover;
-  }
-  .left {
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    color: var(--verde);
-    display: flex;
-    align-items: center;
-    .pop-title {
-      font-size: calc(var(--unita-base) * 7);
-      span {
-        font-weight: 900;
-      }
-    }
-  }
-  .right {
-    .desc {
-      width: 100%;
-      height: 100%;
-    }
-  }
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute; /* Ensures the image covers the entire grid item */
+  top: 0;
+  left: 0;
+}
 
-  .last {
-    margin-bottom: calc(var(--unita-base) * 5);
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 1fr); /* Maximum 6 items per row */
   }
 }
-@media screen and (max-width: 1024px) {
-  .pop {
-    padding: 20px;
-    .left {
-      .pop-title {
-        font-size: calc(var(--unita-base) * 5);
-      }
-    }
 
-    img {
-      width: 100%;
-      height: 100%;
-    }
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Full width on very small screens */
   }
 }
