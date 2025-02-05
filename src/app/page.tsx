@@ -1,9 +1,9 @@
 "use client";
 
 import Carousel from "@/components/carousel";
-import homeOrtho from "@/public/home-ortho.png";
-import homeMad from "@/public/home-mad.png";
-import homePedo from "@/public/home-pedo.png";
+import homeOrtho from "../../public/home-ortho.png";
+import homeMad from "../../public/home-mad.png";
+import homePedo from "../../public/home-pedo.png";
 import HomeCard from "@/components/home-card";
 
 import "./style.css";
