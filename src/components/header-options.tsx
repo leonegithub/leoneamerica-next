@@ -29,11 +29,11 @@ export const getOptions2 = () => {
       label: "Sleep Apnea",
       href: "/products/sleep-apnea",
     },
-    {
-      label: "Digital Orthodontics",
-      href: "/products/digital-orthodontics",
-    },
+  ];
+};
 
+export const getOptions3 = () => {
+  return [
     {
       label: "Ortho News",
       href: "/products/ortho-news",
@@ -41,6 +41,10 @@ export const getOptions2 = () => {
     {
       label: "Publications",
       href: "/products/publications",
+    },
+    {
+      label: "Downloads",
+      href: "/services/downloads",
     },
   ];
 };

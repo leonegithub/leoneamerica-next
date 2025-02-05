@@ -1,8 +1,0 @@
-.orders {
-  .img-container {
-    background-color: var(--grigio);
-    img {
-      opacity: 0;
-    }
-  }
-}

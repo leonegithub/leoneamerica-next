@@ -1,5 +1,5 @@
 import Image from "next/image";
-import leoneAmericaSede from "./leoneamericasede.png";
+import leoneAmericaSede from "./LeoneAmerica_2.png";
 import "./style.css";
 
 const articles = [

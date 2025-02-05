@@ -9,13 +9,18 @@ import Link from "next/link";
 import Image from "next/image";
 import logoAmerica from "./Logo-LeoneAmerica2023-2.png";
 import "./header.css";
-import { getOptions1, getOptions2 } from "@/components/header-options";
+import {
+  getOptions1,
+  getOptions2,
+  getOptions3,
+} from "@/components/header-options";
 
 export default function Header() {
   const [show, setShow] = useState(false);
 
   const options1 = getOptions1();
   const options2 = getOptions2();
+  const options3 = getOptions3();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -42,6 +47,9 @@ export default function Header() {
             </li>
             <li>
               <Link href={`/orders`}>Orders</Link>
+            </li>
+            <li>
+              <DropdownComponent options={options3} dropdownLabel="Support" />
             </li>
             <li>
               <Link href={`/events`}>Events</Link>

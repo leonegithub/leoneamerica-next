@@ -1,15 +1,14 @@
 import Image from "next/image";
-import customer from "./Leone90_stabilimento-61.jpg";
-import "./style.css";
+import orderPic from "./LeoneAmerica_1.png";
 
 export default function Orders() {
   return (
     <div className="orders">
       <div className="img-container">
-        <Image src={customer} alt="customer"></Image>
+        <Image src={orderPic} alt="customer"></Image>
       </div>
       <div className="container">
-        <h1 className="blue py-3 mt-3 text-6xl">Orders</h1>
+        <h1 className="blue py-3 mt-3 text-5xl">Orders</h1>
         <p>
           Our most important resources are our customers, and we seek to care
           for these resources above all others. When you choose Leone products,

@@ -1,29 +1,18 @@
 "use client";
 
-import Carousel from "@/components/carousel";
+import { Carousel } from "react-bootstrap";
+import Leaf from "../../public/Leaf 2.png";
+import Mad from "../../public/MAD.png";
+import Software from "../../public/Software.png";
 import homeOrtho from "../../public/home-ortho.png";
 import homeMad from "../../public/home-mad.png";
 import homePedo from "../../public/home-pedo.png";
 import HomeCard from "@/components/home-card";
-
+import Image from "next/image";
+import Link from "next/link";
 import "./style.css";
 
 export default function Home() {
-  /*  const items = [
-    {
-      image: Designer,
-      text: "Software 3D Leone Designer",
-    },
-    {
-      image: Leaf,
-      text: "Leaf Expander",
-    },
-    {
-      image: Mad,
-      text: "Anti Snoring Devices",
-    },
-  ]; */
-
   const homeCards = [
     {
       image: homeMad,
@@ -47,7 +36,21 @@ export default function Home() {
 
   return (
     <div>
-      <Carousel />
+      <Carousel fade data-bs-theme="dark">
+        <Carousel.Item>
+          <Image src={Mad} alt="mad"></Image>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Link href={`https://leafexpander.com/`} target="_blank">
+            <Image src={Leaf} alt="Leaf"></Image>
+          </Link>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Link href={`https://www.3dleone.it/`} target="_blank">
+            <Image src={Software} alt="software"></Image>
+          </Link>
+        </Carousel.Item>
+      </Carousel>
       <div className="container flex justify-center">
         <p className="small-container">
           At Leone and LeoneAmerica, quality and customer service are paramount.

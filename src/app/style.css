@@ -1,39 +1,8 @@
-/* .carousel {
-  width: 100%;
-  aspect-ratio: 3/1;
-  display: flex;
-  position: relative;
-
-  img {
-    object-fit: cover;
-    transition: opacity 1s ease-in-out;
-    opacity: 1;
-  }
-
-  .prev,
-  .next {
-    position: absolute;
-    z-index: 9;
-  }
-  .carousel-text {
-    position: absolute;
-    bottom: 50%;
-    font-weight: 700;
-    font-size: calc(var(--unita-base) * 5);
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
-
-  .prev {
-    left: calc(var(--unita-base));
-    top: 40%;
-  }
-  .next {
-    right: calc(var(--unita-base));
-    top: 40%;
-  }
-} */
+.carousel img {
+  pointer-events: none;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+}
 
 .small-container {
   max-width: 600px;
