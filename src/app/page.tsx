@@ -1,9 +1,6 @@
 "use client";
 
 import Carousel from "@/components/carousel";
-import Designer from "@/public/3ddesigner.png";
-import Mad from "@/public/mad.png";
-import Leaf from "@/public/leaf.png";
 import homeOrtho from "@/public/home-ortho.png";
 import homeMad from "@/public/home-mad.png";
 import homePedo from "@/public/home-pedo.png";
@@ -12,7 +9,7 @@ import HomeCard from "@/components/home-card";
 import "./style.css";
 
 export default function Home() {
-  const items = [
+  /*  const items = [
     {
       image: Designer,
       text: "Software 3D Leone Designer",
@@ -25,7 +22,7 @@ export default function Home() {
       image: Mad,
       text: "Anti Snoring Devices",
     },
-  ];
+  ]; */
 
   const homeCards = [
     {
@@ -50,7 +47,7 @@ export default function Home() {
 
   return (
     <div>
-      <Carousel items={items} />
+      <Carousel />
       <div className="container flex justify-center">
         <p className="small-container">
           At Leone and LeoneAmerica, quality and customer service are paramount.
