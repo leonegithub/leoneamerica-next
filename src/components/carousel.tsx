@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Mad from "../public/MAD.png";
-import Leaf from "../public/Leaf 2.png";
-import Software from "../public/Software.png";
+import Mad from "../../public/MAD.png";
+import Leaf from "../../public/Leaf 2.png";
+import Software from "../../public/Software.png";
 
 const Carousel = () => {
   return (
