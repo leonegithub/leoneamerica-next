@@ -59,7 +59,7 @@ export default function Home() {
               alt="software-mobile"
               className="w-full block md:hidden"
             />
-            <div className="mad-slide absolute left-28 top-[20%] md:top-1/2 transform -translate-y-1/2">
+            <div className="mad-slide absolute left-10 lg:left-28 top-[25%] md:top-1/2  transform -translate-y-1/2">
               <h2 className="font-bold text-5xl md:text-6xl lg:text-9xl">
                 M.A.D.
               </h2>
