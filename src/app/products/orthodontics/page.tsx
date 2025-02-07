@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import colonia from "./A0620 colonia.59.421.png";
 import "./style.css";
 
