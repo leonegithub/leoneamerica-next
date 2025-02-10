@@ -25,10 +25,6 @@ export default function Header() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function handleChange(): void {
-    throw new Error("Function not implemented.");
-  }
-
   return (
     <>
       <header className={`p-4 flex items-center`}>
@@ -37,8 +33,8 @@ export default function Header() {
             <Image src={logoAmerica} width={250} alt="logo-america" />
           </Link>
         </div>
-        <nav className="nav-menu">
-          <ul className="flex items-center space-x-4">
+        <nav className="nav-menu flex justify-between">
+          <ul className="md:flex hidden items-center space-x-4">
             <li>
               <DropdownComponent options={options1} dropdownLabel="Company" />
             </li>
@@ -56,10 +52,17 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div className={`searchbar invisible flex items-center`}>
-          <SearchBar value="" onChange={handleChange} />
-          <div className="mobile-searchbar"></div>
-        </div>
+        <Link href={`/login`}>
+          {localStorage.getItem("userId") ? (
+            <div className={`hidden md:flex blue flex items-center`}>
+              Personal Area
+            </div>
+          ) : (
+            <div className={`hidden md:flex blue flex items-center`}>
+              Register / Login
+            </div>
+          )}
+        </Link>
         <button className="hamburger" onClick={handleShow} aria-label="Menu">
           <i className="fa-solid fa-bars"></i>
         </button>
