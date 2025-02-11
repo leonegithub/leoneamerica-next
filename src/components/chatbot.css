@@ -1,22 +1,33 @@
+:root {
+  --colore-primario: #0d4fd1;
+  --grigio: #f7f9ff;
+  --bianco: #fff;
+  --unita-base: 12px;
+  --grigio-hover: #e0e7ff;
+  --colore-secondario: #e30b21;
+  --margine: calc(var(--unita-base) * 20);
+  --verde: #40c7bc;
+  --altezza-corpo: 800px;
+}
+
 /* Contenitore principale della chatbot */
 .chatbot-container {
   width: 33%;
   background-color: #fff;
   height: 50%;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 3px;
   overflow: hidden;
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 10px;
+  bottom: 10px;
   font-size: 20px;
-  resize: both;
   z-index: 9;
   font-family: Arial, sans-serif;
   justify-content: center;
+  color: var(--colore-primario);
 }
 
 .opening-line {
@@ -30,8 +41,14 @@
 }
 
 #little {
-  height: 20px;
-  width: 300px;
+  height: 60px;
+  width: 60px;
+}
+
+#big {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  resize: both;
+  padding: 15px;
 }
 
 .hidden {
@@ -39,7 +56,7 @@
 }
 
 /* Contenitore dei messaggi */
-.messages {
+.chatbot-container .messages {
   flex-grow: 1;
   overflow-y: auto;
   margin-bottom: 15px;
@@ -50,17 +67,16 @@
 }
 
 /* Singolo messaggio (bot o utente) */
-.message-item {
+.chatbot-container .message-item {
   display: flex;
   flex-direction: column;
-
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
 /* Messaggi dell'utente */
-.user {
+.chatbot-container .user {
   background-color: var(--colore-primario);
   color: #fff;
   align-self: flex-end;
@@ -71,7 +87,7 @@
 }
 
 /* Messaggi del bot */
-.bot {
+.chatbot-container .bot {
   background-color: #e3f2fd;
   color: #333;
   align-self: flex-start;
@@ -82,7 +98,7 @@
 }
 
 /* Area di input (posizionata in basso) */
-.input-area {
+.chatbot-container .input-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -91,7 +107,7 @@
   border-top: 1px solid #ddd;
 }
 
-.input-area input {
+.chatbot-container .input-area input {
   flex-grow: 1;
   padding: 10px;
   border: 1px solid #ddd;
@@ -101,7 +117,7 @@
   outline: none;
 }
 
-.input-area button {
+.chatbot-container .input-area button {
   background-color: var(--colore-primario);
   color: #fff;
   padding: 10px 15px;
@@ -112,12 +128,16 @@
   transition: background-color 0.3s;
 }
 
-.input-area button:hover {
+.chatbot-container .input-area button:hover {
   background-color: #1a5bd1;
 }
 
-.input-area button:active {
+.chatbot-container .input-area button:active {
   background-color: #0d4fd1;
+}
+
+.messages {
+  scroll-padding-bottom: 100px;
 }
 
 @media screen and (max-width: 768px) {
