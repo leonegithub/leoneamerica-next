@@ -122,9 +122,9 @@ const LoginForm = () => {
           to have access to our services.
         </p>
         <p className="text-sm">
-          <a className="blue hover:underline" href="reset.html">
+          <Link className="blue hover:underline" href={`/reset`}>
             Did you forget your password?
-          </a>
+          </Link>
         </p>
         <p className="error-message">
           {errorMessage && <ErrorMessage message={errorMessage} />}
