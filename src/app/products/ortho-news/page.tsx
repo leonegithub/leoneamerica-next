@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import "./style.css";
 
@@ -89,7 +90,7 @@ const Downloads = () => {
                   href={`https://php.leone.it${journal.url}`}
                   target="_blank"
                 >
-                  <img
+                  <Image
                     src={`https://php.leone.it${journal.thumb}`}
                     alt={journal.nome}
                   />

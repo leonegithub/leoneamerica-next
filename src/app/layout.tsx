@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 /* import Chatbot from "../components/Chatbot"; */
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({
         ></link>
       </head>
       <body>
+        <SpeedInsights />
         <Header />
         <main>{children}</main>
         {/* <Chatbot /> */}

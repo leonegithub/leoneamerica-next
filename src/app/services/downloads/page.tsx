@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import "./style.css";
 
 const Downloads = () => {
@@ -61,7 +62,7 @@ const Downloads = () => {
           href={`https://php.leone.it${element.url}`}
           target="_blank"
         >
-          <img
+          <Image
             src={`https://php.leone.it${element.thumb}`}
             alt={element.nome}
           />

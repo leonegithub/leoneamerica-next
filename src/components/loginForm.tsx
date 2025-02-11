@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data1, setData1] = useState<{
     ExitCode: number;
-    data: {};
+    data: Record<string, unknown>;
     ReturnedObject: {};
     ReturnedError: string[];
   } | null>(null);
@@ -19,7 +19,7 @@ const LoginForm = () => {
   const handleLogin = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    event.preventDefault;
+    event.preventDefault();
     setIsLoading(true);
 
     const form = event.currentTarget.closest("form") as HTMLFormElement;

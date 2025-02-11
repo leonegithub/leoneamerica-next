@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import LoginForm from "@/components/loginForm";
-import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
@@ -18,7 +17,7 @@ const Login = () => {
     return <p>Loading...</p>;
   }
 
-  return hasUserId ? redirect(`/personal-area`) : <LoginForm />;
+  return hasUserId ? router.push(`/personal-area`) : <LoginForm />;
 };
 
 export default Login;
