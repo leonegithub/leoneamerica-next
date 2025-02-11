@@ -18,9 +18,14 @@ const PersonalArea = () => {
     Città: string;
     CAP: string;
     Paese: string;
+    IDIva: string;
+    CodiceFiscale: string;
+    CodiceSDI: string;
+    FlgComCom: string;
     DataInserimento: string;
     FlgEmailConfermata: boolean;
     FlgControllatoPiva: boolean;
+    PEC?: string;
   }
 
   const [data, setData] = useState<User | null>(null);
@@ -55,35 +60,65 @@ const PersonalArea = () => {
   };
 
   return (
-    <div className="container mx-auto py-4">
+    <div className="container mx-auto p-4">
       {data ? (
         <>
-          <h2 className="text-2xl font-semibold mb-4">
-            {data.Nome} {data.Cognome}
-          </h2>
-          <ul className="list-none text-lg">
-            <li className="py-1">
-              <span className="font-bold">Email:</span> {data.Email}
-            </li>
-            <li className="py-1">
-              <span className="font-bold">Address:</span> {data.Indirizzo}
-            </li>
-            <li className="py-1">
-              <span className="font-bold">City:</span> {data["Città"]},{" "}
-              {data.CAP}
-            </li>
-            <li className="py-1">
-              <span className="font-bold">Country:</span> {data.Paese}
-            </li>
-            <li className="py-1">
-              <span className="font-bold">Data Inserimento:</span>{" "}
-              {data.DataInserimento}
-            </li>
-          </ul>
+          <h1 className="text-3xl font-bold my-4">Your Registration Data</h1>
+          <div className="space-y-2 text-lg leading-relaxed text-gray-800">
+            <p>
+              <strong>Company Name:</strong> {data.RS}
+            </p>
+            <p>
+              <strong>Email:</strong> {data.Email}
+            </p>
+            <p>
+              <strong>First Name:</strong> {data.Nome}
+            </p>
+            <p>
+              <strong>Last Name:</strong> {data.Cognome}
+            </p>
+            <p>
+              <strong>Address:</strong> {data.Indirizzo}
+            </p>
+            <p>
+              <strong>Street Number:</strong> {data.NumeroCivico}
+            </p>
+            <p>
+              <strong>City:</strong> {data["Città"]}
+            </p>
+            <p>
+              <strong>Postal Code:</strong> {data.CAP}
+            </p>
+            <p>
+              <strong>Country:</strong> {data.Paese}
+            </p>
+
+            <p>
+              <strong>Type:</strong> {data.Tipologia}
+            </p>
+            <p>
+              <strong>Consent to Commercial Communications:</strong>{" "}
+              {data.FlgComCom === "0" ? "No" : "Yes"}
+            </p>
+            <p>
+              <strong>Registration Date:</strong> {data.DataInserimento}
+            </p>
+            {data.Paese === "IT" && (
+              <p>
+                <strong>PEC:</strong>{" "}
+                {data.PEC === "" ? (
+                  <span className="text-red-600">Not provided</span>
+                ) : (
+                  data.PEC
+                )}
+              </p>
+            )}
+          </div>
+
           <button
             onClick={handleLogout}
-            type="submit"
-            className="text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 my-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            type="button"
+            className="mt-4 py-2 px-4 bg-blue-700 text-white font-medium rounded hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
           >
             Logout
           </button>
