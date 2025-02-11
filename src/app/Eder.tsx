@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Offcanvas } from "react-bootstrap";
 /* import SearchBar from "@/components/searchbar"; */
 import AccordionComponent from "@/components/accordion";
@@ -17,6 +17,7 @@ import {
 
 export default function Header() {
   const [show, setShow] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
 
   const options1 = getOptions1();
   const options2 = getOptions2();
@@ -24,6 +25,12 @@ export default function Header() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setUserId(localStorage.getItem("userId"));
+    }
+  }, []);
 
   return (
     <>
@@ -53,12 +60,12 @@ export default function Header() {
           </ul>
         </nav>
         <Link href={`/login`}>
-          {localStorage.getItem("userId") ? (
-            <div className={`hidden md:flex blue flex items-center`}>
+          {userId ? (
+            <div className="hidden md:flex blue flex items-center">
               Personal Area
             </div>
           ) : (
-            <div className={`hidden md:flex blue flex items-center`}>
+            <div className="hidden md:flex blue flex items-center">
               Register / Login
             </div>
           )}
