@@ -56,6 +56,8 @@ const LoginForm = () => {
     }
   };
 
+  console.log(data1);
+
   const togglePasswordType = (
     event: React.MouseEvent<HTMLElement, MouseEvent>
   ): void => {
