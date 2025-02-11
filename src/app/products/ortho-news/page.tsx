@@ -93,6 +93,8 @@ const Downloads = () => {
                   <Image
                     src={`https://php.leone.it${journal.thumb}`}
                     alt={journal.nome}
+                    width={100}
+                    height={100}
                   />
                 </Link>
                 <Link

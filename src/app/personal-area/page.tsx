@@ -1,28 +1,24 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const PersonalArea = () => {
-  const [authenticated, setAuthenticated] = useState(false);
   const router = useRouter();
+  const { userId, setUserId } = useAuth();
 
   useEffect(() => {
-    if (!localStorage.getItem("userId")) {
+    if (!userId) {
       router.push("/login");
-    } else {
-      setAuthenticated(true);
     }
-  }, [router]);
+  }, [userId, router]);
 
   const handleLogout = () => {
-    localStorage.clear();
+    setUserId(null);
+    localStorage.removeItem("userId");
     router.push("/login");
   };
-
-  if (!authenticated) {
-    return <p>Loading...</p>;
-  }
 
   return <span onClick={handleLogout}>Logout</span>;
 };

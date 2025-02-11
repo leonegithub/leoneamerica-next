@@ -9,15 +9,14 @@ const Login = () => {
   const router = useRouter();
 
   useEffect(() => {
-    setHasUserId(localStorage.getItem("userId") !== null);
-  }, []);
+    const userExists = localStorage.getItem("userId") !== null;
+    setHasUserId(userExists);
+    if (userExists) {
+      router.push("/personal-area");
+    }
+  }, [router]);
 
-  // While the client-side check is occurring, you can render a loading indicator
-  if (hasUserId === null) {
-    return <p>Loading...</p>;
-  }
-
-  return hasUserId ? router.push(`/personal-area`) : <LoginForm />;
+  return !hasUserId ? <LoginForm /> : null;
 };
 
 export default Login;

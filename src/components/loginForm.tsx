@@ -1,20 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { LoadingButton } from "./LoadingButton";
 import ErrorMessage from "./ErrorMessage";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data1, setData1] = useState<{
-    ExitCode: number;
-    data: Record<string, unknown>;
-    ReturnedObject: Record<string, unknown>;
-    ReturnedError: string[];
-  } | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const router = useRouter();
+  const { setUserId } = useAuth();
 
   const handleLogin = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -38,7 +35,7 @@ const LoginForm = () => {
         .then((data) => {
           if (data.ExitCode === 0) {
             const idUser = data.ReturnedObject.IDUser;
-            setData1(idUser);
+            setUserId(idUser);
             localStorage.setItem("userId", idUser);
             router.push(`/personal-area`);
           } else {
@@ -55,8 +52,6 @@ const LoginForm = () => {
       setIsLoading(false);
     }
   };
-
-  console.log(data1);
 
   const togglePasswordType = (
     event: React.MouseEvent<HTMLElement, MouseEvent>
@@ -121,9 +116,9 @@ const LoginForm = () => {
         </form>
         <p className="text-sm mb-2">
           If you do not yet have a Leone account (essenza.leone.it, 3dleone.it),{" "}
-          <a className="blue hover:underline" href="registrazione.html">
-            register now
-          </a>{" "}
+          <Link className="blue hover:underline" href={`/register`}>
+            register now&nbsp;
+          </Link>
           to have access to our services.
         </p>
         <p className="text-sm">

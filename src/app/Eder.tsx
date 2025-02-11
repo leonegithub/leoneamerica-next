@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { Offcanvas } from "react-bootstrap";
-/* import SearchBar from "@/components/searchbar"; */
 import AccordionComponent from "@/components/accordion";
 import DropdownComponent from "@/components/dropdown";
 import Link from "next/link";
 import Image from "next/image";
 import logoAmerica from "./Logo-LeoneAmerica2023-2.png";
+import { useAuth } from "@/context/AuthContext";
 import "./header.css";
 import {
   getOptions1,
@@ -17,7 +17,7 @@ import {
 
 export default function Header() {
   const [show, setShow] = useState(false);
-  const [userId, setUserId] = useState<string | null>(null);
+  const { userId } = useAuth();
 
   const options1 = getOptions1();
   const options2 = getOptions2();
@@ -25,12 +25,6 @@ export default function Header() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setUserId(localStorage.getItem("userId"));
-    }
-  }, []);
 
   return (
     <>
@@ -59,17 +53,19 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <Link href={`/login`}>
-          {userId ? (
+        {userId ? (
+          <Link href="/personal-area">
             <div className="hidden md:flex blue flex items-center">
               Personal Area
             </div>
-          ) : (
+          </Link>
+        ) : (
+          <Link href="/login">
             <div className="hidden md:flex blue flex items-center">
               Register / Login
             </div>
-          )}
-        </Link>
+          </Link>
+        )}
         <button className="hamburger" onClick={handleShow} aria-label="Menu">
           <i className="fa-solid fa-bars"></i>
         </button>

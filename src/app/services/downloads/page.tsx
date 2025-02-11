@@ -65,6 +65,8 @@ const Downloads = () => {
           <Image
             src={`https://php.leone.it${element.thumb}`}
             alt={element.nome}
+            width={100}
+            height={100}
           />
         </Link>
         <Link href={`https://php.leone.it${element.url}`} target="_blank">
