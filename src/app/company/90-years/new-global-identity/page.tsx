@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import globalIdentity from "../global-identity.png";
 import ninetyYears from "../90-years.png";
