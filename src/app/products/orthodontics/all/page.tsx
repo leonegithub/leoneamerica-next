@@ -32,7 +32,8 @@ const Products = () => {
   }, []);
 
   const handleProductClick = (product: Product) => {
-    sessionStorage.setItem("selectedProduct", JSON.stringify(product));
+    if (typeof window !== undefined)
+      sessionStorage.setItem("selectedProduct", JSON.stringify(product));
     router.push(`all/${product.nome.toLowerCase().replace(/\s+/g, "-")}`);
   };
 
