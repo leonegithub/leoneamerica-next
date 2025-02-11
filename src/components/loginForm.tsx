@@ -10,7 +10,7 @@ const LoginForm = () => {
   const [data1, setData1] = useState<{
     ExitCode: number;
     data: Record<string, unknown>;
-    ReturnedObject: {};
+    ReturnedObject: Record<string, unknown>;
     ReturnedError: string[];
   } | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
