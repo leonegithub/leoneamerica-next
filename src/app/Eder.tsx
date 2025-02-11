@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import AccordionComponent from "@/components/accordion";
 import DropdownComponent from "@/components/dropdown";
