@@ -12,7 +12,7 @@ const ResetPassword = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const searchParams = useSearchParams();
 
-  let resetToken = searchParams.get("reset_token");
+  const resetToken = searchParams.get("reset_token");
 
   const togglePasswordType = (id: string) => {
     const input = document.getElementById(id) as HTMLInputElement;
