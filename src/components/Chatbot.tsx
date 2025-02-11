@@ -44,7 +44,7 @@ const Chatbot = () => {
   }
 
   useEffect(() => {
-    async function fetchConversation(init: boolean = false) {
+    async function fetchConversation() {
       const formData = new FormData();
       formData.append("progetto", "lis2025");
       formData.append("ip", "222.222.222");
@@ -105,7 +105,7 @@ const Chatbot = () => {
         console.error("Error fetching conversation", error);
       }
     }
-    fetchConversation(true);
+    fetchConversation();
   }, []);
 
   const sendMessage = async (input: string): Promise<void> => {
