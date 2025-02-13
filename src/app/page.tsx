@@ -60,6 +60,9 @@ export default function Home() {
               className="w-full block md:hidden"
             />
             <div className="mad-slide absolute left-10 lg:left-28 top-[25%] md:top-1/2  transform -translate-y-1/2">
+              <h3 className="mad-slide text-xl md:text-4xl lg:text-4xl">
+                <strong>Sleep Apnea</strong>
+              </h3>
               <h2 className="font-bold text-5xl md:text-6xl lg:text-9xl">
                 M.A.D.
               </h2>
@@ -94,7 +97,7 @@ export default function Home() {
                 <h3 className="leaf-slide text-xl md:text-4xl lg:text-4xl">
                   <strong>Leaf Expander</strong>&reg; <span>Series</span>
                 </h3>
-                <br />
+
                 <h2 className="leaf-slide text-4xl md:text-6xl lg:text-9xl">
                   <strong>no home</strong>
                   <br />

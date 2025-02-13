@@ -1,48 +1,69 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+.ads {
+  color: var(--colore-primario);
 }
 
-.grid-item {
-  border: 3px solid var(--verde);
-  text-align: center;
-  aspect-ratio: 1 / 1; /* Ensures the grid items are square */
-  position: relative; /* Required for positioning the image inside */
+.colonia-container {
+  padding: 20px;
+  border: 1px solid gray;
 }
 
-.grid-item img {
+.prodotti {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.background-contenitore {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.prodotti .leaf {
+  font-size: 30px;
+  color: var(--colore-primario);
+  padding: 20px 0;
+}
+
+.background-contenitore video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute; /* Ensures the image covers the entire grid item */
-  top: 0;
-  left: 0;
 }
 
-.product-name {
-  text-decoration: underline;
+.background-contenitore .title {
+  position: absolute;
+  bottom: 40%;
+  font-size: calc(var(--unita-base) * 8);
+  font-weight: 400;
 }
 
-.product-image:hover,
-.product-name:hover {
-  cursor: pointer;
+.elenco {
+  margin-bottom: var(--margine);
 }
 
-@media (min-width: 1024px) {
-  .grid-container {
-    grid-template-columns: repeat(6, 1fr); /* Maximum 6 items per row */
+@media (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  .grid-cols-2 .grid {
+    grid-template-columns: 1fr;
+  }
+  /* Reduce title font size on mobile */
+  .background-contenitore .title {
+    font-size: calc(var(--unita-base) * 4);
   }
 }
 
-@media (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 480px) {
-  .grid-container {
-    grid-template-columns: 1fr; /* Full width on very small screens */
+  .grid-cols-2 .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Adjust title font size on tablet */
+  .background-contenitore .title {
+    font-size: calc(var(--unita-base) * 6);
   }
 }
