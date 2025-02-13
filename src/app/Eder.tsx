@@ -35,7 +35,7 @@ export default function Header() {
           </Link>
         </div>
         <nav className="nav-menu flex justify-between">
-          <ul className="md:flex hidden items-center space-x-4">
+          <ul className="xl:flex hidden items-center space-x-4">
             <li>
               <DropdownComponent options={options1} dropdownLabel="Company" />
             </li>
@@ -55,13 +55,13 @@ export default function Header() {
         </nav>
         {userId ? (
           <Link href="/personal-area">
-            <div className="hidden md:flex blue flex items-center">
+            <div className="hidden xl:flex blue flex items-center">
               Personal Area
             </div>
           </Link>
         ) : (
           <Link href="/login">
-            <div className="hidden md:flex blue flex items-center">
+            <div className="hidden xl:flex blue flex items-center">
               Register / Login
             </div>
           </Link>

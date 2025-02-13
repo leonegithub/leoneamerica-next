@@ -115,7 +115,8 @@ const LoginForm = () => {
           </div>
         </form>
         <p className="text-sm mb-2">
-          If you do not yet have a Leone account (essenza.leone.it, 3dleone.it),{" "}
+          If you do not yet have a Leone account (symposium.leone.it,
+          3dleone.it),{" "}
           <Link className="blue hover:underline" href={`/register`}>
             register now&nbsp;
           </Link>

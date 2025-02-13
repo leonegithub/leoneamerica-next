@@ -29,6 +29,10 @@ export const getOptions2 = () => {
       label: "Sleep Apnea",
       href: "/products/sleep-apnea",
     },
+    {
+      label: "3D Leone Designer",
+      href: "/products/3d-leone-designer",
+    },
   ];
 };
 

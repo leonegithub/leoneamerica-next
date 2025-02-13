@@ -22,6 +22,14 @@
   background-color: var(--colore-primario);
 }
 
+.grey {
+  color: var(--grigio);
+}
+
+.bg-grey {
+  background-color: var(--grigio);
+}
+
 body {
   font-family: neue-haas-grotesk-display !important;
   background-color: var(--colore-primario);
