@@ -1,5 +1,4 @@
 import Image from "next/image";
-import colonia from "./A0620 colonia.59.421.png";
 import dsc0310 from "./DSC_0310.jpg";
 import dsc0314 from "./DSC_0314.jpg";
 import dsc0327 from "./DSC_0327.jpg";
