@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 /* import Mad from "../../../../public/MAD.png";
 import MadTablet from "../../../../public/MadTablet.png";
 import MadMobile from "../../../../public/MADmobile.png"; */
@@ -52,9 +53,16 @@ export default function LeoneDesigner() {
               Selective Laser Melting, a high precision sintered framework and
               will be coupled perfectly with the chosen Leone CAD-CAM expander.
               The framework and the expander will be then permanently laser
-              welded. For further information on 3D Leone Designer software
-              visit web site www.leone.it/3dsoftware.
+              welded.
             </p>
+            <Link href={`https://www.3dleone.it`} target="_blank">
+              <button
+                type="button"
+                className="self-start my-4 text-white bg-blue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              >
+                More info
+              </button>
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className=" flex flex-col ">
