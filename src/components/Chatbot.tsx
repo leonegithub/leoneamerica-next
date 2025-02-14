@@ -240,7 +240,7 @@ const Chatbot = () => {
                 className="message-item"
               >
                 {message.user === "user" && (
-                  <span className={index === 0 ? `hidden` : `user`}>
+                  <span className={index === 0 ? `hidden-from-sight` : `user`}>
                     {parse(message.message)}
                   </span>
                 )}

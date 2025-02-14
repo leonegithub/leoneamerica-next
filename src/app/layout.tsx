@@ -43,8 +43,8 @@ export default function RootLayout({
         <AuthProvider>
           <SpeedInsights />
           <Header />
-          <main>{children}</main>
           {/* <Chatbot /> */}
+          <main>{children}</main>
           <Footer />
         </AuthProvider>
       </body>
