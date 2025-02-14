@@ -18,6 +18,10 @@
   color: var(--colore-primario);
 }
 
+.white {
+  color: var(--bianco);
+}
+
 .bg-blue {
   background-color: var(--colore-primario);
 }
