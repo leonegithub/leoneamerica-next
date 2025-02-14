@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-/* import Mad from "../../../../public/MAD.png";
-import MadTablet from "../../../../public/MadTablet.png";
+import Software from "../../../../public/Software.png";
+/* import MadTablet from "../../../../public/MadTablet.png";
 import MadMobile from "../../../../public/MADmobile.png"; */
 import imgA from "./Img_A_cb007d3ef2.bmp";
 import imgC from "./Img_C_b2bfe7f7fd.bmp";
@@ -13,17 +13,14 @@ export default function LeoneDesigner() {
   return (
     <div className="prodotti">
       <div className="background-contenitore mb-4">
-        {/*  <Image src={Mad} alt="mad"></Image> */}
-        <div className="container px-5 blue">
+        <Image src={Software} alt="mad"></Image>
+        <div className="container px-5 white">
           <div className=" absolute top-[25%] md:top-1/2  transform -translate-y-1/2">
-            <h3 className=" text-xl md:text-4xl lg:text-4xl">
-              <strong>Sleep Apnea</strong>
+            <h3 className=" text-xl md:text-4xl lg:text-5xl">
+              <strong>Software</strong>
             </h3>
-            <h2 className="font-bold text-5xl md:text-6xl lg:text-9xl">
-              M.A.D.
-            </h2>
-            <h3 className="text-xl md:text-5xl lg:text-6xl">
-              Anti snoring devices
+            <h3 className="text-xl font-bold md:text-5xl lg:text-7xl">
+              3DLeone Designer
             </h3>
           </div>
         </div>
@@ -55,7 +52,7 @@ export default function LeoneDesigner() {
               The framework and the expander will be then permanently laser
               welded.
             </p>
-            <Link href={`https://www.3dleone.it`} target="_blank">
+            <Link href={`https://www.3dleone.it/en`} target="_blank">
               <button
                 type="button"
                 className="self-start my-4 text-white bg-blue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -77,16 +74,16 @@ export default function LeoneDesigner() {
             <div className=" flex flex-col ">
               <Image
                 className="border"
-                src={largeSintex1}
-                alt="largeSintex1"
+                src={largeSintex2}
+                alt="largeSintex2"
               ></Image>
               <span className="blue pt-3 text-lg font-semibold">Testo</span>
             </div>
             <div className=" flex flex-col ">
               <Image
                 className="border"
-                src={largeSintex2}
-                alt="largeSintex2"
+                src={largeSintex1}
+                alt="largeSintex1"
               ></Image>
               <span className="blue pt-3 text-lg font-semibold">Testo</span>
             </div>
