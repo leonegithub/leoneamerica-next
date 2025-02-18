@@ -17,7 +17,7 @@ import {
 
 export default function Header() {
   const [show, setShow] = useState(false);
-  const { userId } = useAuth();
+  const { userId, userData } = useAuth();
 
   const options1 = getOptions1();
   const options2 = getOptions2();
@@ -56,7 +56,7 @@ export default function Header() {
         {userId ? (
           <Link href="/personal-area">
             <div className="hidden xl:flex blue flex items-center">
-              Personal Area
+              {userData && `${userData.Nome} ${userData.Cognome}`}
             </div>
           </Link>
         ) : (

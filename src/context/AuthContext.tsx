@@ -9,18 +9,28 @@ import {
   ReactNode,
 } from "react";
 
+interface User {
+  Nome: string;
+  Cognome: string;
+}
+
 interface AuthContextType {
   userId: string | null;
   setUserId: (id: string | null) => void;
+  userData: User | null;
+  setUserData: (data: User | null) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
   userId: null,
   setUserId: () => {},
+  userData: null,
+  setUserData: () => {},
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [userId, setUserId] = useState<string | null>(null);
+  const [userData, setUserData] = useState<User | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -29,7 +39,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ userId, setUserId }}>
+    <AuthContext.Provider value={{ userId, setUserId, userData, setUserData }}>
       {children}
     </AuthContext.Provider>
   );

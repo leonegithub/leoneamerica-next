@@ -8,7 +8,7 @@ import "./style.css";
 
 const PersonalArea = () => {
   const router = useRouter();
-  const { userId, setUserId } = useAuth();
+  const { userId, setUserId, setUserData } = useAuth();
   const [data, setData] = useState<User | null>(null);
   const tabs = ["Profile", "Downloads", "Shop", "Purchased"];
   const [activeTab, setActiveTab] = useState("Profile");
@@ -50,12 +50,13 @@ const PersonalArea = () => {
         .then((response) => response.json())
         .then((result) => {
           setData(result.ReturnedObject);
+          setUserData(result.ReturnedObject);
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     }
-  }, [userId, router]);
+  }, [userId, router, setUserData]);
 
   const handleLogout = () => {
     setUserId(null);
