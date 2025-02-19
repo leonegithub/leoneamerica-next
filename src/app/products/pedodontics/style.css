@@ -5,7 +5,7 @@
 }
 
 .grid-item {
-  border: 3px solid var(--verde);
+  border: 1px solid var(--verde);
   text-align: center;
   aspect-ratio: 1 / 1; /* Ensures the grid items are square */
   position: relative; /* Required for positioning the image inside */

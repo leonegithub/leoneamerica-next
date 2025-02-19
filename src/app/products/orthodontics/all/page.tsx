@@ -39,8 +39,8 @@ const Products = () => {
 
   return (
     <div className="container">
-      <h1 className="blue font-bold py-4">Products</h1>
-      <div className="grid-container">
+      <h1 className="blue font-bold my-5">Products</h1>
+      <div className="grid-container my-5">
         {isLoading ? (
           <div role="status">
             <svg

@@ -44,8 +44,8 @@ const Products = () => {
 
   return (
     <div className="container">
-      <h1 className="blue font-bold py-4">Pedodontics</h1>
-      <div className="grid-container">
+      <h1 className="blue font-bold mt-5">Pedodontics</h1>
+      <div className="grid-container py-5">
         {isLoading ? (
           <div role="status">
             <svg
