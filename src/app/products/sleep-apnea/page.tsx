@@ -50,7 +50,7 @@ export default function Prodotti() {
   };
   return (
     <div className="prodotti">
-      <div className="background-contenitore mb-4">
+      <div className="background-contenitore mb-5">
         <Image src={Mad} alt="mad"></Image>
         <div className="container px-5 blue">
           <div className=" absolute top-[25%] md:top-1/2  transform -translate-y-1/2">
@@ -67,9 +67,13 @@ export default function Prodotti() {
         </div>
       </div>
 
-      <div className="container mx-auto pt-5 pb-4">
+      <div className="prodotti container mx-auto pt-5 pb-4">
         <div className="grid grid-cols-2 gap-4">
           <div className=" flex flex-col ">
+            <h1 className="blue font-bold mb-2">
+              Ideal devices in patients who are roncopatic or have mild-moderate
+              OSA syndrome
+            </h1>
             <p>
               These intraoral nighttime appliances can treat snoring acting
               directly on the mechanism which is the main cause of it, pushing
