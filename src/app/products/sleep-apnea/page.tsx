@@ -45,7 +45,7 @@ export default function Prodotti() {
   const handleProductClick = (product: Product) => {
     sessionStorage.setItem("selectedProduct", JSON.stringify(product));
     router.push(
-      `/products/pedodontics/${product.nome.toLowerCase().replace(/\s+/g, "-")}`
+      `/products/sleep-apnea/${product.nome.toLowerCase().replace(/\s+/g, "-")}`
     );
   };
   return (
