@@ -6,7 +6,7 @@ import Image from "next/image";
 import Mad from "../../../../public/MAD.png";
 /* import MadTablet from "../../../../public/MadTablet.png";
 import MadMobile from "../../../../public/MADmobile.png"; */
-import dsc0310 from "./DSC_0310.jpg";
+import sleepApnea from "./sleep-apnea.png";
 /* import dsc0314 from "./DSC_0314.jpg";
 import dsc0327 from "./DSC_0327.jpg";
 import dsc0353 from "./DSC_0353.jpg"; */
@@ -67,37 +67,45 @@ export default function Prodotti() {
         </div>
       </div>
 
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto pt-5 pb-4">
         <div className="grid grid-cols-2 gap-4">
           <div className=" flex flex-col ">
             <p>
-              These intraoral nighttime appliances can treat snoring by acting
-              directly on the mechanism which is the cause of it, by pushing the
-              jaw forward. Mandibular repositioning pushes tongue forward and
-              keeps epiglottis apart from uvula, thus solving the vibration of
-              the soft tissues of the palate to the passage of air which creates
-              the snoring sound. mad appliances are also used for the treatment
-              of sleep apnea (osa) as they can solve the obstruction of rear
-              airway tissues by restoring breathing capacity during sleep.
+              These intraoral nighttime appliances can treat snoring acting
+              directly on the mechanism which is the main cause of it, pushing
+              the lower jaw in a forward position. Mandibular repositioning
+              pushes forward also the tongue and the epiglottis, spacing them
+              from the uvula, thus to solve soft tissues vibration during the
+              airflow, that is what produce the snore sound.
             </p>
             <p>
-              The American Academy of Dental Sleep Medicine reports that
-              bimaxillary appliances made in the laboratory are more effective
-              and, above all, allow a further gradual progress of 4-5 mm since
-              the first check bite registration. There exist several mad design
-              appliances worldwide used to treat snoring and obstructive sleep
-              apnea: we have decided to accomplish and improve the components
-              which are used for the most widely known appliances, thus having
-              better evidence of clinical and scientific efficacy. This is our
-              proposal in compliance with the requirements of any clinical
-              specialist: appliance efficiency, high safety standards, stability
-              and comfort for patient.
+              MAD appliances can be used for the treatment of sleep apnea (OSA)
+              since they can solve the rear airways obstruction by restoring
+              breathing capacity during sleeping time. The American Academy of
+              Dental Sleep Medicine claims that the most efficient appliances
+              are bi-maxillary type, custom-made by a dental lab and,
+              furthermore, they must allow an additional advancement over the
+              construction bite position, about 4-5 mm.
+            </p>
+            <p>
+              There are all over the world, many different type of MAD
+              appliances to treat snoring syndrome and sleep apnea: we have
+              decided to accomplish, and improve, the elements for the
+              realization of the most widely used appliances according even with
+              the clinical and scientific proven efficiency.{" "}
+            </p>
+            <p>
+              This is our proposal based on the requirements of any clinical
+              specialist:{" "}
+              <strong>
+                appliance efficiency, high safety standards and stability and
+                comfort for the patient.
+              </strong>
             </p>
           </div>
 
           <div className="flex flex-col">
-            <Image className="border w-full" src={dsc0310} alt="dsc0310" />
-            <span className="blue pt-3 text-lg font-semibold">Testo</span>
+            <Image className="border w-full" src={sleepApnea} alt="dsc0310" />
           </div>
           {/*   <div className="grid grid-cols-2 gap-4">
             <div className=" flex flex-col ">
