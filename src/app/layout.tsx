@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/context/AuthContext";
+import { Analytics } from "@vercel/analytics/react";
 /* import Chatbot from "../components/Chatbot"; */
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function RootLayout({
         ></link>
       </head>
       <body>
+        <Analytics />
         <AuthProvider>
           <SpeedInsights />
           <Header />
