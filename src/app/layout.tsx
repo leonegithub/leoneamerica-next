@@ -1,3 +1,4 @@
+import Script from "next/script";
 import Header from "./Eder";
 import Footer from "./Footer";
 import type { Metadata } from "next";
@@ -41,6 +42,10 @@ export default function RootLayout({
         ></link>
       </head>
       <body>
+        <Script
+          src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"
+          strategy="beforeInteractive"
+        />
         <Analytics />
         <AuthProvider>
           <SpeedInsights />

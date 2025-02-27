@@ -1,0 +1,7 @@
+.featured-container {
+  border: 1px solid gainsboro;
+}
+
+.prodotti .grid {
+  gap: calc(var(--unita-base) * 6);
+}
