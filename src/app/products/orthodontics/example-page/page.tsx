@@ -1,6 +1,5 @@
 import Gallery from "@/components/gallery";
 import Tabella from "./rpe-tads-tab.png";
-import TadsFeatured from "./0000-RPEforTADs-header.png";
 import TadsFocus1 from "./rpe-tads-1.png";
 import TadsFocus2 from "./rpe-tads-2.png";
 import TadsFocus3 from "./rpe-tads-3.png";
