@@ -1,8 +1,8 @@
 import Gallery from "@/components/gallery";
-import Tabella from "./rpe-tads-tab.png";
-import TadsFocus1 from "./rpe-tads-1.png";
-import TadsFocus2 from "./rpe-tads-2.png";
-import TadsFocus3 from "./rpe-tads-3.png";
+import Tabella from "./twin-wing_tabella.png";
+import TadsFocus1 from "./0000-TwinWingclassIIcorrector-header.png";
+import TadsFocus2 from "./0000-TwinWingclassIIcorrector-focus.png";
+import TadsFocus3 from "./twin-wing_2.png";
 import Popup from "@/components/popup";
 import Image from "next/image";
 
@@ -12,36 +12,49 @@ export default async function ExamplePage() {
       <div className="prodotti container mx-auto pt-5 pb-4">
         <div className="grid grid-cols-2">
           <div className="left flex flex-col">
-            <h1 className="blue font-bold">RPE for TADs</h1>
+            <h1 className="blue font-bold">Twin Wing class II corrector</h1>
             <div className="py-2">
               <p>
-                Thanks to almost 90 years of experience in the RPE mechanical
-                manufacturing and the forefront attention to the latest
-                technological and clinical innovations recently adopted for the
-                Maxillary expansion, Leone is proud to launch the new
-                Strengthened RPE for TADs. Along with 4 TADs attachments and a
-                dedicated Swivel Key allows the construction of customized both
-                Hybrid (teeth and Minimplants) and full Bone Borne RPEs.
+                Thanks to our experience gained with MAD appliance and based on
+                the fundaments of the most widely used orthodontic appliance for
+                the treatment of Class II patients with mandibular retraction,
+                we have miniaturized and reengineered the Forward! to
+                manufacture the Twin Wing.
               </p>
               <p>
-                It features two posterior arms and, in the package, four TAD
-                attachments are included that can be adapted to the patient’s
-                anatomy and welded by the lab on the body of the screw.
+                The kit, especially designed for the realization of this
+                innovative appliance, contains all the components for an easier
+                and more precise construction.
               </p>
               <p>
-                The strengthened expander ensures high resistance and
-                reliability throughout all the therapy.
+                The appliance, thanks to the 70° inclination between the upper
+                screws and the lower wings, scientifically and clinically proven
+                as the most efficient for the stimulation of the mandibular
+                growth, allows the millimetric advancement of the lower jaw.
               </p>
               <p>
                 Thanks to the adaptable TADs attachments, it is possible to
                 highly customize the RPE on each patient anatomy, both in
                 TADs-first and TADs-last approach. Therefore, it can be achieved
-                an optimized expansion load distribution on the TADs.
+                an optimized expansion load distribution on the TADs. Moreover,
+                in case of deep bite, since the occlusal surface can be kept
+                free from the presence of block, it is possible to exclude some
+                teeth from the contact with the acrylic, promoting a guided
+                extrusion and consequently the resolution of vertical problems.
               </p>
               <p>
-                Available dedicated pliers for TADs attachments customization.
+                The kit for the construction of 1 appliance is made up of:{" "}
+                <br /> 2 upper screws, 1 right and 1 left <br /> 2 lower wings
+                with steel frame, 1 right and 1 left
               </p>
-              <ul className="list-disc list-inside blue">
+              <p>
+                <ul className="list-disc list-inside blue">
+                  <li>
+                    <strong>A0840-05</strong>&nbsp; 1 appliance
+                  </li>
+                </ul>
+              </p>
+              {/* <ul className="list-disc list-inside">
                 <li>
                   <strong>REF 201A0620-08</strong>&nbsp;PALATAL expander 8 mm
                   FOR TADS
@@ -54,7 +67,7 @@ export default async function ExamplePage() {
                   <strong>REF P0201-00</strong>&nbsp;bending instruments for
                   tads attachment
                 </li>
-              </ul>
+              </ul> */}
             </div>
             <div className="flex">
               <Popup
@@ -62,7 +75,7 @@ export default async function ExamplePage() {
                 modalId="modal-image"
                 media={<Image src={Tabella} alt={`prodotto-${Tabella}`} />}
               />
-              <Popup
+              {/* <Popup
                 testo="Watch the video"
                 modalId="modal-video"
                 media={
@@ -85,7 +98,7 @@ export default async function ExamplePage() {
                     </div>
                   </>
                 }
-              />
+              /> */}
             </div>
           </div>
           <div className="flex flex-col">
