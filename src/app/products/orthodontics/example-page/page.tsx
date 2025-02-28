@@ -12,7 +12,7 @@ export default async function ExamplePage() {
       <div className="prodotti container mx-auto pt-5 pb-4">
         <div className="grid grid-cols-2">
           <div className="left flex flex-col">
-            <h1 className="blue font-bold mb-2">RPE for TADs</h1>
+            <h1 className="blue font-bold">RPE for TADs</h1>
             <div className="py-2">
               <p>
                 Thanks to almost 90 years of experience in the RPE mechanical
