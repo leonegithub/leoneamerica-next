@@ -47,13 +47,11 @@ export default async function ExamplePage() {
                 <br /> 2 upper screws, 1 right and 1 left <br /> 2 lower wings
                 with steel frame, 1 right and 1 left
               </p>
-              <p>
-                <ul className="list-disc list-inside blue">
-                  <li>
-                    <strong>A0840-05</strong>&nbsp; 1 appliance
-                  </li>
-                </ul>
-              </p>
+              <ul className="list-disc list-inside blue">
+                <li className="text-lg">
+                  <strong>A0840-05</strong>&nbsp; 1 appliance
+                </li>
+              </ul>
               {/* <ul className="list-disc list-inside">
                 <li>
                   <strong>REF 201A0620-08</strong>&nbsp;PALATAL expander 8 mm
