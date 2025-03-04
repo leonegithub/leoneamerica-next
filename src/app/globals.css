@@ -18,6 +18,10 @@
   color: var(--colore-primario);
 }
 
+.green {
+  color: var(--verde);
+}
+
 .white {
   color: var(--bianco);
 }

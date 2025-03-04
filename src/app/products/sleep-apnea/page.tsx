@@ -52,7 +52,7 @@ export default function Prodotti() {
     <div className="prodotti">
       <div className="background-contenitore mb-5">
         <Image src={Mad} alt="mad"></Image>
-        <div className="container px-5 blue">
+        <div className="container blue">
           <div className=" absolute top-[25%] md:top-1/2  transform -translate-y-1/2">
             <h3 className=" text-xl md:text-4xl lg:text-4xl">
               <strong>Sleep Apnea</strong>
