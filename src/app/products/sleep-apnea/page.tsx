@@ -109,7 +109,11 @@ export default function Prodotti() {
           </div>
 
           <div className="flex flex-col">
-            <Image className="border w-full" src={sleepApnea} alt="dsc0310" />
+            <Image
+              className="border w-full p-5"
+              src={sleepApnea}
+              alt="dsc0310"
+            />
           </div>
           {/*   <div className="grid grid-cols-2 gap-4">
             <div className=" flex flex-col ">

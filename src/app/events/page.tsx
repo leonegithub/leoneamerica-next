@@ -8,6 +8,7 @@ import standTablet from "./standTablet.png";
 import standDesktop from "./standDesktop.png";
 import standMobile from "./standMobile.png";
 import "./style.css";
+import DefaultButton from "@/components/defaultButton";
 
 const Events = () => {
   interface Event {
@@ -82,28 +83,30 @@ const Events = () => {
             </div>
           </div>
         ) : (
-          data?.map((event) => (
-            <div key={event.id} className="event flex align-items-center">
-              <Image
-                width={200}
-                height={100}
-                src={`https://php.leone.it${event.thumb}`}
-                alt={event.nome}
-              />
-              <div className="event-container ps-4">
-                <h2 className="event-name">{event.nome}</h2>
-                <p className="event-date">{parse(event.data_visualizzata)}</p>
-                <p className="event-location">{parse(event.location)}</p>
-                {event.link1 && (
-                  <p className="event-details">
-                    <Link href={event.link1} target="_blank">
-                      {event.testo_link1}
-                    </Link>
-                  </p>
-                )}
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            {data?.map((event) => (
+              <div key={event.id} className="event mb-5 align-items-center">
+                <Image
+                  width={450}
+                  height={450}
+                  src={`https://php.leone.it${event.thumb}`}
+                  alt={event.nome}
+                />
+                <div className="event-container">
+                  <h2 className="event-name pt-3">{event.nome}</h2>
+                  <p className="event-date">{parse(event.data_visualizzata)}</p>
+                  <p className="event-location">{parse(event.location)}</p>
+                  {event.link1 && (
+                    <p className="event-details py-2">
+                      <Link href={event.link1} target="_blank">
+                        <DefaultButton testo={event.testo_link1 || ""} />
+                      </Link>
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))
+            ))}
+          </div>
         )}
       </div>
     </>
