@@ -7,14 +7,13 @@ import { Carousel } from "react-bootstrap";
 import miniPOP1 from "./Mini POP 1 - sito leoneamerica.png";
 import miniPOP2 from "./Mini POP 2 - sito leoneamerica.png";
 import miniPOP3 from "./Mini POP 3 - sito leoneamerica.png";
-/* import miniPOP4 from "./Mini POP 4 - leoneamerica2.png"; */
 import POP1 from "./POP 1 - sito leoneamerica.png";
 import POP2 from "./POP 2 - sito leoneamerica.png";
 import POP3 from "./POP 3 - sito leoneamerica.png";
 import POP4 from "./POP 4 - sito leoneamerica.png";
 import "./style.css";
 
-export default function familyExample() {
+export default function FamilyExample() {
   interface Product {
     id: string;
     nome: string;
