@@ -58,7 +58,32 @@ export default async function ExamplePage() {
               <p>Available in 6 colors.</p>
               <ul className="list-disc list-inside blue">
                 <li className="text-lg">
-                  <strong>A4801-00G</strong>&nbsp; 1 appliance
+                  <strong>A4801-00A</strong>&nbsp; POP SCREWS BLUE MICRO
+                  MONOLATERAL 7 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4801-00E</strong>&nbsp; POP SCREWS ORANGE MICRO
+                  MONOLATERAL 7 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4801-00G</strong>&nbsp; POP SCREWS YELLOW MICRO
+                  MONOLATERAL 7 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4801-00R</strong>&nbsp; POP SCREWS RED MICRO
+                  MONOLATERAL 7 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4801-00T</strong>&nbsp; POP SCREWS SILVER MICRO
+                  MONOLATERAL 7 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4801-00V</strong>&nbsp; POP SCREWS GREEN MICRO
+                  MONOLATERAL 7 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4801-90</strong>&nbsp; POP SCREW MICRO MONOLATERAL 7
+                  mm MIXED COLORS 10 pcs
                 </li>
               </ul>
               {/* <ul className="list-disc list-inside">

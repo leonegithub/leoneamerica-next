@@ -56,7 +56,52 @@ export default async function ExamplePage() {
               </p>
               <ul className="list-disc list-inside blue">
                 <li className="text-lg">
-                  <strong>A0840-05</strong>&nbsp; 1 appliance
+                  <strong>A4805-14A</strong>&nbsp; POP SCREWS BLUE X UPPER EXP.
+                  9 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4805-14E</strong>&nbsp; POP SCREWS ORANGE X UPPER
+                  EXP. 9 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4805-14G</strong>&nbsp; POP SCREWS YELLOW X UPPER
+                  EXP. 9 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4805-14R</strong>&nbsp; POP SCREWS RED X UPPER EXP. 9
+                  mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4805-14T</strong>&nbsp; POP SCREWS SILVER X UPPER
+                  EXP. 9 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4805-14V</strong>&nbsp; POP SCREWS GREEN X UPPER EXP.
+                  9 mm 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4800-12A</strong>&nbsp; POP SCREW UNIV EXP. 8mm BLUE
+                  10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4800-12E</strong>&nbsp; POP SCREW UNIV EXP. 8mm
+                  ORANGE 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4800-12G</strong>&nbsp; POP SCREW UNIV EXP. 8mm
+                  YELLOW 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4800-12R</strong>&nbsp; POP SCREW UNIV EXP. 8mm RED
+                  10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4800-12T</strong>&nbsp; POP SCREW UNIV EXP. 8mm
+                  SILVER 10 pcs
+                </li>
+                <li className="text-lg">
+                  <strong>A4800-12V</strong>&nbsp; POP SCREW UNIV EXP. 8mm GREEN
+                  10 pcs
                 </li>
               </ul>
               {/* <ul className="list-disc list-inside">
