@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+/* import { useRouter } from "next/navigation"; */
+import { useState /* useEffect */ } from "react";
 import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import miniPOP1 from "./Mini POP 1 - sito leoneamerica.png";
@@ -17,17 +17,17 @@ import "./style.css";
 import Link from "next/link";
 
 export default function FamilyExample() {
-  interface Product {
+  /*  interface Product {
     id: string;
     nome: string;
     immagine_focus: string;
     tag: string[];
-  }
+  } */
   /* const [data, setData] = useState<Product[] | null>(null); */
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading] = useState<boolean>(true);
   /* const router = useRouter(); */
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetch("https://php.leone.it/api/GetProdottiWeb.php", {
       cache: "no-store",
       method: "GET",
@@ -38,10 +38,10 @@ export default function FamilyExample() {
     })
       .then((response) => response.json())
       .then((data) => {
-        /* setData(data.ReturnedObject); */
+        setData(data.ReturnedObject);
         setIsLoading(false);
       });
-  }, []);
+  }, []); */
 
   // filtering through pedodontic data
   /* const filteredData = data?.filter((el) => el.tag.includes("sleep apnea")); */
