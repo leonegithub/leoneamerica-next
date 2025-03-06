@@ -23,9 +23,9 @@ export default function FamilyExample() {
     immagine_focus: string;
     tag: string[];
   }
-  const [data, setData] = useState<Product[] | null>(null);
+  /* const [data, setData] = useState<Product[] | null>(null); */
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const router = useRouter();
+  /* const router = useRouter(); */
 
   useEffect(() => {
     fetch("https://php.leone.it/api/GetProdottiWeb.php", {
@@ -38,7 +38,7 @@ export default function FamilyExample() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setData(data.ReturnedObject);
+        /* setData(data.ReturnedObject); */
         setIsLoading(false);
       });
   }, []);
