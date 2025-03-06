@@ -1,7 +1,7 @@
 "use client";
-
-/* import { useRouter } from "next/navigation"; */
-import { useState /* useEffect */ } from "react";
+/* 
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react"; */
 import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import miniPOP1 from "./Mini POP 1 - sito leoneamerica.png";
@@ -17,17 +17,17 @@ import "./style.css";
 import Link from "next/link";
 
 export default function FamilyExample() {
-  /*  interface Product {
+  /* interface Product {
     id: string;
     nome: string;
     immagine_focus: string;
     tag: string[];
-  } */
-  /* const [data, setData] = useState<Product[] | null>(null); */
-  const [isLoading] = useState<boolean>(true);
-  /* const router = useRouter(); */
+  }
+  const [data, setData] = useState<Product[] | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const router = useRouter();
 
-  /* useEffect(() => {
+  useEffect(() => {
     fetch("https://php.leone.it/api/GetProdottiWeb.php", {
       cache: "no-store",
       method: "GET",
@@ -41,12 +41,12 @@ export default function FamilyExample() {
         setData(data.ReturnedObject);
         setIsLoading(false);
       });
-  }, []); */
+  }, []);
 
   // filtering through pedodontic data
-  /* const filteredData = data?.filter((el) => el.tag.includes("sleep apnea")); */
+  const filteredData = data?.filter((el) => el.tag.includes("sleep apnea"));
 
-  /*  const handleProductClick = (product: Product) => {
+   const handleProductClick = (product: Product) => {
     sessionStorage.setItem("selectedProduct", JSON.stringify(product));
     router.push(
       `/products/sleep-apnea/${product.nome.toLowerCase().replace(/\s+/g, "-")}`
@@ -231,7 +231,7 @@ export default function FamilyExample() {
         </div>
         <h1 className="blue font-bold sleep-h1">Related products</h1>
         <div className="grid-container my-5">
-          {isLoading ? (
+          {/*    {isLoading ? (
             <div role="status">
               <svg
                 aria-hidden="true"
@@ -251,46 +251,44 @@ export default function FamilyExample() {
               </svg>
               <span className="sr-only">Loading...</span>
             </div>
-          ) : (
-            <>
-              <Link
-                href={`http://localhost:3000/products/orthodontics/example-page3`}
-                target="_blank"
-              >
-                <div className="grid-item-wrapper">
-                  <div className="grid-item">
-                    <Image
-                      width={1920}
-                      height={1080}
-                      src={popEsempio2}
-                      alt={"pop-esempio2"}
-                      className="product-image"
-                    />
-                  </div>
-                  <p className="product-name text-center">
-                    POP® Screw Universal
-                  </p>
+          ) : ( */}
+          <>
+            <Link
+              href={`http://localhost:3000/products/orthodontics/example-page3`}
+              target="_blank"
+            >
+              <div className="grid-item-wrapper">
+                <div className="grid-item">
+                  <Image
+                    width={1920}
+                    height={1080}
+                    src={popEsempio2}
+                    alt={"pop-esempio2"}
+                    className="product-image"
+                  />
                 </div>
-              </Link>
-              <Link
-                href={`http://localhost:3000/products/orthodontics/example-page4`}
-                target="_blank"
-              >
-                <div className="grid-item-wrapper">
-                  <div className="grid-item">
-                    <Image
-                      width={1920}
-                      height={1080}
-                      src={popEsempio1}
-                      alt={"pop-esempio1"}
-                      className="product-image"
-                    />
-                  </div>
-                  <p className="product-name text-center">POP® MICRO</p>
+                <p className="product-name text-center">POP® Screw Universal</p>
+              </div>
+            </Link>
+            <Link
+              href={`http://localhost:3000/products/orthodontics/example-page4`}
+              target="_blank"
+            >
+              <div className="grid-item-wrapper">
+                <div className="grid-item">
+                  <Image
+                    width={1920}
+                    height={1080}
+                    src={popEsempio1}
+                    alt={"pop-esempio1"}
+                    className="product-image"
+                  />
                 </div>
-              </Link>
-            </>
-          )}
+                <p className="product-name text-center">POP® MICRO</p>
+              </div>
+            </Link>
+          </>
+          {/*   )} */}
         </div>
       </div>
     </div>
