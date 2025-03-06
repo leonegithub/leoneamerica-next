@@ -11,7 +11,10 @@ import POP1 from "./POP 1 - sito leoneamerica.png";
 import POP2 from "./POP 2 - sito leoneamerica.png";
 import POP3 from "./POP 3 - sito leoneamerica.png";
 import POP4 from "./POP 4 - sito leoneamerica.png";
+import popEsempio1 from "./pop_1.ae41d6d4.png";
+import popEsempio2 from "./pop_2.9a8851a3.png";
 import "./style.css";
+import Link from "next/link";
 
 export default function FamilyExample() {
   interface Product {
@@ -249,28 +252,44 @@ export default function FamilyExample() {
               <span className="sr-only">Loading...</span>
             </div>
           ) : (
-            filteredData?.map((product, index) => (
-              <div key={index} className="grid-item-wrapper">
-                <div
-                  className="grid-item"
-                  onClick={() => handleProductClick(product)}
-                >
-                  <Image
-                    width={1920}
-                    height={1080}
-                    src={`https://php.leone.it${product.immagine_focus}`}
-                    alt={product.nome}
-                    className="product-image"
-                  />
+            <>
+              <Link
+                href={`http://localhost:3000/products/orthodontics/example-page3`}
+                target="_blank"
+              >
+                <div className="grid-item-wrapper">
+                  <div className="grid-item">
+                    <Image
+                      width={1920}
+                      height={1080}
+                      src={popEsempio1}
+                      alt={"pop-esempio1"}
+                      className="product-image"
+                    />
+                  </div>
+                  <p className="product-name text-center">
+                    POP® Screw Universal
+                  </p>
                 </div>
-                <p
-                  onClick={() => handleProductClick(product)}
-                  className="product-name text-center"
-                >
-                  {product.nome}
-                </p>
-              </div>
-            ))
+              </Link>
+              <Link
+                href={`http://localhost:3000/products/orthodontics/example-page4`}
+                target="_blank"
+              >
+                <div className="grid-item-wrapper">
+                  <div className="grid-item">
+                    <Image
+                      width={1920}
+                      height={1080}
+                      src={popEsempio2}
+                      alt={"pop-esempio2"}
+                      className="product-image"
+                    />
+                  </div>
+                  <p className="product-name text-center">POP® MICRO</p>
+                </div>
+              </Link>
+            </>
           )}
         </div>
       </div>
