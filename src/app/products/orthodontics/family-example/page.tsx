@@ -44,14 +44,14 @@ export default function FamilyExample() {
   }, []);
 
   // filtering through pedodontic data
-  const filteredData = data?.filter((el) => el.tag.includes("sleep apnea"));
+  /* const filteredData = data?.filter((el) => el.tag.includes("sleep apnea")); */
 
-  const handleProductClick = (product: Product) => {
+  /*  const handleProductClick = (product: Product) => {
     sessionStorage.setItem("selectedProduct", JSON.stringify(product));
     router.push(
       `/products/sleep-apnea/${product.nome.toLowerCase().replace(/\s+/g, "-")}`
     );
-  };
+  }; */
   return (
     <div className="prodotti">
       <div className="background-contenitore mb-5">
@@ -262,8 +262,8 @@ export default function FamilyExample() {
                     <Image
                       width={1920}
                       height={1080}
-                      src={popEsempio1}
-                      alt={"pop-esempio1"}
+                      src={popEsempio2}
+                      alt={"pop-esempio2"}
                       className="product-image"
                     />
                   </div>
@@ -281,8 +281,8 @@ export default function FamilyExample() {
                     <Image
                       width={1920}
                       height={1080}
-                      src={popEsempio2}
-                      alt={"pop-esempio2"}
+                      src={popEsempio1}
+                      alt={"pop-esempio1"}
                       className="product-image"
                     />
                   </div>
