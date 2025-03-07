@@ -43,24 +43,21 @@ export default function Popup({ modalId, testo, video }: PopupProps) {
               </button>
             </div>
             {/* Modal body */}
-            {video && video.links_video.length > 0 ? (
-              <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-                <iframe
-                  src={`https://player.vimeo.com/video/${video.links_video[0]}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                  }}
-                  title="Product Video"
-                />
-              </div>
-            ) : (
-              <p>No video available</p>
-            )}
+
+            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+              <iframe
+                src={`https://player.vimeo.com/video/${video?.links_video[0]}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+                title="Product Video"
+              />
+            </div>
           </div>
         </div>
       </div>

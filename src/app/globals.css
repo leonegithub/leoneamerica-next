@@ -54,8 +54,12 @@ h1 {
   font-size: calc(var(--unita-base) * 3);
 }
 
-p {
+p,
+ul {
   font-size: 18px;
+}
+
+p {
   margin: 1em 0;
 }
 
