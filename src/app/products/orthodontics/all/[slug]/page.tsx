@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import parse from "html-react-parser";
-import Image from "next/image";
 import { useRouter, useParams } from "next/navigation";
 import "./style.css";
+import Popup from "@/components/popup";
+import Gallery from "@/components/gallery";
 
 export default function Pop() {
   const router = useRouter();
@@ -12,9 +13,23 @@ export default function Pop() {
   interface Product {
     id: string;
     nome: string;
-    immagine_focus: string;
     descrizione: string;
-    immagine_header: string;
+    immagini: {
+      header: string;
+      immagine_1: string;
+      immagine_2: string;
+      immagine_3: string;
+      immagine_4: string;
+      immagine_5: string;
+      immagine_6: string;
+      immagine_7: string;
+      immagine_8: string;
+    };
+    listino: {
+      codici: string[];
+    };
+    progetto: string;
+    video: string;
   }
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -54,34 +69,46 @@ export default function Pop() {
   }
 
   return (
-    <div className="contenitore-pop d-flex flex-column align-items-center">
-      <div className="container-fluid pop row">
-        <div className="left col-12 col-lg-6">
-          <h1 className="pop-title">
-            <span>{product.nome}</span>
-          </h1>
-        </div>
-        <div className="right col-12 col-lg-6">
-          <Image
-            src={`https://php.leone.it${product.immagine_header}`}
-            alt={product.nome}
-            width={500}
-            height={500}
-          />
-        </div>
-      </div>
-      <div className="container-fluid pop row">
-        <div className="left col-12 col-lg-6 ">
-          <p className="text">{parse(product.descrizione)}</p>
-        </div>
-        <div className="right col-12 col-lg-6">
-          <Image
-            className="desc"
-            src={`https://php.leone.it${product.immagine_focus}`}
-            alt="desc"
-            width={500}
-            height={500}
-          />
+    <div>
+      <div className="prodotti container mx-auto pt-5 pb-4">
+        <div className="grid grid-cols-2">
+          <div className="left flex flex-col">
+            <h1 className="blue font-bold">{product?.nome}</h1>
+            <div className="py-2">
+              {parse(product?.descrizione || "")}
+              <ul className="list-disc list-inside blue">
+                {product?.listino.codici.map((codice, index) => (
+                  <li key={index} className="text-lg">
+                    <strong>{codice}</strong>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex">
+              {product.video !== "" && (
+                <Popup
+                  testo="Watch the video"
+                  modalId="modal-video"
+                  video={product?.video}
+                />
+              )}
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <Gallery
+              featured={product?.immagini.immagine_1 ?? ""}
+              images={[
+                product?.immagini.immagine_1,
+                product?.immagini.immagine_2,
+                product?.immagini.immagine_3,
+                product?.immagini.immagine_4,
+                product?.immagini.immagine_5,
+                product?.immagini.immagine_6,
+                product?.immagini.immagine_7,
+                product?.immagini.immagine_8,
+              ]}
+            />
+          </div>
         </div>
       </div>
     </div>

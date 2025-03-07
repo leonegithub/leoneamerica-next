@@ -5,13 +5,14 @@ import "./gallery.css";
 import { useState } from "react";
 
 interface GalleryProps {
-  featured: StaticImageData;
-  images: StaticImageData[];
-  titles: string[];
+  featured: StaticImageData | string;
+  images: (StaticImageData | string)[];
 }
 
-export default function Gallery({ featured, images, titles }: GalleryProps) {
+export default function Gallery({ featured, images }: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState(featured);
+
+  const validImages = images.filter((image) => image !== null && image !== "");
 
   return (
     <div className="grid gap-4">
@@ -24,22 +25,22 @@ export default function Gallery({ featured, images, titles }: GalleryProps) {
           alt={`image ${selectedImage}`}
         />
       </div>
-      <div className="grid grid-cols-3 gap-4">
-        {Array.isArray(images) &&
-          images.map((image, index) => (
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => setSelectedImage(image)}
-              key={index}
-            >
-              <Image
-                className="h-auto p-2 max-w-full rounded-lg"
-                src={image}
-                alt={`img-element ${index}`}
-              />
-              <p className="blue underline">{titles[index]}</p>
-            </div>
-          ))}
+      <div className="grid grid-cols-8 gap-4">
+        {validImages.map((image, index) => (
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => setSelectedImage(image)}
+            key={index}
+          >
+            <Image
+              height={500}
+              width={500}
+              className="h-auto p-2 max-w-full rounded-lg"
+              src={image ?? null}
+              alt={`img-element ${index}`}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

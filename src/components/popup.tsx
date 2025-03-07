@@ -1,12 +1,17 @@
 import React from "react";
 
 interface PopupProps {
-  media: React.ReactNode;
+  /* media: React.ReactNode; */
   modalId: string;
   testo: string;
+  video?: string;
 }
 
-export default function Popup({ media, modalId, testo }: PopupProps) {
+export default function Popup({
+  /* media, */ modalId,
+  testo,
+  video,
+}: PopupProps) {
   return (
     <>
       {/* Modal toggle */}
@@ -42,7 +47,24 @@ export default function Popup({ media, modalId, testo }: PopupProps) {
               </button>
             </div>
             {/* Modal body */}
-            {media}
+            {/* {video ? ( */}
+            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+              <iframe
+                src={video}
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+                title="Product Video"
+              />
+            </div>
+            {/*  ) : (
+              media
+            )} */}
             {/* <img src={tabella} alt={`foto-${tabella}`} /> */}
           </div>
         </div>

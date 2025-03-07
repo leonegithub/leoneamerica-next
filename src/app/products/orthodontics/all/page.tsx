@@ -9,7 +9,17 @@ const Products = () => {
   interface Product {
     id: string;
     nome: string;
-    immagine_focus: string;
+    immagini: {
+      header: string;
+      immagine_1: string;
+      immagine_2: string;
+      immagine_3: string;
+      immagine_4: string;
+      immagine_5: string;
+      immagine_6: string;
+      immagine_7: string;
+      immagine_8: string;
+    };
   }
   const [data, setData] = useState<Product[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -71,7 +81,7 @@ const Products = () => {
                 <Image
                   width={1920}
                   height={1080}
-                  src={`https://php.leone.it${product.immagine_focus}`}
+                  src={product.immagini.immagine_1}
                   alt={product.nome}
                   className="product-image"
                 />
