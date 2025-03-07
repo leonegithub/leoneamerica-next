@@ -6,6 +6,8 @@ import { useRouter, useParams } from "next/navigation";
 import "./style.css";
 import Popup from "@/components/popup";
 import Gallery from "@/components/gallery";
+import DefaultButton from "@/components/defaultButton";
+import Link from "next/link";
 
 export default function Pop() {
   const router = useRouter();
@@ -28,8 +30,17 @@ export default function Pop() {
     listino: {
       codici: string[];
     };
+    codice: string;
     progetto: string;
-    video: string;
+    casi_clinici: {
+      links_casi_clinici: string[];
+    };
+    video: {
+      links_video: string[];
+    };
+    link: {
+      links_approfondimento: string[];
+    };
   }
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -77,21 +88,42 @@ export default function Pop() {
             <div className="py-2">
               {parse(product?.descrizione || "")}
               <ul className="list-disc list-inside blue">
-                {product?.listino.codici.map((codice, index) => (
-                  <li key={index} className="text-lg">
-                    <strong>{codice}</strong>
-                  </li>
-                ))}
+                {product.listino.codici[0] !== "" &&
+                  product.listino.codici.map((codice, index) => (
+                    <li key={index} className="text-lg">
+                      <strong>{codice}</strong>
+                    </li>
+                  ))}
               </ul>
             </div>
-            <div className="flex">
-              {product.video !== "" && (
-                <Popup
-                  testo="Watch the video"
-                  modalId="modal-video"
-                  video={product?.video}
-                />
-              )}
+            <div className="flex items-center">
+              <div className="mb-2">
+                {product.video.links_video.length > 0 && (
+                  <Popup
+                    testo="Watch the video"
+                    modalId="modal-video"
+                    video={product?.video}
+                  />
+                )}
+              </div>
+              <div className="py-3">
+                {product.casi_clinici.links_casi_clinici.length > 0 && (
+                  <Link
+                    href={product.casi_clinici.links_casi_clinici[0]}
+                    target="_blank"
+                  >
+                    <DefaultButton testo="Clinical cases" />
+                  </Link>
+                )}
+                {product.link.links_approfondimento.length > 0 && (
+                  <Link
+                    href={product.link.links_approfondimento[0]}
+                    target="_blank"
+                  >
+                    <DefaultButton testo="More info" />
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
           <div className="flex flex-col">

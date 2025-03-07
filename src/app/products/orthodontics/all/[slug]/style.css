@@ -50,6 +50,12 @@
     margin-bottom: calc(var(--unita-base) * 5);
   }
 }
+
+.prodotti a {
+  color: var(--colore-primario);
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1024px) {
   .pop {
     padding: 20px;

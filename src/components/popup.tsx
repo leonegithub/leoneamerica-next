@@ -4,21 +4,17 @@ interface PopupProps {
   /* media: React.ReactNode; */
   modalId: string;
   testo: string;
-  video?: string;
+  video?: { links_video: string[] };
 }
 
-export default function Popup({
-  /* media, */ modalId,
-  testo,
-  video,
-}: PopupProps) {
+export default function Popup({ modalId, testo, video }: PopupProps) {
   return (
     <>
       {/* Modal toggle */}
       <button
         data-modal-target={modalId}
         data-modal-toggle={modalId}
-        className="self-start me-3 flex my-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="self-start me-2 flex my-3 text-white bg-blue hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
       >
         {testo}
@@ -47,25 +43,24 @@ export default function Popup({
               </button>
             </div>
             {/* Modal body */}
-            {/* {video ? ( */}
-            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-              <iframe
-                src={video}
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
-                title="Product Video"
-              />
-            </div>
-            {/*  ) : (
-              media
-            )} */}
-            {/* <img src={tabella} alt={`foto-${tabella}`} /> */}
+            {video && video.links_video.length > 0 ? (
+              <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                <iframe
+                  src={`https://player.vimeo.com/video/${video.links_video[0]}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  title="Product Video"
+                />
+              </div>
+            ) : (
+              <p>No video available</p>
+            )}
           </div>
         </div>
       </div>
