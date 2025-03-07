@@ -253,7 +253,7 @@ export default function FamilyExample() {
             </div>
           ) : ( */}
           <>
-            <Link href={`/products/orthodontics/example-page3`} target="_blank">
+            <Link href={`/products/orthodontics/example-page3`}>
               <div className="grid-item-wrapper">
                 <div className="grid-item">
                   <Image
@@ -267,7 +267,7 @@ export default function FamilyExample() {
                 <p className="product-name text-center">POP® Screw Universal</p>
               </div>
             </Link>
-            <Link href={`/products/orthodontics/example-page4`} target="_blank">
+            <Link href={`/products/orthodontics/example-page4`}>
               <div className="grid-item-wrapper">
                 <div className="grid-item">
                   <Image
