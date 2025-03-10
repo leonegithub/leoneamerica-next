@@ -20,6 +20,7 @@ const Products = () => {
       immagine_7: string;
       immagine_8: string;
     };
+    sezione: string;
   }
   const [data, setData] = useState<Product[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -47,9 +48,42 @@ const Products = () => {
     router.push(`all/${product.nome.toLowerCase().replace(/\s+/g, "-")}`);
   };
 
+  const tabs = data?.map((productTab) => productTab.sezione) || [];
+  const tabSet = new Set();
+  tabs.forEach((tab) => {
+    tabSet.add(tab);
+  });
+
+  const tabsUnique: string[] = [...tabSet] as string[];
+
+  const [activeTab, setActiveTab] = useState("Clinical");
+
+  const filteredData = data?.filter(
+    (productSection) => productSection.sezione === activeTab
+  );
+
   return (
     <div className="container">
       <h1 className="blue font-bold my-5">Products</h1>
+      <div className="font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+        <ul className="flex flex-wrap list-unstyled -mb-px">
+          {tabsUnique &&
+            tabsUnique.map((tab) => (
+              <li key={tab} className="me-2">
+                <a
+                  onClick={() => setActiveTab(tab)}
+                  className={`inline-block p-4 border-b-2 rounded-t-lg cursor-pointer ${
+                    activeTab === tab
+                      ? "blue border-blue-600 dark:text-blue-500 dark:border-blue-500"
+                      : "border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                  }`}
+                >
+                  {tab}
+                </a>
+              </li>
+            ))}
+        </ul>
+      </div>
       <div className="grid-container my-5">
         {isLoading ? (
           <div role="status">
@@ -72,28 +106,30 @@ const Products = () => {
             <span className="sr-only">Loading...</span>
           </div>
         ) : (
-          data?.map((product, index) => (
-            <div key={index} className="grid-item-wrapper">
-              <div
-                className="grid-item"
-                onClick={() => handleProductClick(product)}
-              >
-                <Image
-                  width={1920}
-                  height={1080}
-                  src={product.immagini.immagine_1}
-                  alt={product.nome}
-                  className="product-image"
-                />
+          <>
+            {filteredData?.map((product, index) => (
+              <div key={index} className="grid-item-wrapper">
+                <div
+                  className="grid-item"
+                  onClick={() => handleProductClick(product)}
+                >
+                  <Image
+                    width={1920}
+                    height={1080}
+                    src={product.immagini.immagine_1}
+                    alt={product.nome}
+                    className="product-image"
+                  />
+                </div>
+                <p
+                  onClick={() => handleProductClick(product)}
+                  className="product-name text-center"
+                >
+                  {product.nome}
+                </p>
               </div>
-              <p
-                onClick={() => handleProductClick(product)}
-                className="product-name text-center"
-              >
-                {product.nome}
-              </p>
-            </div>
-          ))
+            ))}
+          </>
         )}
       </div>
     </div>
