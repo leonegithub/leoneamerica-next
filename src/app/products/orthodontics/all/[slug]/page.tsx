@@ -8,6 +8,7 @@ import Popup from "@/components/popup";
 import Gallery from "@/components/gallery";
 import DefaultButton from "@/components/defaultButton";
 import Link from "next/link";
+import TableProduct from "@/components/TableProduct";
 
 export default function Pop() {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function Pop() {
       immagine_7: string;
       immagine_8: string;
     };
-    listino: {
+    codici_prodotto: {
       codici: string[];
     };
     codice: string;
@@ -44,12 +45,34 @@ export default function Pop() {
   }
 
   const [product, setProduct] = useState<Product | null>(null);
+  const [keys, setKeys] = useState<string[]>([]);
+  const [values, setValues] = useState<string[]>([]);
 
   useEffect(() => {
     const productData = sessionStorage.getItem("selectedProduct");
     if (productData) {
       const parsedProduct = JSON.parse(productData);
       setProduct(parsedProduct);
+
+      const codice = parsedProduct.codici_prodotto.codici[0];
+      console.log("il codice è", codice);
+      const url = `https://php.leone.it/api/GetProdottiWebCodici.php?codice=${codice}`;
+
+      fetch(url, {
+        cache: "no-store",
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer wlfca9P8Zn0zQt4zwpcDne4KJROqEOAzIy3dr0Eyxhbzhqz4ydddgjc",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("l'url è", url);
+          const returnedObject = data.ReturnedObject[0];
+          setKeys(returnedObject.keys);
+          setValues(returnedObject.values);
+        });
     }
   }, [slug, router]);
 
@@ -88,11 +111,14 @@ export default function Pop() {
             <div className="py-2">
               {parse(product?.descrizione || "")}
               <ul className="blue">
-                {product.listino.codici[0] !== "" &&
-                  product.listino.codici.map((codice, index) => (
-                    <li key={index} className="text-lg">
-                      <strong>{codice}</strong>
-                    </li>
+                {product.codici_prodotto.codici[0] !== "" &&
+                  product.codici_prodotto.codici.map((codice, index) => (
+                    <TableProduct
+                      key={index}
+                      codice={codice}
+                      keys={keys}
+                      values={values}
+                    />
                   ))}
               </ul>
             </div>
