@@ -113,7 +113,7 @@ export default function Pop() {
               <ul className="list-unstyled pt-2">
                 {product.codici_prodotto.codici[0] !== "" &&
                   product.codici_prodotto.codici.map((codice, index) => (
-                    <li>
+                    <li key={index}>
                       <h2 className="blue list-unstyled font-bold pb-3">
                         {codice}
                       </h2>
