@@ -110,15 +110,20 @@ export default function Pop() {
             <h1 className="blue font-bold">{product?.nome}</h1>
             <div className="py-2">
               {parse(product?.descrizione || "")}
-              <ul className="blue">
+              <ul className="list-unstyled pt-2">
                 {product.codici_prodotto.codici[0] !== "" &&
                   product.codici_prodotto.codici.map((codice, index) => (
-                    <TableProduct
-                      key={index}
-                      codice={codice}
-                      keys={keys}
-                      values={values}
-                    />
+                    <li>
+                      <h2 className="blue list-unstyled font-bold pb-3">
+                        {codice}
+                      </h2>
+                      <TableProduct
+                        key={index}
+                        codice={codice}
+                        keys={keys}
+                        values={values}
+                      />
+                    </li>
                   ))}
               </ul>
             </div>
