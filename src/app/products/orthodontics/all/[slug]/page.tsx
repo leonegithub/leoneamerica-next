@@ -8,7 +8,8 @@ import Popup from "@/components/popup";
 import Gallery from "@/components/gallery";
 import DefaultButton from "@/components/defaultButton";
 import Link from "next/link";
-import TableProduct from "@/components/TableProduct";
+import TableHead from "@/components/TableHead";
+import TableBody from "@/components/TableBody";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -85,31 +86,12 @@ export default function ProductDetail() {
   }
 
   return (
-    <div>
+    <>
       <div className="prodotti container mx-auto pt-5 pb-4">
         <div className="grid grid-cols-2">
           <div className="left flex flex-col">
             <h1 className="blue font-bold">{product?.nome}</h1>
-            <div className="py-2">
-              {parse(product?.descrizione || "")}
-              <ul className="list-unstyled pt-2">
-                {product.codici_prodotto.codici[0] !== "" &&
-                  product.codici_prodotto.codici.map((codice, index) => (
-                    <li key={index}>
-                      <h2 className="blue list-unstyled font-bold pb-3">
-                        {codice}
-                      </h2>
-
-                      <TableProduct
-                        key={index}
-                        codice={codice}
-                        keys={product.tabella.tabella_head}
-                        values={product.tabella.tabella_righe[index]}
-                      />
-                    </li>
-                  ))}
-              </ul>
-            </div>
+            <div className="py-2">{parse(product?.descrizione || "")}</div>
             <div className="flex items-center">
               <div className="mb-2">
                 {product.video.links_video.length > 0 && (
@@ -156,7 +138,16 @@ export default function ProductDetail() {
             />
           </div>
         </div>
+        <div className="relative mt-5 overflow-x-auto">
+          <table className="table-auto text-sm text-left text-gray-500 dark:text-gray-400">
+            <TableHead keys={product.tabella.tabella_head} />
+            {product.codici_prodotto.codici[0] !== "" &&
+              product.tabella.tabella_righe.map((riga, index) => (
+                <TableBody key={index} values={riga} />
+              ))}
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

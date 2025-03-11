@@ -56,6 +56,11 @@
   text-decoration: underline;
 }
 
+.codice:first-of-type {
+  color: var(--colore-primario);
+  font-weight: 700;
+}
+
 @media screen and (max-width: 1024px) {
   .pop {
     padding: 20px;
