@@ -4,7 +4,7 @@ interface TableHeadProps {
 
 export default function TableHead({ keys }: TableHeadProps) {
   return (
-    <thead className="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
         {keys.map((key) => (
           <th key={key} scope="col" className="px-4 py-2">

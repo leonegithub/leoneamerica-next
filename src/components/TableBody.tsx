@@ -7,7 +7,7 @@ export default function TableBody({ values }: TableBodyProps) {
     <tbody>
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         {values.map((cell: string, cellIndex: number) => (
-          <td key={cellIndex} className="codice px-6 py-3">
+          <td key={cellIndex} className="codice px-4 py-3">
             {cell}
           </td>
         ))}
