@@ -31,7 +31,6 @@ export default function Pop() {
     codici_prodotto: {
       codici: string[];
     };
-    codice: string;
     progetto: string;
     casi_clinici: {
       links_casi_clinici: string[];
@@ -45,8 +44,9 @@ export default function Pop() {
   }
 
   const [product, setProduct] = useState<Product | null>(null);
-  const [keys, setKeys] = useState<string[]>([]);
-  const [values, setValues] = useState<string[]>([]);
+  const [tableData, setTableData] = useState<
+    { codice: string; keys: string[]; values: string[] }[]
+  >([]);
 
   useEffect(() => {
     const productData = sessionStorage.getItem("selectedProduct");
@@ -54,25 +54,46 @@ export default function Pop() {
       const parsedProduct = JSON.parse(productData);
       setProduct(parsedProduct);
 
-      const codice = parsedProduct.codici_prodotto.codici[0];
-      console.log("il codice è", codice);
-      const url = `https://php.leone.it/api/GetProdottiWebCodici.php?codice=${codice}`;
+      const codici: string[] = parsedProduct.codici_prodotto.codici;
+      const uniqueData: { [key: string]: boolean } = {};
 
-      fetch(url, {
-        cache: "no-store",
-        method: "GET",
-        headers: {
-          Authorization:
-            "Bearer wlfca9P8Zn0zQt4zwpcDne4KJROqEOAzIy3dr0Eyxhbzhqz4ydddgjc",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("l'url è", url);
-          const returnedObject = data.ReturnedObject[0];
-          setKeys(returnedObject.keys);
-          setValues(returnedObject.values);
+      const fetchData = async (codice: string) => {
+        console.log("il codice è", codice);
+        const url = `https://php.leone.it/api/GetProdottiWebCodici.php?codice=${codice}`;
+        const response = await fetch(url, {
+          cache: "no-store",
+          method: "GET",
+          headers: {
+            Authorization:
+              "Bearer wlfca9P8Zn0zQt4zwpcDne4KJROqEOAzIy3dr0Eyxhbzhqz4ydddgjc",
+          },
         });
+        const data = await response.json();
+        console.log("l'url è", url);
+        const returnedObject = data.ReturnedObject;
+        console.log("l'oggetto è", returnedObject);
+
+        returnedObject.forEach(
+          (element: { keys: string[]; values: string[] }) => {
+            const dataString = JSON.stringify({
+              codice,
+              keys: element.keys,
+              values: element.values,
+            });
+            if (!uniqueData[dataString]) {
+              uniqueData[dataString] = true;
+              setTableData((prevData) => [
+                ...prevData,
+                { codice, keys: element.keys, values: element.values },
+              ]);
+            }
+          }
+        );
+      };
+
+      codici.forEach((codice) => {
+        fetchData(codice);
+      });
     }
   }, [slug, router]);
 
@@ -112,16 +133,16 @@ export default function Pop() {
               {parse(product?.descrizione || "")}
               <ul className="list-unstyled pt-2">
                 {product.codici_prodotto.codici[0] !== "" &&
-                  product.codici_prodotto.codici.map((codice, index) => (
+                  tableData.map((data, index) => (
                     <li key={index}>
                       <h2 className="blue list-unstyled font-bold pb-3">
-                        {codice}
+                        {data.codice}
                       </h2>
                       <TableProduct
                         key={index}
-                        codice={codice}
-                        keys={keys}
-                        values={values}
+                        codice={data.codice}
+                        keys={data.keys}
+                        values={data.values}
                       />
                     </li>
                   ))}
