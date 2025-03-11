@@ -56,7 +56,7 @@ const Products = () => {
 
   const tabsUnique: string[] = [...tabSet] as string[];
 
-  const [activeTab, setActiveTab] = useState("Clinical");
+  const [activeTab, setActiveTab] = useState("Laboratory");
 
   const filteredData = data?.filter(
     (productSection) => productSection.sezione === activeTab
