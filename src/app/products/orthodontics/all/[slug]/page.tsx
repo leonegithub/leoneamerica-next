@@ -10,9 +10,10 @@ import DefaultButton from "@/components/defaultButton";
 import Link from "next/link";
 import TableProduct from "@/components/TableProduct";
 
-export default function Pop() {
+export default function ProductDetail() {
   const router = useRouter();
   const { slug } = useParams();
+
   interface Product {
     id: string;
     nome: string;
@@ -41,59 +42,19 @@ export default function Pop() {
     link: {
       links_approfondimento: string[];
     };
+    tabella: {
+      tabella_head: string[];
+      tabella_righe: string[][];
+    };
   }
 
   const [product, setProduct] = useState<Product | null>(null);
-  const [tableData, setTableData] = useState<
-    { codice: string; keys: string[]; values: string[] }[]
-  >([]);
 
   useEffect(() => {
     const productData = sessionStorage.getItem("selectedProduct");
     if (productData) {
       const parsedProduct = JSON.parse(productData);
       setProduct(parsedProduct);
-
-      const codici: string[] = parsedProduct.codici_prodotto.codici;
-      const uniqueData: { [key: string]: boolean } = {};
-
-      const fetchData = async (codice: string) => {
-        console.log("il codice è", codice);
-        const url = `https://php.leone.it/api/GetProdottiWebCodici.php?codice=${codice}`;
-        const response = await fetch(url, {
-          cache: "no-store",
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer wlfca9P8Zn0zQt4zwpcDne4KJROqEOAzIy3dr0Eyxhbzhqz4ydddgjc",
-          },
-        });
-        const data = await response.json();
-        console.log("l'url è", url);
-        const returnedObject = data.ReturnedObject;
-        console.log("l'oggetto è", returnedObject);
-
-        returnedObject.forEach(
-          (element: { keys: string[]; values: string[] }) => {
-            const dataString = JSON.stringify({
-              codice,
-              keys: element.keys,
-              values: element.values,
-            });
-            if (!uniqueData[dataString]) {
-              uniqueData[dataString] = true;
-              setTableData((prevData) => [
-                ...prevData,
-                { codice, keys: element.keys, values: element.values },
-              ]);
-            }
-          }
-        );
-      };
-
-      codici.forEach((codice) => {
-        fetchData(codice);
-      });
     }
   }, [slug, router]);
 
@@ -133,16 +94,17 @@ export default function Pop() {
               {parse(product?.descrizione || "")}
               <ul className="list-unstyled pt-2">
                 {product.codici_prodotto.codici[0] !== "" &&
-                  tableData.map((data, index) => (
+                  product.codici_prodotto.codici.map((codice, index) => (
                     <li key={index}>
                       <h2 className="blue list-unstyled font-bold pb-3">
-                        {data.codice}
+                        {codice}
                       </h2>
+
                       <TableProduct
                         key={index}
-                        codice={data.codice}
-                        keys={data.keys}
-                        values={data.values}
+                        codice={codice}
+                        keys={product.tabella.tabella_head}
+                        values={product.tabella.tabella_righe[index]}
                       />
                     </li>
                   ))}

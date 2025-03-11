@@ -20,13 +20,18 @@ export default function TableProduct({ keys, values }: TableProductProps) {
           </tr>
         </thead>
         <tbody>
-          <tr className="bg-white dark:bg-gray-800 dark:border-gray-700">
-            {values.map((value, index) => (
-              <td key={index} className="px-6 py-4">
-                {value}
-              </td>
-            ))}
-          </tr>
+          {values.map((value, index) => (
+            <tr
+              key={index}
+              className="bg-white dark:bg-gray-800 dark:border-gray-700"
+            >
+              {values.map((cell: string, cellIndex: number) => (
+                <td key={cellIndex} className="px-6 py-4">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
