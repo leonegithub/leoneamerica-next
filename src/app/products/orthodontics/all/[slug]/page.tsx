@@ -60,7 +60,7 @@ export default function ProductDetail() {
   }, [slug, router]);
 
   function handleLink(productCode: string) {
-    const url = new URL("http://10.10.10.8:3004/");
+    const url = new URL("http://10.10.10.8:3002/");
     url.searchParams.append("codice", productCode);
     router.push(url.toString());
   }
