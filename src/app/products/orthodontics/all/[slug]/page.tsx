@@ -59,6 +59,12 @@ export default function ProductDetail() {
     }
   }, [slug, router]);
 
+  function handleLink(productCode: string) {
+    const url = new URL("http://10.10.10.8:3004/");
+    url.searchParams.append("codice", productCode);
+    router.push(url.toString());
+  }
+
   if (!product) {
     return (
       <div className="container py-5 contenitore-pop d-flex flex-column">
@@ -143,7 +149,7 @@ export default function ProductDetail() {
             <TableHead keys={product.tabella.tabella_head} />
             {product.codici_prodotto.codici[0] !== "" &&
               product.tabella.tabella_righe.map((riga, index) => (
-                <TableBody key={index} values={riga} />
+                <TableBody onClick={handleLink} key={index} values={riga} />
               ))}
           </table>
         </div>
