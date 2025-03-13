@@ -96,7 +96,9 @@ export default function ProductDetail() {
       <div className="prodotti container mx-auto pt-5 pb-4">
         <div className="grid grid-cols-2">
           <div className="left flex flex-col">
-            <h1 className="blue font-bold">{parse(product?.nome)}</h1>
+            <h1 className="blue font-bold">
+              {parse(product?.nome.toUpperCase())}
+            </h1>
             <div className="py-2">{parse(product?.descrizione || "")}</div>
             <div className="flex items-center">
               <div className="mb-2">

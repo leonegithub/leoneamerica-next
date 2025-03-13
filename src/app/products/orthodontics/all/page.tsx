@@ -131,7 +131,7 @@ const Products = () => {
                   onClick={() => handleProductClick(product)}
                   className="product-name text-center"
                 >
-                  {parse(product.nome)}
+                  {parse(product.nome.toUpperCase())}
                 </p>
               </div>
             ))}
