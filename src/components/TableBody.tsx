@@ -1,15 +1,20 @@
 interface TableBodyProps {
   values: string[];
   onClick: (productCode: string) => void;
+  columnCount: number;
 }
 
-export default function TableBody({ values, onClick }: TableBodyProps) {
+export default function TableBody({
+  values,
+  onClick,
+  columnCount,
+}: TableBodyProps) {
   return (
     <tbody>
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        {values.map((code: string, codeIndex: number) => (
-          <td key={codeIndex} className="codice px-4 py-3">
-            {code}
+        {Array.from({ length: columnCount }).map((_, index) => (
+          <td key={index} className="codice px-4 py-3">
+            {values[index] || ""}
           </td>
         ))}
         <td className="codice px-6 py-3">

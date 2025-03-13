@@ -151,7 +151,12 @@ export default function ProductDetail() {
             <TableHead keys={product.tabella.tabella_head} />
             {product.codici_prodotto.codici[0] !== "" &&
               product.tabella.tabella_righe.map((riga, index) => (
-                <TableBody onClick={handleLink} key={index} values={riga} />
+                <TableBody
+                  onClick={handleLink}
+                  key={index}
+                  values={riga}
+                  columnCount={product.tabella.tabella_head.length}
+                />
               ))}
           </table>
         </div>
