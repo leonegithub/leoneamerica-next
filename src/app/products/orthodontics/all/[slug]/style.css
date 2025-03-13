@@ -61,6 +61,10 @@
   font-weight: 700;
 }
 
+.tabella {
+  margin: 5rem 0;
+}
+
 @media screen and (max-width: 1024px) {
   .pop {
     padding: 20px;

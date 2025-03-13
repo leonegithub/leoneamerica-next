@@ -146,7 +146,7 @@ export default function ProductDetail() {
             />
           </div>
         </div>
-        <div className="relative mt-5 overflow-x-auto">
+        <div className="relative tabella overflow-x-auto">
           <table className="table-auto text-sm text-left text-gray-500 dark:text-gray-400">
             <TableHead keys={product.tabella.tabella_head} />
             {product.codici_prodotto.codici[0] !== "" &&
