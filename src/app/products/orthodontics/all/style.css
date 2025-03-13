@@ -9,8 +9,9 @@
   cursor: pointer;
 }
 
-.product-name {
-  text-decoration: underline;
+.grid-item:hover + .product-name,
+.product-name:hover {
+  color: var(--colore-primario);
 }
 
 .grid-item {
