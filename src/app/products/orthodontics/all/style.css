@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.product-name {
+  font-size: 16px;
+}
+
 .grid-item:hover + .product-name,
 .product-name:hover {
   color: var(--colore-primario);
