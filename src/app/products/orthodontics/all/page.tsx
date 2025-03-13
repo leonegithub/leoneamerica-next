@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import parse from "html-react-parser";
 import "./style.css";
 
 const Products = () => {
@@ -45,7 +46,12 @@ const Products = () => {
   const handleProductClick = (product: Product) => {
     if (typeof window !== undefined)
       sessionStorage.setItem("selectedProduct", JSON.stringify(product));
-    router.push(`all/${product.nome.toLowerCase().replace(/\s+/g, "-")}`);
+    const productName = product.nome
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/&reg;/g, "")
+      .replace(/<[^>]*>/g, "");
+    router.push(`all/${productName}`);
   };
 
   const tabs = data?.map((productTab) => productTab.sezione) || [];
@@ -125,7 +131,7 @@ const Products = () => {
                   onClick={() => handleProductClick(product)}
                   className="product-name text-center"
                 >
-                  {product.nome}
+                  {parse(product.nome)}
                 </p>
               </div>
             ))}
