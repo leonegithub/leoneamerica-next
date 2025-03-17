@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DeleteButton from "./DeleteButton";
 import { useCart } from "./CartContext";
 
 const CartComponent: React.FC = () => {
-  const { cart, emptyCart } = useCart();
+  const { cart, emptyCart, setJustEmptied } = useCart();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setJustEmptied(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [cart]);
 
   return (
     <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800">
