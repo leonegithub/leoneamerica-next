@@ -5,12 +5,13 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import UserData from "@/components/PersonalData";
 import "./style.css";
+import Cart from "@/components/Cart";
 
 const PersonalArea = () => {
   const router = useRouter();
   const { userId, setUserId, setUserData } = useAuth();
   const [data, setData] = useState<User | null>(null);
-  const tabs = ["Profile", "Downloads", "Shop", "Purchased"];
+  const tabs = ["Profile", "Downloads", "Shop", "Purchased", "Orders"];
   const [activeTab, setActiveTab] = useState("Profile");
 
   interface User {
@@ -89,6 +90,7 @@ const PersonalArea = () => {
       {data ? (
         <>
           {activeTab === "Profile" ? <UserData data={data} /> : ""}
+          {activeTab === "Orders" ? <Cart /> : ""}
 
           <button
             onClick={handleLogout}
