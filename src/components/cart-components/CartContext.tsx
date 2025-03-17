@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { URLSearchParams } from "url";
 
 interface CartContextProps {
   id: string;

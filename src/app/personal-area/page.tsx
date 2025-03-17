@@ -7,6 +7,7 @@ import UserData from "@/components/PersonalData";
 import "./style.css";
 import Cart from "@/components/Cart";
 import { CartProvider } from "@/components/cart-components/CartContext";
+import dynamic from "next/dynamic";
 
 const PersonalArea = () => {
   const router = useRouter();
@@ -117,4 +118,4 @@ const PersonalArea = () => {
   );
 };
 
-export default PersonalArea;
+export default dynamic(() => Promise.resolve(PersonalArea), { ssr: false });

@@ -16,13 +16,14 @@ interface CartComponentProps {
   searchParams: URLSearchParams;
 }
 
-const Cart: React.FC<CartComponentProps> = () => {
+const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
   const [result, setResult] = useState<CartProps[]>([]);
   const [isLoading, setLoading] = useState(true);
   const [filteredValue, setFilteredValue] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize] = useState(100);
   const { addToCart } = useCart();
+  const codice = searchParams.get("codice");
 
   useEffect(() => {
     fetch("https://php.leone.it/api/GetProdOrdini.php", {
