@@ -30,13 +30,15 @@ export const CartProvider: React.FC<CartProviderProps> = ({
   });
 
   useEffect(() => {
-    const codice = localStorage.getItem("codice");
+    const urlParams = new URLSearchParams(window.location.search);
+    const codice = urlParams.get("codice");
     if (codice) {
       const product = products.find((item) => item.codice === codice);
       const isProductInCart = cart.some((item) => item.codice === codice);
       if (product && !isProductInCart) {
         setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
-        localStorage.removeItem("codice");
+        urlParams.delete("codice");
+        window.history.replaceState({}, "", `${window.location.pathname}`);
       }
     }
   }, [products, cart]);
