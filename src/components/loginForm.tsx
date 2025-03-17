@@ -36,7 +36,7 @@ const LoginForm = () => {
           if (data.ExitCode === 0) {
             const idUser = data.ReturnedObject.IDUser;
             setUserId(idUser);
-            localStorage.setItem("userId", idUser);
+            document.cookie = `idUser=${idUser}; path=/; max-age=86400`;
             router.push(`/personal-area`);
           } else {
             setErrorMessage(data.ReturnedError.join(", "));

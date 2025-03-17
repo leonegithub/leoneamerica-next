@@ -60,6 +60,8 @@ const PersonalArea = () => {
 
   const handleLogout = () => {
     setUserId(null);
+    setUserData(null);
+    document.cookie = "idUser=; path=/; max-age=0";
     localStorage.removeItem("userId");
     router.push("/login");
   };

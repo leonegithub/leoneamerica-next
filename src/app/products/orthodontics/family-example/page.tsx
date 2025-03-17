@@ -17,41 +17,6 @@ import "./style.css";
 import Link from "next/link";
 
 export default function FamilyExample() {
-  /* interface Product {
-    id: string;
-    nome: string;
-    immagine_focus: string;
-    tag: string[];
-  }
-  const [data, setData] = useState<Product[] | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const router = useRouter();
-
-  useEffect(() => {
-    fetch("https://php.leone.it/api/GetProdottiWeb.php", {
-      cache: "no-store",
-      method: "GET",
-      headers: {
-        Authorization:
-          "Bearer wlfca9P8Zn0zQt4zwpcDne4KJROqEOAzIy3dr0Eyxhbzhqz4ydddgjc",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data.ReturnedObject);
-        setIsLoading(false);
-      });
-  }, []);
-
-  // filtering through pedodontic data
-  const filteredData = data?.filter((el) => el.tag.includes("sleep apnea"));
-
-   const handleProductClick = (product: Product) => {
-    sessionStorage.setItem("selectedProduct", JSON.stringify(product));
-    router.push(
-      `/products/sleep-apnea/${product.nome.toLowerCase().replace(/\s+/g, "-")}`
-    );
-  }; */
   return (
     <div className="prodotti">
       <div className="background-contenitore mb-5">
