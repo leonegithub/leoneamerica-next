@@ -14,7 +14,7 @@ const PersonalArea = () => {
   const { userId, setUserId, setUserData } = useAuth();
   const [data, setData] = useState<User | null>(null);
   const tabs = ["Profile", "Downloads", "Shop", "Purchased", "Orders"];
-  const [activeTab, setActiveTab] = useState("Profile");
+  const [activeTab, setActiveTab] = useState("Orders");
   const searchParams = useSearchParams();
 
   interface User {
