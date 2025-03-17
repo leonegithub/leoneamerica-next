@@ -95,7 +95,7 @@ const PersonalArea = () => {
           <>
             {activeTab === "Profile" ? <UserData data={data} /> : ""}
             {activeTab === "Orders" ? (
-              <CartProvider products={[]} searchParams={searchParams}>
+              <CartProvider products={[]}>
                 <Cart searchParams={searchParams} />
               </CartProvider>
             ) : (
