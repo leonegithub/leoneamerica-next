@@ -60,8 +60,8 @@ export default function ProductDetail() {
   }, [slug, router]);
 
   function handleLink(productCode: string) {
+    localStorage.setItem("codice", productCode);
     const url = new URL("https://staging.leoneamerica.com/personal-area/");
-    url.searchParams.append("codice", productCode);
     window.open(url.toString(), "_blank");
   }
 

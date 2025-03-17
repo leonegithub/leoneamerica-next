@@ -22,7 +22,7 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
   const [filteredValue, setFilteredValue] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize] = useState(100);
-  const { addToCart, emptyCart } = useCart();
+  const { addToCart, cart, emptyCart } = useCart();
   const codice = searchParams.get("codice");
 
   useEffect(() => {
