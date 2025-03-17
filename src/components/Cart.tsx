@@ -16,7 +16,7 @@ interface CartComponentProps {
   searchParams: URLSearchParams;
 }
 
-const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
+const Cart: React.FC<CartComponentProps> = () => {
   const [result, setResult] = useState<CartProps[]>([]);
   const [isLoading, setLoading] = useState(true);
   const [filteredValue, setFilteredValue] = useState("");
