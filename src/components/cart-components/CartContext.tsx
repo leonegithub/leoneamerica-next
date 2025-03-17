@@ -36,19 +36,12 @@ export const CartProvider: React.FC<CartProviderProps> = ({
   useEffect(() => {
     if (codice) {
       const product = products.find((item) => item.codice === codice);
-      if (product) {
-        setCart((prevCart) => {
-          const isProductInCart = prevCart.some(
-            (item) => item.id === product.id
-          );
-          if (!isProductInCart) {
-            return [...prevCart, { ...product, quantity: 1 }];
-          }
-          return prevCart;
-        });
+      const isProductInCart = cart.some((item) => item.codice === codice);
+      if (product && !isProductInCart) {
+        setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
       }
     }
-  }, [codice, products]);
+  }, [codice, products, cart]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
