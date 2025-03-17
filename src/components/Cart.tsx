@@ -46,13 +46,9 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
 
   useEffect(() => {
     if (codice) {
-      const product = result.find((item) => item.codice === codice);
-      const isProductInCart = cart.some((item) => item.codice === codice);
-      if (product && !isProductInCart) {
-        addToCart({ ...product, quantity: 1 });
-      }
+      localStorage.setItem("codice", codice);
     }
-  }, [codice, result, addToCart, cart]);
+  }, [codice]);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setFilteredValue(e.target.value);

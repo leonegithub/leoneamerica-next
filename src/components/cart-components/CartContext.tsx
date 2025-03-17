@@ -11,7 +11,6 @@ interface CartContextType {
   cart: CartContextProps[];
   addToCart: (item: CartContextProps) => void;
   emptyCart: () => void;
-  setJustEmptied: (value: boolean) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -19,32 +18,28 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 interface CartProviderProps {
   children: React.ReactNode;
   products: CartContextProps[];
-  searchParams: URLSearchParams;
 }
 
 export const CartProvider: React.FC<CartProviderProps> = ({
   children,
   products,
-  searchParams,
 }) => {
-  const codice = searchParams.get("codice");
-
   const [cart, setCart] = useState<CartContextProps[]>(() => {
     const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
-  const [justEmptied, setJustEmptied] = useState(false);
-
   useEffect(() => {
-    if (codice && !justEmptied) {
+    const codice = localStorage.getItem("codice");
+    if (codice) {
       const product = products.find((item) => item.codice === codice);
       const isProductInCart = cart.some((item) => item.codice === codice);
       if (product && !isProductInCart) {
         setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
+        localStorage.removeItem("codice");
       }
     }
-  }, [codice, products, cart, justEmptied]);
+  }, [products, cart]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -67,14 +62,11 @@ export const CartProvider: React.FC<CartProviderProps> = ({
 
   const emptyCart = () => {
     setCart([]);
-    setJustEmptied(true);
-    localStorage.clear();
+    localStorage.removeItem("cart");
   };
 
   return (
-    <CartContext.Provider
-      value={{ cart, addToCart, emptyCart, setJustEmptied }}
-    >
+    <CartContext.Provider value={{ cart, addToCart, emptyCart }}>
       {children}
     </CartContext.Provider>
   );
