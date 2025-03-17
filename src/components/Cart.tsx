@@ -22,7 +22,7 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
   const [filteredValue, setFilteredValue] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize] = useState(100);
-  const { addToCart, cart } = useCart();
+  const { addToCart, cart, emptyCart } = useCart();
   const codice = searchParams.get("codice");
 
   useEffect(() => {
@@ -135,6 +135,13 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
         ) : (
           <h1>No elements found</h1>
         )}
+        <button
+          onClick={emptyCart}
+          type="button"
+          className="mt-4 py-2 px-4 bg-red-700 text-white font-medium rounded hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-300"
+        >
+          Svuota Carrello
+        </button>
       </div>
       <CartComponent />
     </div>

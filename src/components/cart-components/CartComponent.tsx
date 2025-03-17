@@ -11,7 +11,7 @@ const CartComponent: React.FC = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [cart]);
+  }, [setJustEmptied]);
 
   return (
     <div className="w-1/3 p-4 bg-gray-100 dark:bg-gray-800">
