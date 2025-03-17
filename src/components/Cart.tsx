@@ -23,7 +23,6 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
   const [page, setPage] = useState(1);
   const [pageSize] = useState(100);
   const { addToCart } = useCart();
-  const codice = searchParams.get("codice");
 
   useEffect(() => {
     fetch("https://php.leone.it/api/GetProdOrdini.php", {
