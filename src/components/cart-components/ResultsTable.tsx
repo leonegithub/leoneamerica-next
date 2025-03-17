@@ -1,7 +1,6 @@
 import React from "react";
 import QuantityInput from "./Counter";
 import AddButton from "./AddButton";
-import { useCart } from "./CartContext";
 
 interface SafetySheet {
   id: string;
@@ -19,8 +18,8 @@ interface ResultsTableProps {
 const ResultsTable: React.FC<ResultsTableProps> = ({
   results,
   updateQuantity,
+  addToCart,
 }) => {
-  const { addToCart } = useCart();
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

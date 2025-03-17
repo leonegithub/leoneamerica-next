@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { useSearchParams } from "react-router-dom";
+import { URLSearchParams } from "url";
 
 interface CartContextProps {
   id: string;
@@ -19,13 +19,14 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 interface CartProviderProps {
   children: React.ReactNode;
   products: CartContextProps[];
+  searchParams: URLSearchParams;
 }
 
 export const CartProvider: React.FC<CartProviderProps> = ({
   children,
   products,
+  searchParams,
 }) => {
-  const [searchParams] = useSearchParams();
   const codice = searchParams.get("codice");
 
   const [cart, setCart] = useState<CartContextProps[]>(() => {

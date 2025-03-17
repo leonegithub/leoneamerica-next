@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import UserData from "@/components/PersonalData";
 import "./style.css";
 import Cart from "@/components/Cart";
+import { CartProvider } from "@/components/cart-components/CartContext";
 
 const PersonalArea = () => {
   const router = useRouter();
@@ -13,6 +14,7 @@ const PersonalArea = () => {
   const [data, setData] = useState<User | null>(null);
   const tabs = ["Profile", "Downloads", "Shop", "Purchased", "Orders"];
   const [activeTab, setActiveTab] = useState("Profile");
+  const searchParams = useSearchParams();
 
   interface User {
     Nome: string;
@@ -90,7 +92,13 @@ const PersonalArea = () => {
       {data ? (
         <>
           {activeTab === "Profile" ? <UserData data={data} /> : ""}
-          {activeTab === "Orders" ? <Cart /> : ""}
+          {activeTab === "Orders" ? (
+            <CartProvider products={[]} searchParams={searchParams}>
+              <Cart searchParams={searchParams} />
+            </CartProvider>
+          ) : (
+            ""
+          )}
 
           <button
             onClick={handleLogout}
