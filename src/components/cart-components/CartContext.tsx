@@ -11,6 +11,7 @@ interface CartContextType {
   cart: CartContextProps[];
   addToCart: (item: CartContextProps) => void;
   emptyCart: () => void;
+  setCart: React.Dispatch<React.SetStateAction<CartContextProps[]>>;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -68,7 +69,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, emptyCart }}>
+    <CartContext.Provider value={{ cart, addToCart, emptyCart, setCart }}>
       {children}
     </CartContext.Provider>
   );

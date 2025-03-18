@@ -24,6 +24,7 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
   const [pageSize] = useState(100);
   const { addToCart, cart } = useCart();
   const codice = searchParams.get("codice");
+  const quantity = searchParams.get("quantita");
 
   useEffect(() => {
     fetch("https://php.leone.it/api/GetProdOrdini.php", {
@@ -49,10 +50,10 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
       const product = result.find((item) => item.codice === codice);
       const isProductInCart = cart.some((item) => item.codice === codice);
       if (product && !isProductInCart) {
-        addToCart({ ...product, quantity: 1 });
+        addToCart({ ...product, quantity: parseInt(quantity || "0") });
       }
     }
-  }, [codice, result, addToCart, cart]);
+  }, [codice, quantity, result, addToCart, cart]);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setFilteredValue(e.target.value);
@@ -96,12 +97,8 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
   const totalPages = Math.ceil(filteredResults.length / pageSize);
 
   return (
-    <div className="flex">
-      <div className="w-2/3 p-4">
-        <h1 className="text-4xl mb-4">
-          Filtra i risultati per codice o descrizione
-        </h1>
-        <h2>Prodotti trovati: {filteredResults.length}</h2>
+    <div className="flex mt-5">
+      <div className="w-2/3">
         <SearchBar value={filteredValue} onChange={handleChange} />
         {isLoading ? (
           <div role="status">

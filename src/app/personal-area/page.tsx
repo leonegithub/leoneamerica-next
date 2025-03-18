@@ -72,7 +72,7 @@ const PersonalArea = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="container personal flex flex-col justify-between mx-auto p-4">
+      <div className=" personal flex flex-col justify-between mx-auto p-4">
         <div className="font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
           <ul className="flex flex-wrap list-unstyled -mb-px">
             {tabs.map((tab) => (
@@ -93,14 +93,20 @@ const PersonalArea = () => {
         </div>
         {data ? (
           <>
-            {activeTab === "Profile" ? <UserData data={data} /> : ""}
-            {activeTab === "Orders" ? (
-              <CartProvider products={[]}>
-                <Cart searchParams={searchParams} />
-              </CartProvider>
-            ) : (
-              ""
-            )}
+            {(() => {
+              switch (activeTab) {
+                case "Profile":
+                  return <UserData data={data} />;
+                case "Orders":
+                  return (
+                    <CartProvider products={[]}>
+                      <Cart searchParams={searchParams} />
+                    </CartProvider>
+                  );
+                default:
+                  return null;
+              }
+            })()}
 
             <button
               onClick={handleLogout}
