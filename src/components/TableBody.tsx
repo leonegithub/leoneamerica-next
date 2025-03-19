@@ -1,4 +1,5 @@
 import SingleProductCounter from "@/app/products/orthodontics/all/[slug]/SingleProductCounter";
+import { useState } from "react";
 
 interface TableBodyProps {
   values: string[];
@@ -13,7 +14,13 @@ export default function TableBody({
   columnCount,
   quantity,
 }: TableBodyProps) {
-  console.log(values);
+  const [localQuantity, setLocalQuantity] = useState<number>(0);
+
+  function handleQuantityChange(value: number) {
+    setLocalQuantity(value);
+    quantity(value);
+  }
+
   return (
     <tbody>
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -23,10 +30,11 @@ export default function TableBody({
           </td>
         ))}
         <td className="quantity px-6 py-3">
-          <SingleProductCounter quantity={quantity} />
+          <SingleProductCounter quantity={handleQuantityChange} />
         </td>
         <td className="codice px-6 py-3">
           <button
+            disabled={localQuantity <= 0}
             onClick={() => onClick(values[0], values[1])}
             type="button"
             className="text-white text-xs bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
