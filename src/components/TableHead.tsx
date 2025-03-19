@@ -14,6 +14,9 @@ export default function TableHead({ keys }: TableHeadProps) {
         <th scope="col" className="px-4 py-2 text-center">
           <i className="fa-solid fa-cart-shopping"></i>
         </th>
+        <th scope="col" className="px-4 py-2 text-center">
+          Quantity
+        </th>
       </tr>
     </thead>
   );
