@@ -12,10 +12,10 @@ export default function TableHead({ keys }: TableHeadProps) {
           </th>
         ))}
         <th scope="col" className="px-4 py-2 text-center">
-          <i className="fa-solid fa-cart-shopping"></i>
+          Quantity
         </th>
         <th scope="col" className="px-4 py-2 text-center">
-          Quantity
+          <i className="fa-solid fa-cart-shopping"></i>
         </th>
       </tr>
     </thead>

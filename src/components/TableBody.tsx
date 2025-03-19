@@ -22,6 +22,9 @@ export default function TableBody({
             {values[index] || ""}
           </td>
         ))}
+        <td className="quantity px-6 py-3">
+          <SingleProductCounter quantity={quantity} />
+        </td>
         <td className="codice px-6 py-3">
           <button
             onClick={() => onClick(values[0], values[1])}
@@ -30,9 +33,6 @@ export default function TableBody({
           >
             Buy now
           </button>
-        </td>
-        <td className="quantity px-6 py-3">
-          <SingleProductCounter quantity={quantity} />
         </td>
       </tr>
     </tbody>
