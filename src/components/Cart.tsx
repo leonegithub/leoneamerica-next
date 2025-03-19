@@ -50,11 +50,10 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
       const product = result.find((item) => item.codice === codice);
       const isProductInCart = cart.some((item) => item.codice === codice);
       if (product && !isProductInCart) {
-        if (quantity) {
-          addToCart({ ...product, quantity: parseInt(quantity) });
-        } else {
-          addToCart({ ...product, quantity: 1 });
-        }
+        addToCart({
+          ...product,
+          quantity: parseInt(quantity ? quantity : "1"),
+        });
       }
     }
   }, [codice, quantity, result, addToCart, cart]);
