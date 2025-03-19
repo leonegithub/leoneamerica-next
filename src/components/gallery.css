@@ -5,3 +5,16 @@
 .prodotti .grid {
   gap: calc(var(--unita-base) * 6);
 }
+
+.product-image {
+  box-sizing: border-box;
+}
+
+.product-image:hover {
+  cursor: pointer;
+}
+
+.product-image.selected,
+.product-image:hover {
+  box-shadow: 0 0 0 1px var(--verde);
+}
