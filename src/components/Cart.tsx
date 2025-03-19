@@ -38,7 +38,7 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
         setResult(
           data.ReturnedObject.map((item: CartProps) => ({
             ...item,
-            quantity: 0,
+            quantity,
           }))
         );
         setLoading(false);
@@ -50,7 +50,11 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
       const product = result.find((item) => item.codice === codice);
       const isProductInCart = cart.some((item) => item.codice === codice);
       if (product && !isProductInCart) {
-        addToCart({ ...product, quantity: parseInt(quantity || "0") });
+        if (quantity) {
+          addToCart({ ...product, quantity: parseInt(quantity) });
+        } else {
+          addToCart({ ...product, quantity: 1 });
+        }
       }
     }
   }, [codice, quantity, result, addToCart, cart]);

@@ -8,6 +8,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ onClick }) => {
   const handleClick = () => {
     const url = new URL(window.location.href);
     url.searchParams.delete("codice");
+    url.searchParams.delete("quantita");
     window.history.replaceState({}, "", url.toString());
     onClick();
   };
