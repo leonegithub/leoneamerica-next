@@ -13,6 +13,9 @@ const CartComponent: React.FC = () => {
   const { cart, emptyCart, setCart } = useCart();
 
   const removeItem = (codice: string) => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("codice");
+    window.history.replaceState({}, "", url.toString());
     setCart((prevCart: CartContextProps[]) =>
       prevCart.filter((item: CartContextProps) => item.codice !== codice)
     );
