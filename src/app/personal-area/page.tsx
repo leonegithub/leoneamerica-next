@@ -8,13 +8,15 @@ import "./style.css";
 import Cart from "@/components/Cart";
 import { CartProvider } from "@/components/cart-components/CartContext";
 import dynamic from "next/dynamic";
+import ShopCardPA from "@/components/ShopCardPA";
+import greyTemplate from "../../../public/square-512.png";
 
 const PersonalArea = () => {
   const router = useRouter();
   const { userId, setUserId, setUserData } = useAuth();
   const [data, setData] = useState<User | null>(null);
-  const tabs = ["Profile", "Downloads", "Shop", "Purchased", "Orders"];
-  const [activeTab, setActiveTab] = useState("Orders");
+  const tabs = ["Shop", "Purchased", "Orders", "Downloads", "Profile"];
+  const [activeTab, setActiveTab] = useState("Shop");
   const searchParams = useSearchParams();
 
   interface User {
@@ -102,6 +104,34 @@ const PersonalArea = () => {
                     <CartProvider products={[]}>
                       <Cart searchParams={searchParams} />
                     </CartProvider>
+                  );
+                case "Shop":
+                  return (
+                    <div className="container">
+                      <div className="flex py-5 justify-between">
+                        <ShopCardPA
+                          text="Orthodontic products"
+                          link="products/orthodontics/all"
+                          linkText="All products"
+                          image={greyTemplate}
+                          descText="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
+                        />
+                        <ShopCardPA
+                          text="International Symposium"
+                          link="https://symposium.leone.it"
+                          linkText="Buy your ticket"
+                          image={greyTemplate}
+                          descText="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
+                        />
+                        <ShopCardPA
+                          text="3D Leone"
+                          link="https://3dleone.it"
+                          linkText="Your licence"
+                          image={greyTemplate}
+                          descText="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
+                        />
+                      </div>
+                    </div>
                   );
                 default:
                   return null;
