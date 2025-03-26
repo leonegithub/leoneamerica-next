@@ -5,7 +5,7 @@ interface SingleProductProps {
 }
 
 function SingleProductCounter({ quantity }: SingleProductProps) {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState<number>(1);
 
   function handleIncrement() {
     const plusValue = value + 1;
