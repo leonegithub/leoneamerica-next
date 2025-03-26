@@ -35,10 +35,7 @@ export default function TableBody({
         <td className="codice px-6 py-3">
           <button
             disabled={localQuantity <= 0}
-            onClick={() => {
-              onClick(values[0], values[1]);
-              window.location.href = "/personal-area?tab=Orders";
-            }}
+            onClick={() => onClick(values[0], values[1])}
             type="button"
             className={
               localQuantity <= 0
