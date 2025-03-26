@@ -14,7 +14,7 @@ export default function TableBody({
   columnCount,
   quantity,
 }: TableBodyProps) {
-  const [localQuantity, setLocalQuantity] = useState<number>(0);
+  const [localQuantity, setLocalQuantity] = useState<number>(1);
 
   function handleQuantityChange(value: number) {
     setLocalQuantity(value);
@@ -37,7 +37,11 @@ export default function TableBody({
             disabled={localQuantity <= 0}
             onClick={() => onClick(values[0], values[1])}
             type="button"
-            className="text-white text-xs bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className={
+              localQuantity <= 0
+                ? "text-white text-xs bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-3 py-2.5 text-center"
+                : "text-white text-xs bg-blue hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            }
           >
             Buy now
           </button>
