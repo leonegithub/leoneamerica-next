@@ -38,7 +38,7 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
         setResult(
           data.ReturnedObject.map((item: CartProps) => ({
             ...item,
-            quantity: 0,
+            quantity: 1,
           }))
         );
         setLoading(false);
