@@ -9,7 +9,9 @@ import Cart from "@/components/Cart";
 import { CartProvider } from "@/components/cart-components/CartContext";
 import dynamic from "next/dynamic";
 import ShopCardPA from "@/components/ShopCardPA";
-import greyTemplate from "../../../public/square-512.png";
+import DDDAR from "./3DAR.png";
+import LeafAR from "./LeafAR2.png";
+import SympAR from "./SympAR3.png";
 
 const PersonalArea = () => {
   const router = useRouter();
@@ -107,27 +109,27 @@ const PersonalArea = () => {
                   );
                 case "Shop":
                   return (
-                    <div className="container">
+                    <div className="container mt-2">
                       <div className="flex py-5 justify-between">
                         <ShopCardPA
                           text="Orthodontic products"
                           link="products/orthodontics/all"
                           linkText="All products"
-                          image={greyTemplate}
+                          image={LeafAR}
                           descText="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
                         />
                         <ShopCardPA
                           text="International Symposium"
                           link="https://symposium.leone.it"
                           linkText="Buy your ticket"
-                          image={greyTemplate}
+                          image={SympAR}
                           descText="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
                         />
                         <ShopCardPA
                           text="3D Leone"
                           link="https://3dleone.it"
                           linkText="Your licence"
-                          image={greyTemplate}
+                          image={DDDAR}
                           descText="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
                         />
                       </div>
