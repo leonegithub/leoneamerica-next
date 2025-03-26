@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense, useEffect, useState } from "react";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import UserData from "@/components/PersonalData";
 import "./style.css";
