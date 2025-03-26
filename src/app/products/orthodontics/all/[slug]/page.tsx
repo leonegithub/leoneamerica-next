@@ -43,10 +43,13 @@ export default function ProductDetail() {
     link: {
       links_approfondimento: string[];
     };
-    tabella: {
-      tabella_head: string[];
-      tabella_righe: string[][];
-    };
+    tabelle: [
+      {
+        nome_tabella: string;
+        tabella_head: string[];
+        tabella_righe: string[];
+      }
+    ];
   }
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -145,26 +148,36 @@ export default function ProductDetail() {
                 product?.immagini.immagine_6,
                 product?.immagini.immagine_7,
                 product?.immagini.immagine_8,
-              ]}
+              ].filter((img) => img)}
             />
           </div>
         </div>
         <div className="relative tabella overflow-x-auto">
-          <table className="table-auto text-sm text-left text-gray-500 dark:text-gray-400">
-            <TableHead keys={product.tabella.tabella_head} />
-            {product.codici_prodotto.codici[0] !== "" &&
-              product.tabella.tabella_righe.map((riga, index) => (
-                <TableBody
-                  onClick={handleLink}
-                  key={index}
-                  values={riga}
-                  columnCount={product.tabella.tabella_head.length}
-                  quantity={(value: number) =>
-                    setCurrentQuantity(value.toString())
-                  }
-                />
-              ))}
-          </table>
+          {product?.tabelle?.length > 0
+            ? product.tabelle.map((tabella, tabIndex) => (
+                <div key={tabIndex} className="mb-5">
+                  {tabella.nome_tabella && (
+                    <h3 className="font-bold text-lg mb-2">
+                      {tabella.nome_tabella}
+                    </h3>
+                  )}
+                  <table className="table-auto text-sm text-left text-gray-500 dark:text-gray-400">
+                    <TableHead keys={tabella.tabella_head} />
+                    {tabella.tabella_righe.map((riga, index) => (
+                      <TableBody
+                        onClick={handleLink}
+                        key={index}
+                        values={Array.isArray(riga) ? riga : [riga]}
+                        columnCount={tabella.tabella_head.length}
+                        quantity={(value: number) =>
+                          setCurrentQuantity(value.toString())
+                        }
+                      />
+                    ))}
+                  </table>
+                </div>
+              ))
+            : ""}
         </div>
       </div>
     </>
