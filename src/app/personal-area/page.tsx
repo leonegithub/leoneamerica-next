@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense, useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import UserData from "@/components/PersonalData";
 import "./style.css";
@@ -15,8 +15,10 @@ import SympAR from "./SympAR3.png";
 
 const PersonalArea = () => {
   const router = useRouter();
+  const params = useSearchParams();
   const { userId, setUserId, setUserData } = useAuth();
   const [data, setData] = useState<User | null>(null);
+  const initialTab = params.get("tab");
   const tabs = ["Shop", "Purchased", "Orders", "Downloads", "Profile"];
   const [activeTab, setActiveTab] = useState("Shop");
   const searchParams = useSearchParams();
@@ -65,6 +67,10 @@ const PersonalArea = () => {
         });
     }
   }, [userId, router, setUserData]);
+
+  useEffect(() => {
+    setActiveTab(initialTab || "Shop");
+  }, [initialTab]);
 
   const handleLogout = () => {
     setUserId(null);
