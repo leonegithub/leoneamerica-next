@@ -54,7 +54,7 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState<Product | null>(null);
 
-  const [currentQuantity, setCurrentQuantity] = useState<string>("0");
+  const [currentQuantity, setCurrentQuantity] = useState<string>("1");
 
   useEffect(() => {
     const productData = sessionStorage.getItem("selectedProduct");
