@@ -76,8 +76,8 @@ const PersonalArea = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className=" personal flex flex-col justify-between mx-auto p-4">
-        <div className="font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <div className=" personal flex flex-col mx-auto p-4">
+        <div className="font-medium flex justify-between items-center text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
           <ul className="flex flex-wrap list-unstyled -mb-px">
             {tabs.map((tab) => (
               <li key={tab} className="me-2">
@@ -94,6 +94,13 @@ const PersonalArea = () => {
               </li>
             ))}
           </ul>
+          <button
+            onClick={handleLogout}
+            type="button"
+            className=" my-4 py-2 px-4 bg-blue-700 text-white font-medium rounded hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Logout
+          </button>
         </div>
         {data ? (
           <>
@@ -139,14 +146,6 @@ const PersonalArea = () => {
                   return null;
               }
             })()}
-
-            <button
-              onClick={handleLogout}
-              type="button"
-              className="self-start mt-4 py-2 px-4 bg-blue-700 text-white font-medium rounded hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            >
-              Logout
-            </button>
           </>
         ) : (
           <p className="p-4 text-center">Loading...</p>

@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`p-5 flex items-center`}>
+      <header className={`p-4 flex items-center`}>
         <div className=" logo">
           <Link href={`/`}>
             <Image src={logoAmerica} width={250} alt="logo-america" />
