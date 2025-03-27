@@ -152,42 +152,46 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Tab list */}
-        <div className="my-5 border-b border-gray-200 dark:border-gray-700">
-          <ul className="flex flex-wrap -mb-px list-unstyled font-medium text-center">
-            {product.tabelle.map((tabella, index) => (
-              <li key={index} className="me-2" role="presentation">
-                <button
-                  onClick={() => setSelectedTab(index)}
-                  className={`inline-block p-4 border-b-2 rounded-t-lg ${
-                    selectedTab === index
-                      ? "border-blue blue"
-                      : "border-transparent hover:text-gray-600 hover:border-gray-300"
-                  }`}
-                  type="button"
-                  role="tab"
-                  aria-selected={selectedTab === index}
-                >
-                  {tabella.nome_tabella}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className="tables-container my-5">
+          {/* Tab list */}
+          {product.tabelle.length > 1 && (
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <ul className="flex flex-wrap -mb-px list-unstyled font-medium text-center">
+                {product.tabelle.map((tabella, index) => (
+                  <li key={index} className="me-2" role="presentation">
+                    <button
+                      onClick={() => setSelectedTab(index)}
+                      className={`inline-block p-4 border-b-2 rounded-t-lg ${
+                        selectedTab === index
+                          ? "border-blue blue"
+                          : "border-transparent hover:text-gray-600 hover:border-gray-300"
+                      }`}
+                      type="button"
+                      role="tab"
+                      aria-selected={selectedTab === index}
+                    >
+                      {tabella.nome_tabella}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-        {/* Tab content for the selected table */}
-        <div id="default-tab-content">
-          <table className="table-auto text-left text-gray-500 dark:text-gray-400">
-            <TableHead keys={product.tabelle[selectedTab].tabella_head} />
-            {product.tabelle[selectedTab].tabella_righe.map((riga, index) => (
-              <TableBody
-                onClick={handleLink}
-                key={index}
-                values={Array.isArray(riga) ? riga : [riga]}
-                columnCount={product.tabelle[selectedTab].tabella_head.length}
-              />
-            ))}
-          </table>
+          {/* Tab content for the selected table */}
+          <div id="default-tab-content">
+            <table className="table-auto text-left text-gray-500 dark:text-gray-400">
+              <TableHead keys={product.tabelle[selectedTab].tabella_head} />
+              {product.tabelle[selectedTab].tabella_righe.map((riga, index) => (
+                <TableBody
+                  onClick={handleLink}
+                  key={index}
+                  values={Array.isArray(riga) ? riga : [riga]}
+                  columnCount={product.tabelle[selectedTab].tabella_head.length}
+                />
+              ))}
+            </table>
+          </div>
         </div>
       </div>
     </>
