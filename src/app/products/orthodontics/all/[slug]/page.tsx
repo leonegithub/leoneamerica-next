@@ -53,6 +53,7 @@ export default function ProductDetail() {
   }
 
   const [product, setProduct] = useState<Product | null>(null);
+  const [selectedTab, setSelectedTab] = useState<number>(0);
 
   useEffect(() => {
     const productData = sessionStorage.getItem("selectedProduct");
@@ -150,29 +151,43 @@ export default function ProductDetail() {
             />
           </div>
         </div>
-        <div className="relative tabella overflow-x-auto">
-          {product?.tabelle?.length > 0
-            ? product.tabelle.map((tabella, tabIndex) => (
-                <div key={tabIndex} className="mb-5">
-                  {tabella.nome_tabella && (
-                    <h3 className="font-bold text-lg mb-2">
-                      {tabella.nome_tabella}
-                    </h3>
-                  )}
-                  <table className="table-auto text-sm text-left text-gray-500 dark:text-gray-400">
-                    <TableHead keys={tabella.tabella_head} />
-                    {tabella.tabella_righe.map((riga, index) => (
-                      <TableBody
-                        onClick={handleLink}
-                        key={index}
-                        values={Array.isArray(riga) ? riga : [riga]}
-                        columnCount={tabella.tabella_head.length}
-                      />
-                    ))}
-                  </table>
-                </div>
-              ))
-            : ""}
+
+        {/* Tab list */}
+        <div className="my-5 border-b border-gray-200 dark:border-gray-700">
+          <ul className="flex flex-wrap -mb-px list-unstyled font-medium text-center">
+            {product.tabelle.map((tabella, index) => (
+              <li key={index} className="me-2" role="presentation">
+                <button
+                  onClick={() => setSelectedTab(index)}
+                  className={`inline-block p-4 border-b-2 rounded-t-lg ${
+                    selectedTab === index
+                      ? "border-blue blue"
+                      : "border-transparent hover:text-gray-600 hover:border-gray-300"
+                  }`}
+                  type="button"
+                  role="tab"
+                  aria-selected={selectedTab === index}
+                >
+                  {tabella.nome_tabella}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Tab content for the selected table */}
+        <div id="default-tab-content">
+          <table className="table-auto text-left text-gray-500 dark:text-gray-400">
+            <TableHead keys={product.tabelle[selectedTab].tabella_head} />
+            {product.tabelle[selectedTab].tabella_righe.map((riga, index) => (
+              <TableBody
+                onClick={handleLink}
+                key={index}
+                values={Array.isArray(riga) ? riga : [riga]}
+                columnCount={product.tabelle[selectedTab].tabella_head.length}
+              />
+            ))}
+          </table>
         </div>
       </div>
     </>

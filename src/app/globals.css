@@ -30,6 +30,11 @@
   background-color: var(--colore-primario);
 }
 
+.border-blue {
+  --tw-border-opacity: 1;
+  border-color: var(--colore-primario);
+}
+
 .grey {
   color: var(--grigio);
 }
