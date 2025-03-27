@@ -10,6 +10,7 @@ import DefaultButton from "@/components/defaultButton";
 import Link from "next/link";
 import TableHead from "@/components/TableHead";
 import TableBody from "@/components/TableBody";
+import CSVButton from "@/components/CSVButton";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -48,6 +49,7 @@ export default function ProductDetail() {
         nome_tabella: string;
         tabella_head: string[];
         tabella_righe: string[];
+        csv_data: string;
       }
     ];
   }
@@ -188,6 +190,13 @@ export default function ProductDetail() {
                   key={index}
                   values={Array.isArray(riga) ? riga : [riga]}
                   columnCount={product.tabelle[selectedTab].tabella_head.length}
+                />
+              ))}
+              {product.tabelle.map((tabella) => (
+                <CSVButton
+                  key={tabella.nome_tabella}
+                  nome_tabella={tabella.nome_tabella}
+                  csv_data={tabella.csv_data}
                 />
               ))}
             </table>

@@ -28,7 +28,7 @@ const Products = () => {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("https://php.leone.it/api/GetProdottiWeb6.php", {
+    fetch("https://php.leone.it/api/GetProdottiWeb7.php", {
       cache: "no-store",
       method: "GET",
       headers: {
