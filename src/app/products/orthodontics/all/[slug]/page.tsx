@@ -54,8 +54,6 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState<Product | null>(null);
 
-  const [currentQuantity, setCurrentQuantity] = useState<string>("1");
-
   useEffect(() => {
     const productData = sessionStorage.getItem("selectedProduct");
     if (productData) {
@@ -64,10 +62,10 @@ export default function ProductDetail() {
     }
   }, [slug, router]);
 
-  function handleLink(productCode: string) {
+  function handleLink(productCode: string, quantity: string) {
     const url = new URL("https://staging.leoneamerica.com/personal-area/");
     url.searchParams.set("codice", productCode);
-    url.searchParams.set("quantita", currentQuantity);
+    url.searchParams.set("quantita", quantity);
     window.open(url.toString(), "_blank");
   }
 
@@ -169,9 +167,6 @@ export default function ProductDetail() {
                         key={index}
                         values={Array.isArray(riga) ? riga : [riga]}
                         columnCount={tabella.tabella_head.length}
-                        quantity={(value: number) =>
-                          setCurrentQuantity(value.toString())
-                        }
                       />
                     ))}
                   </table>

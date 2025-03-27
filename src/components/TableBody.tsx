@@ -5,20 +5,17 @@ interface TableBodyProps {
   values: string[];
   onClick: (productCode: string, quantity: string) => void;
   columnCount: number;
-  quantity: (value: number) => void;
 }
 
 export default function TableBody({
   values,
   onClick,
   columnCount,
-  quantity,
 }: TableBodyProps) {
   const [localQuantity, setLocalQuantity] = useState<number>(1);
 
   function handleQuantityChange(value: number) {
     setLocalQuantity(value);
-    quantity(value);
   }
 
   return (
@@ -35,7 +32,7 @@ export default function TableBody({
         <td className="codice px-6 py-3">
           <button
             disabled={localQuantity <= 0}
-            onClick={() => onClick(values[0], values[1])}
+            onClick={() => onClick(values[0], localQuantity.toString())}
             type="button"
             className={
               localQuantity <= 0
