@@ -195,7 +195,7 @@ export default function ProductDetail() {
 
           {/* Tab content for the selected table */}
           <div id="default-tab-content">
-            <table className="table-auto text-left text-gray-500 dark:text-gray-400">
+            <table className="table-fixed w-full text-left text-gray-500 dark:text-gray-400">
               <TableHead keys={product.tabelle[selectedTab].tabella_head} />
               {product.tabelle[selectedTab].tabella_righe.map((riga, index) => (
                 <TableBody
