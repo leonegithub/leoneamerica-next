@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import parse from "html-react-parser";
 import { useSearchParams } from "next/navigation";
 import "./style.css";
@@ -56,6 +56,40 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedTab, setSelectedTab] = useState<number>(0);
+  const [sortConfig, setSortConfig] = useState<{
+    column: string;
+    direction: "asc" | "desc";
+  } | null>(null);
+
+  const sortedRows = useMemo(() => {
+    if (!product) return [];
+    const rows = product.tabelle[selectedTab].tabella_righe;
+    if (!sortConfig) return rows;
+    const colIndex = product.tabelle[selectedTab].tabella_head.indexOf(
+      sortConfig.column
+    );
+    if (colIndex === -1) return rows;
+    return [...rows].sort((a, b) => {
+      const aVal = Array.isArray(a) ? a[colIndex] : a;
+      const bVal = Array.isArray(b) ? b[colIndex] : b;
+      return sortConfig.direction === "asc"
+        ? String(aVal).localeCompare(String(bVal))
+        : String(bVal).localeCompare(String(aVal));
+    });
+  }, [product, selectedTab, sortConfig]);
+
+  // Aggiorna la configurazione dello sort al click
+  function onSort(column: string) {
+    if (
+      sortConfig &&
+      sortConfig.column === column &&
+      sortConfig.direction === "asc"
+    ) {
+      setSortConfig({ column, direction: "desc" });
+    } else {
+      setSortConfig({ column, direction: "asc" });
+    }
+  }
 
   useEffect(() => {
     if (productId) {
@@ -117,16 +151,16 @@ export default function ProductDetail() {
         <div className="grid grid-cols-2">
           <div className="left flex flex-col">
             <h1 className="blue font-bold">
-              {parse(product?.nome.toUpperCase())}
+              {parse(product.nome.toUpperCase())}
             </h1>
-            <div className="py-2">{parse(product?.descrizione || "")}</div>
+            <div className="py-2">{parse(product.descrizione || "")}</div>
             <div className="flex items-center">
               <div className="mb-2">
                 {product.video.links_video.length > 0 && (
                   <Popup
                     testo="Watch the video"
                     modalId="modal-video"
-                    video={product?.video}
+                    video={product.video}
                   />
                 )}
               </div>
@@ -152,23 +186,22 @@ export default function ProductDetail() {
           </div>
           <div className="flex flex-col">
             <Gallery
-              featured={product?.immagini.immagine_1 ?? ""}
+              featured={product.immagini.immagine_1 ?? ""}
               images={[
-                product?.immagini.immagine_1,
-                product?.immagini.immagine_2,
-                product?.immagini.immagine_3,
-                product?.immagini.immagine_4,
-                product?.immagini.immagine_5,
-                product?.immagini.immagine_6,
-                product?.immagini.immagine_7,
-                product?.immagini.immagine_8,
+                product.immagini.immagine_1,
+                product.immagini.immagine_2,
+                product.immagini.immagine_3,
+                product.immagini.immagine_4,
+                product.immagini.immagine_5,
+                product.immagini.immagine_6,
+                product.immagini.immagine_7,
+                product.immagini.immagine_8,
               ].filter((img) => img)}
             />
           </div>
         </div>
 
         <div className="tables-container my-5">
-          {/* Tab list */}
           {product.tabelle.length > 1 && (
             <div className="border-b border-gray-200 dark:border-gray-700">
               <ul className="flex flex-wrap -mb-px list-unstyled font-medium text-center">
@@ -193,11 +226,16 @@ export default function ProductDetail() {
             </div>
           )}
 
-          {/* Tab content for the selected table */}
           <div id="default-tab-content">
             <table className="table-fixed w-full text-left text-gray-500 dark:text-gray-400">
-              <TableHead keys={product.tabelle[selectedTab].tabella_head} />
-              {product.tabelle[selectedTab].tabella_righe.map((riga, index) => (
+              <TableHead
+                onClick={onSort}
+                keys={product.tabelle[selectedTab].tabella_head}
+              />
+              {(sortedRows.length > 0
+                ? sortedRows
+                : product.tabelle[selectedTab].tabella_righe
+              ).map((riga, index) => (
                 <TableBody
                   onClick={handleLink}
                   key={index}
