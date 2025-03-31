@@ -205,13 +205,15 @@ export default function ProductDetail() {
                   columnCount={product.tabelle[selectedTab].tabella_head.length}
                 />
               ))}
-              {product.tabelle.map((tabella) => (
-                <CSVButton
-                  key={tabella.nome_tabella}
-                  nome_tabella={tabella.nome_tabella}
-                  csv_data={tabella.csv_data}
-                />
-              ))}
+              <div className="flex whitespace-nowrap gap-2">
+                {product.tabelle.map((tabella) => (
+                  <CSVButton
+                    key={tabella.nome_tabella}
+                    nome_tabella={tabella.nome_tabella}
+                    csv_data={tabella.csv_data}
+                  />
+                ))}
+              </div>
             </table>
           </div>
         </div>
