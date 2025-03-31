@@ -44,14 +44,12 @@ const Products = () => {
   }, []);
 
   const handleProductClick = (product: Product) => {
-    if (typeof window !== undefined)
-      sessionStorage.setItem("selectedProduct", JSON.stringify(product));
     const productName = product.nome
       .toLowerCase()
       .replace(/\s+/g, "-")
       .replace(/&reg;/g, "")
       .replace(/<[^>]*>/g, "");
-    router.push(`all/${productName}`);
+    router.push(`all/${productName}?id=${product.id}`);
   };
 
   const tabs = data?.map((productTab) => productTab.sezione) || [];

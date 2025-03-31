@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import parse from "html-react-parser";
-import { useRouter, useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import "./style.css";
 import Popup from "@/components/popup";
 import Gallery from "@/components/gallery";
@@ -13,8 +13,8 @@ import TableBody from "@/components/TableBody";
 import CSVButton from "@/components/CSVButton";
 
 export default function ProductDetail() {
-  const router = useRouter();
-  const { slug } = useParams();
+  const searchParams = useSearchParams();
+  const productId = searchParams.get("id");
 
   interface Product {
     id: string;
@@ -58,12 +58,25 @@ export default function ProductDetail() {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   useEffect(() => {
-    const productData = sessionStorage.getItem("selectedProduct");
-    if (productData) {
-      const parsedProduct = JSON.parse(productData);
-      setProduct(parsedProduct);
+    if (productId) {
+      fetch(`https://php.leone.it/api/GetProdottiWeb7.php?id=${productId}`, {
+        cache: "no-store",
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer wlfca9P8Zn0zQt4zwpcDne4KJROqEOAzIy3dr0Eyxhbzhqz4ydddgjc",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const fetchedProduct = Array.isArray(data.ReturnedObject)
+            ? data.ReturnedObject[0]
+            : data.ReturnedObject;
+          setProduct(fetchedProduct);
+        })
+        .catch((error) => console.error("Errore nella fetch:", error));
     }
-  }, [slug, router]);
+  }, [productId]);
 
   function handleLink(productCode: string, quantity: string) {
     const url = new URL("https://staging.leoneamerica.com/personal-area/");
