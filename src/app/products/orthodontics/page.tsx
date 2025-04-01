@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import colonia from "./A0620 colonia.59.421.png";
+import foto1 from "./Foto sito LeoneAmerica AR .png";
+import foto2 from "./Foto sito LeoneAmerica AR 2.png";
+import foto3 from "./Foto sito LeoneAmerica AR 3.png";
+import foto4 from "./Foto sito LeoneAmerica AR 4.png";
+import foto5 from "./Foto sito LeoneAmerica AR 5.png";
 import "./style.css";
 
 export default function Prodotti() {
@@ -26,27 +30,27 @@ export default function Prodotti() {
             <Image
               style={{ height: "100%", width: "100%" }}
               className="border"
-              src={colonia}
+              src={foto1}
               alt="colonia"
             ></Image>
             <span className="blue pt-3 text-lg font-semibold">Testo</span>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className=" flex flex-col ">
-              <Image className="border" src={colonia} alt="colonia"></Image>
+              <Image className="border" src={foto2} alt="colonia"></Image>
               <span className="blue pt-3 text-lg font-semibold">Testo</span>
             </div>
 
             <div className=" flex flex-col ">
-              <Image className="border" src={colonia} alt="colonia"></Image>
+              <Image className="border" src={foto3} alt="colonia"></Image>
               <span className="blue pt-3 text-lg font-semibold">Testo</span>
             </div>
             <div className=" flex flex-col ">
-              <Image className="border" src={colonia} alt="colonia"></Image>
+              <Image className="border" src={foto4} alt="colonia"></Image>
               <span className="blue pt-3 text-lg font-semibold">Testo</span>
             </div>
             <div className=" flex flex-col ">
-              <Image className="border" src={colonia} alt="colonia"></Image>
+              <Image className="border" src={foto5} alt="colonia"></Image>
               <span className="blue pt-3 text-lg font-semibold">Testo</span>
             </div>
           </div>

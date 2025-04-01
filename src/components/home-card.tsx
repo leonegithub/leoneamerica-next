@@ -1,4 +1,5 @@
 import "./home-card.css";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface HomeCardProps {
@@ -6,6 +7,7 @@ interface HomeCardProps {
     title: string;
     text: string;
     link: string;
+    image: StaticImageData;
   }[];
 }
 
@@ -14,19 +16,8 @@ export default function HomeCard({ items }: HomeCardProps) {
     <>
       {items.map((item, index) => (
         <div key={index} className="product-card flex flex-col justify-between">
-          <div
-            className="squared"
-            style={{
-              height: 300,
-              width: 400,
-              backgroundColor: "var(--grigio)",
-            }}
-          ></div>
-          {/*  <Image
-            style={{ backgroundColor: "var(--grigio)" }}
-            src={item.image}
-            alt={`immagine ${item.title}`}
-          /> */}
+          <div className="squared"></div>
+          <Image src={item.image} alt={`immagine ${item.title}`} />
           <h4>{item.title}</h4>
           <p>{item.text}</p>
           <div className="btn-container">
