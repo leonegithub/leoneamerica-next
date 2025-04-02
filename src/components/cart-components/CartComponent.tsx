@@ -23,7 +23,7 @@ const CartComponent: React.FC = () => {
   };
 
   return (
-    <div className="w-1/3 bg-gray-100 dark:bg-gray-800">
+    <div className="w-2/6 p-4 bg-gray-100 dark:bg-gray-800">
       <div className="line flex justify-between ">
         <h2 className="text-2xl mb-4">Carrello</h2>
         <DeleteButton onClick={emptyCart} />

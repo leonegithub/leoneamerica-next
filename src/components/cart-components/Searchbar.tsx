@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./searchbar-cart.css";
 
 interface SearchBarProps {
   value: string;
@@ -8,7 +8,12 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   return (
-    <div className="input-group searchbar flex items-center">
+    <div
+      className="input-group searchbar flex items-center"
+      style={{
+        marginBottom: "50px",
+      }}
+    >
       <input
         type="text"
         value={value}

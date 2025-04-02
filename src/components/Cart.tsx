@@ -100,8 +100,8 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
   const totalPages = Math.ceil(filteredResults.length / pageSize);
 
   return (
-    <div className="flex mt-5">
-      <div className="w-2/3">
+    <div className="flex mt-5 justify-between">
+      <div className="w-3/5">
         <SearchBar value={filteredValue} onChange={handleChange} />
         {isLoading ? (
           <div role="status">
