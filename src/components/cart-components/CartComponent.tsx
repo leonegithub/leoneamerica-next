@@ -25,7 +25,7 @@ const CartComponent: React.FC = () => {
   return (
     <div className="w-2/6 p-4 bg-gray-100 dark:bg-gray-800">
       <div className="line flex justify-between ">
-        <h2 className="text-2xl mb-4">Carrello</h2>
+        <h2 className="text-2xl mb-4">Cart</h2>
         <DeleteButton onClick={emptyCart} />
       </div>
       <ul>
@@ -46,10 +46,10 @@ const CartComponent: React.FC = () => {
                 </li>
               </>
             ))
-          : "Il carrello è vuoto"}
+          : "Cart is empty"}
       </ul>
       <p>
-        Totale:{" "}
+        Total:{" "}
         {cart.reduce(
           (accumulator, currentValue) => accumulator + currentValue.quantity,
           0
