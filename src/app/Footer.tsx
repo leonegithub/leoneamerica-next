@@ -72,7 +72,7 @@ export default function Footer() {
             </div>
             <div className="col-12 col-sm-6">
               <div className="social-media-wrapper text-4xl">
-                <ul className="m-0 list-unstyled d-flex justify-content-sm-end gap-3 gap-xl-4">
+                <ul className="m-0 socials-list list-unstyled d-flex justify-content-sm-end gap-3 gap-xl-4">
                   <li>
                     <Link
                       className="pe-3 link-opacity-75-hover "
