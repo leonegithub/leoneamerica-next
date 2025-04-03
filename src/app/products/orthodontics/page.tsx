@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import leaf from "./foto sito leoneamerica leaf.png";
 import anatomical from "./foto sito leoneamerica anatomica.png";
-import interactivesl from "./interactivesl.png";
+import interactiveSl from "./interactivesl.png";
 import f1000 from "./f1000.png";
 import pop from "./popscrews.png";
 import "./style.css";
@@ -58,7 +58,7 @@ export default function Prodotti() {
               </span>
             </div>
             <div className=" flex flex-col ">
-              <Image className="border" src={interactivesl} alt="colonia" />
+              <Image className="border" src={interactiveSl} alt="colonia" />
               <span className="blue pt-3 text-lg">
                 <span className="font-bold">Interactive</span>SL
               </span>
