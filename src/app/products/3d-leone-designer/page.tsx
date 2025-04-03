@@ -96,8 +96,8 @@ export default function LeoneDesigner() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            {focuses.map((focus) => (
-              <div className=" flex flex-col ">
+            {focuses.map((focus, index) => (
+              <div className=" flex flex-col" key={index}>
                 <Image
                   className="border"
                   src={focus.picture}
