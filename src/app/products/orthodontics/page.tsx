@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import foto1 from "./Foto sito LeoneAmerica AR .png";
-import foto2 from "./Foto sito LeoneAmerica AR 2.png";
-import foto3 from "./Foto sito LeoneAmerica AR 3.png";
-import foto4 from "./Foto sito LeoneAmerica AR 4.png";
-import foto5 from "./Foto sito LeoneAmerica AR 5.png";
+import leaf from "./foto sito leoneamerica leaf.png";
+import anatomical from "./foto sito leoneamerica anatomica.png";
+import interactivesl from "./interactivesl.png";
+import f1000 from "./f1000.png";
+import pop from "./popscrews.png";
 import "./style.css";
 
 export default function Prodotti() {
@@ -30,28 +30,38 @@ export default function Prodotti() {
             <Image
               style={{ height: "100%", width: "100%" }}
               className="border"
-              src={foto1}
+              src={leaf}
               alt="colonia"
-            ></Image>
-            <span className="blue pt-3 text-lg font-semibold">Testo</span>
+            />
+            <span className="blue pt-3 text-lg font-semibold">
+              Leaf Expander <sup>&#174;</sup>
+            </span>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className=" flex flex-col ">
-              <Image className="border" src={foto2} alt="colonia"></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
+              <Image className="border" src={anatomical} alt="colonia" />
+              <span className="blue pt-3 text-lg font-semibold">
+                Leaf Self Expander<sup>&#174;</sup> Anatomical
+              </span>
             </div>
 
             <div className=" flex flex-col ">
-              <Image className="border" src={foto3} alt="colonia"></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
+              <Image className="border" src={pop} alt="colonia" />
+              <span className="blue pt-3 text-lg font-semibold">
+                Pop Screws
+              </span>
             </div>
             <div className=" flex flex-col ">
-              <Image className="border" src={foto4} alt="colonia"></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
+              <Image className="border" src={f1000} alt="colonia" />
+              <span className="blue pt-3 text-lg">
+                <span className="font-bold">F1000</span>Plus
+              </span>
             </div>
             <div className=" flex flex-col ">
-              <Image className="border" src={foto5} alt="colonia"></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
+              <Image className="border" src={interactivesl} alt="colonia" />
+              <span className="blue pt-3 text-lg">
+                <span className="font-bold">Interactive</span>SL
+              </span>
             </div>
           </div>
         </div>

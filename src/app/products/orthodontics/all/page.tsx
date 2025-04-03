@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import parse from "html-react-parser";
 import "./style.css";
+import SearchBar from "@/components/searchbar";
 
 const Products = () => {
   interface Product {
@@ -25,6 +26,7 @@ const Products = () => {
   }
   const [data, setData] = useState<Product[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [titleText, setTitleText] = useState<string>("");
   const router = useRouter();
 
   useEffect(() => {
@@ -62,14 +64,17 @@ const Products = () => {
 
   const [activeTab, setActiveTab] = useState("Laboratory");
 
-  const filteredData = data?.filter(
-    (productSection) => productSection.sezione === activeTab
-  );
+  const filteredData =
+    data?.filter(
+      (productSection) =>
+        productSection.sezione === activeTab &&
+        productSection.nome.toLowerCase().includes(titleText.toLowerCase())
+    ) ?? [];
 
   return (
     <div className="container">
       <h1 className="blue font-bold my-5">Products</h1>
-      <div className="font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <div className="font-medium flex justify-between items-center text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
         <ul className="flex flex-wrap list-unstyled -mb-px">
           {tabsUnique &&
             tabsUnique.map((tab) => (
@@ -87,6 +92,12 @@ const Products = () => {
               </li>
             ))}
         </ul>
+        <div>
+          <SearchBar
+            value={titleText}
+            onChange={(e) => setTitleText(e.target.value)}
+          />
+        </div>
       </div>
       <div className="grid-container my-5">
         {isLoading ? (
@@ -111,28 +122,30 @@ const Products = () => {
           </div>
         ) : (
           <>
-            {filteredData?.map((product, index) => (
-              <div key={index} className="grid-item-wrapper">
-                <div
-                  className="grid-item"
-                  onClick={() => handleProductClick(product)}
-                >
-                  <Image
-                    width={1920}
-                    height={1080}
-                    src={product.immagini.immagine_1}
-                    alt={product.nome}
-                    className="product-image"
-                  />
-                </div>
-                <p
-                  onClick={() => handleProductClick(product)}
-                  className="product-name text-center"
-                >
-                  {parse(product.nome.toUpperCase())}
-                </p>
-              </div>
-            ))}
+            {filteredData?.length > 0
+              ? filteredData?.map((product, index) => (
+                  <div key={index} className="grid-item-wrapper">
+                    <div
+                      className="grid-item"
+                      onClick={() => handleProductClick(product)}
+                    >
+                      <Image
+                        width={1920}
+                        height={1080}
+                        src={product.immagini.immagine_1}
+                        alt={product.nome}
+                        className="product-image"
+                      />
+                    </div>
+                    <p
+                      onClick={() => handleProductClick(product)}
+                      className="product-name text-center"
+                    >
+                      {parse(product.nome.toUpperCase())}
+                    </p>
+                  </div>
+                ))
+              : "No product found."}
           </>
         )}
       </div>
