@@ -1,13 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
 import Software from "../../../../public/Software.png";
+import leone1 from "./3dleone_1.png";
+import leone2 from "./3dleone_2.png";
+import leone3 from "./3dleone_3.png";
+import leone4 from "./3dleone_4.png";
+import leone5 from "./3dleone_5.png";
+import leone6 from "./3dleone_6.png";
 /* import MadTablet from "../../../../public/MadTablet.png";
 import MadMobile from "../../../../public/MADmobile.png"; */
-import imgA from "./Img_A_cb007d3ef2.bmp";
-import imgC from "./Img_C_b2bfe7f7fd.bmp";
-import largeSintex1 from "./large_Sintex_ad0f509fad.webp";
-import largeSintex2 from "./large_Sintex_2_ac927b2c8d.webp";
+
 import "./style.css";
+
+const focuses = [
+  {
+    picture: leone1,
+    title: "Models orientation",
+  },
+  {
+    picture: leone2,
+    title: "Screw position definition",
+  },
+  {
+    picture: leone3,
+    title: "Bands definition",
+  },
+  {
+    picture: leone4,
+    title: "Arms definition",
+  },
+  {
+    picture: leone5,
+    title: "Support definition",
+  },
+  {
+    picture: leone6,
+    title: "Review & Export",
+  },
+];
 
 export default function LeoneDesigner() {
   return (
@@ -30,27 +60,31 @@ export default function LeoneDesigner() {
         <div className="grid grid-cols-2 gap-4">
           <div className=" flex flex-col px-4">
             <p>
-              3D Leone Designer is the first software based on an easy and
-              driven workflow for the digital design of customized framework to
-              be coupled with our innovative CAD-CAM expanders. Based on our
-              experience with many different software in the dental field and
-              due to the increased customer’s requests, Leone has realized an
-              innovative and intuitive software that allow to design, not only
-              bands and supports, but even the expander arms with automatically
-              placing the expander in the right position, without spending too
-              much time and no need of digital skills. 3D Leone Designer
-              software allow to upload and manage STL files of both upper and
-              lower arch, obtained from laboratory scanner or directly from
-              intra-oral scanner, and it has already in library all the range of
-              Leone CAD-CAM expander available.
+              <strong>3DLeone Designer</strong> is the first software based on a
+              simple driven workflow for the digital design of customized
+              framework to be coupled with our innovative CAD-CAM expanders.
             </p>
             <p>
-              Once the digital and driven workflow will be done, the STL file
-              designed will become, thanks to an innovative technology called
-              Selective Laser Melting, a high precision sintered framework and
-              will be coupled perfectly with the chosen Leone CAD-CAM expander.
-              The framework and the expander will be then permanently laser
-              welded.
+              Based on our experience with many different software in the dental
+              field and due to the increased customer requests, Leone has made
+              out an innovative and intuitive software for the design of bands,
+              supports, and expander arms. It can automatically place the
+              expander in the right position, in a very short time and
+              regardless of digital skills.
+            </p>
+            <p>
+              <strong>3DLeone Designer</strong> software can upload and manage
+              .STL files of both upper and lower arches, obtained with a
+              laboratory scanner or directly with an intra-oral scanner: its
+              library includes all the range of Leone CAD-CAM expanders
+              available.
+            </p>
+            <p>
+              Once the digital driven workflow is completed, thanks to
+              innovative technology (Selective Laser Melting) the designed .STL
+              file will become a high precision sintered framework and will be
+              coupled perfectly with the chosen Leone CAD-CAM expander. The
+              framework and the expander will be then permanent laser welded.
             </p>
             <Link href={`https://www.3dleone.it/en`} target="_blank">
               <button
@@ -62,31 +96,18 @@ export default function LeoneDesigner() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className=" flex flex-col ">
-              <Image className="border" src={imgA} alt="imgA"></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
-            </div>
-
-            <div className=" flex flex-col ">
-              <Image className="border" src={imgC} alt="imgC"></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
-            </div>
-            <div className=" flex flex-col ">
-              <Image
-                className="border"
-                src={largeSintex2}
-                alt="largeSintex2"
-              ></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
-            </div>
-            <div className=" flex flex-col ">
-              <Image
-                className="border"
-                src={largeSintex1}
-                alt="largeSintex1"
-              ></Image>
-              <span className="blue pt-3 text-lg font-semibold">Testo</span>
-            </div>
+            {focuses.map((focus) => (
+              <div className=" flex flex-col ">
+                <Image
+                  className="border"
+                  src={focus.picture}
+                  alt="imgA"
+                ></Image>
+                <span className="blue pt-3 text-lg font-semibold">
+                  {focus.title}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
