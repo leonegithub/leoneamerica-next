@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import Software from "../../../../public/Software.png";
 import leone1 from "./3dleone_1.png";
@@ -10,9 +10,14 @@ import leone6 from "./3dleone_6.png";
 /* import MadTablet from "../../../../public/MadTablet.png";
 import MadMobile from "../../../../public/MADmobile.png"; */
 
+interface focusesProps {
+  picture: StaticImageData;
+  title: string;
+}
+
 import "./style.css";
 
-const focuses = [
+const focuses: focusesProps[] = [
   {
     picture: leone1,
     title: "Models orientation",
