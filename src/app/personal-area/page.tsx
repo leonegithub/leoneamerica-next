@@ -17,9 +17,12 @@ const PersonalArea = () => {
   const router = useRouter();
   const { userId, setUserId, setUserData } = useAuth();
   const [data, setData] = useState<User | null>(null);
-  const tabs = ["Shop", "Purchased", "Orders", "Downloads", "Profile"];
-  const [activeTab, setActiveTab] = useState("Orders");
+  const tabs = ["shop", "purchased", "orders", "downloads", "profile"];
   const searchParams = useSearchParams();
+
+  // Imposta la tab iniziale in base al parametro della query oppure usa "Orders" come default
+  const initialTab = searchParams.get("tab") || "shop";
+  const [activeTab, setActiveTab] = useState(initialTab);
 
   interface User {
     Nome: string;
@@ -66,6 +69,14 @@ const PersonalArea = () => {
     }
   }, [userId, router, setUserData]);
 
+  // Aggiorna activeTab se il parametro della query cambia
+  useEffect(() => {
+    const urlTab = searchParams.get("tab");
+    if (urlTab && urlTab !== activeTab) {
+      setActiveTab(urlTab);
+    }
+  }, [searchParams]);
+
   const handleLogout = () => {
     setUserId(null);
     setUserData(null);
@@ -106,15 +117,15 @@ const PersonalArea = () => {
           <>
             {(() => {
               switch (activeTab) {
-                case "Profile":
+                case "profile":
                   return <UserData data={data} />;
-                case "Orders":
+                case "orders":
                   return (
                     <CartProvider products={[]}>
                       <Cart searchParams={searchParams} />
                     </CartProvider>
                   );
-                case "Shop":
+                case "shop":
                   return (
                     <div className="container mt-2">
                       <div className="flex py-5 justify-between">
