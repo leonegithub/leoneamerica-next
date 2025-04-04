@@ -1,17 +1,12 @@
-ul {
-  list-style-type: none;
-  color: var(--colore-primario);
-}
-
 a {
   color: unset;
 }
 
-h2,
+/* h2,
 h4 {
   font-weight: 700;
   color: var(--colore-primario);
-}
+} */
 
 .row {
   align-items: center;

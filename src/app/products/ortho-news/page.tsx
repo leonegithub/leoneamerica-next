@@ -101,7 +101,7 @@ const Downloads = () => {
                   href={`https://php.leone.it${journal.nome}`}
                   target="_blank"
                 >
-                  <h5 className="text-lg p-2">{journal.nome}</h5>
+                  <h5 className="ortho-h5 text-lg p-2">{journal.nome}</h5>
                 </Link>
               </div>
             ))

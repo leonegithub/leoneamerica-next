@@ -59,7 +59,7 @@ const Contatti = () => {
           </div>
           <div className="col-sm-6 col-12">
             <div className="upper">
-              <ul>
+              <ul className="blue list-unstyled">
                 <li>
                   1400 Graves Ave. <br />
                   Unit AB <br />
