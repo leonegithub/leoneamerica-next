@@ -113,9 +113,8 @@ export default function ProductDetail() {
   }, [productId]);
 
   function handleLink(productCode: string, quantity: string) {
-    const url = new URL(
-      "https://staging.leoneamerica.com/personal-area/?tab=orders"
-    );
+    const url = new URL("https://staging.leoneamerica.com/personal-area/");
+    url.searchParams.set("tab", "orders");
     url.searchParams.set("codice", productCode);
     url.searchParams.set("quantita", quantity);
     window.open(url.toString(), "_blank");
