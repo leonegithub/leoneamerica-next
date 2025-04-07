@@ -15,6 +15,7 @@ const Events = () => {
     id: string;
     nome: string;
     data_visualizzata: string;
+    data_scadenza: Date;
     location: string;
     thumb: string;
     link1?: string;
@@ -38,6 +39,8 @@ const Events = () => {
         setIsLoading(false);
       });
   }, []);
+
+  const today = new Date();
 
   return (
     <>
@@ -84,28 +87,33 @@ const Events = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2">
-            {data?.map((event) => (
-              <div key={event.id} className="event mb-5 align-items-center">
-                <Image
-                  width={450}
-                  height={450}
-                  src={`https://php.leone.it${event.thumb}`}
-                  alt={event.nome}
-                />
-                <div className="event-container">
-                  <h2 className="event-name pt-3">{event.nome}</h2>
-                  <p className="event-date">{parse(event.data_visualizzata)}</p>
-                  <p className="event-location">{parse(event.location)}</p>
-                  {event.link1 && (
-                    <p className="event-details py-2">
-                      <Link href={event.link1} target="_blank">
-                        <DefaultButton testo={event.testo_link1 || ""} />
-                      </Link>
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
+            {data?.map(
+              (event) =>
+                new Date(event.data_scadenza) > today && (
+                  <div key={event.id} className="event mb-5 align-items-center">
+                    <Image
+                      width={450}
+                      height={450}
+                      src={`https://php.leone.it${event.thumb}`}
+                      alt={event.nome}
+                    />
+                    <div className="event-container">
+                      <h2 className="event-name pt-3">{event.nome}</h2>
+                      <p className="event-date">
+                        {parse(event.data_visualizzata)}
+                      </p>
+                      <p className="event-location">{parse(event.location)}</p>
+                      {event.link1 && (
+                        <p className="event-details py-2">
+                          <Link href={event.link1} target="_blank">
+                            <DefaultButton testo={event.testo_link1 || ""} />
+                          </Link>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )
+            )}
           </div>
         )}
       </div>
