@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import parse from "html-react-parser";
 import Mad from "../../../../public/MAD.png";
 /* import MadTablet from "../../../../public/MadTablet.png";
 import MadMobile from "../../../../public/MADmobile.png"; */
@@ -16,7 +17,17 @@ export default function Prodotti() {
   interface Product {
     id: string;
     nome: string;
-    immagine_focus: string;
+    immagini: {
+      header: string;
+      immagine_1: string;
+      immagine_2: string;
+      immagine_3: string;
+      immagine_4: string;
+      immagine_5: string;
+      immagine_6: string;
+      immagine_7: string;
+      immagine_8: string;
+    };
     tag: string[];
   }
   const [data, setData] = useState<Product[] | null>(null);
@@ -24,7 +35,7 @@ export default function Prodotti() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("https://php.leone.it/api/GetProdottiWeb.php", {
+    fetch("https://php.leone.it/api/GetProdottiWeb7.php", {
       cache: "no-store",
       method: "GET",
       headers: {
@@ -45,7 +56,9 @@ export default function Prodotti() {
   const handleProductClick = (product: Product) => {
     sessionStorage.setItem("selectedProduct", JSON.stringify(product));
     router.push(
-      `/products/sleep-apnea/${product.nome.toLowerCase().replace(/\s+/g, "-")}`
+      `/products/orthodontics/all/${product.nome
+        .toLowerCase()
+        .replace(/\s+/g, "-")}?id=${product.id}`
     );
   };
   return (
@@ -167,7 +180,7 @@ export default function Prodotti() {
                   <Image
                     width={1920}
                     height={1080}
-                    src={`https://php.leone.it${product.immagine_focus}`}
+                    src={product.immagini.immagine_1}
                     alt={product.nome}
                     className="product-image"
                   />
@@ -176,7 +189,7 @@ export default function Prodotti() {
                   onClick={() => handleProductClick(product)}
                   className="product-name text-center"
                 >
-                  {product.nome}
+                  {parse(product.nome.toUpperCase())}
                 </p>
               </div>
             ))
