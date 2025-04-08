@@ -29,7 +29,7 @@ const CartComponent: React.FC = () => {
 
   return (
     <div className="w-4/12 dark:bg-gray-800">
-      <div className="flex justify-end mb-4" style={{ marginTop: "10px" }}>
+      <div className="flex justify-end mb-4" style={{ marginTop: "25px" }}>
         {/* <h2 className="text-2xl">Cart</h2> */}
 
         <DeleteButton onClick={emptyCart} />
