@@ -37,7 +37,7 @@ const CartComponent: React.FC = () => {
       <div className="relative overflow-x-auto">
         <table
           className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
-          style={{ marginTop: "12px" }}
+          style={{ marginTop: "25px" }}
         >
           <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
