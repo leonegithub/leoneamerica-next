@@ -22,39 +22,78 @@ const CartComponent: React.FC = () => {
     );
   };
 
+  const totalQuantity = cart.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.quantity,
+    0
+  );
+
   return (
-    <div className="w-2/6 p-3 bg-gray-100 dark:bg-gray-800">
-      <div className="line flex justify-between ">
-        <h2 className="text-2xl mb-4">Cart</h2>
+    <div className="w-4/12 dark:bg-gray-800">
+      <div className="flex justify-end mb-4" style={{ marginTop: "10px" }}>
+        {/* <h2 className="text-2xl">Cart</h2> */}
+
         <DeleteButton onClick={emptyCart} />
       </div>
-      <ul>
-        {cart.length > 0
-          ? cart.map((item) => (
-              <>
-                <li key={item.id} className="mb-2 flex justify-between">
-                  <div>
-                    <span style={{ fontWeight: 700 }}>Qnt: &nbsp; </span>
-                    {item.quantity} - {item.descrizioneEng}
-                  </div>
-                  <div
-                    style={{ cursor: "pointer", color: "red" }}
-                    onClick={() => removeItem(item.codice)}
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" className="px-6 py-3 rounded-s-lg">
+                Product name
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Qty
+              </th>
+              <th scope="col" className="px-6 py-3 rounded-e-lg">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.length > 0 ? (
+              cart.map((item) => (
+                <tr
+                  key={item.id}
+                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                >
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    X
-                  </div>
-                </li>
-              </>
-            ))
-          : "Cart is empty"}
-      </ul>
-      <p>
-        Total:{" "}
-        {cart.reduce(
-          (accumulator, currentValue) => accumulator + currentValue.quantity,
-          0
-        )}
-      </p>
+                    {item.descrizioneEng}
+                  </th>
+                  <td className="px-6 py-4">{item.quantity}</td>
+                  <td className="px-6 py-4">
+                    <span
+                      className="cursor-pointer text-red-500 hover:underline"
+                      onClick={() => removeItem(item.codice)}
+                    >
+                      Remove
+                    </span>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td className="px-6 py-4" colSpan={3}>
+                  Cart is empty
+                </td>
+              </tr>
+            )}
+          </tbody>
+          {cart.length > 0 && (
+            <tfoot>
+              <tr className="font-semibold text-gray-900 dark:text-white">
+                <th scope="row" className="px-6 py-3 text-base">
+                  Total
+                </th>
+                <td className="px-6 py-3">{totalQuantity}</td>
+                <td className="px-6 py-3"></td>
+              </tr>
+            </tfoot>
+          )}
+        </table>
+      </div>
     </div>
   );
 };

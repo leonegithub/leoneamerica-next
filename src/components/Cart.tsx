@@ -101,7 +101,7 @@ const Cart: React.FC<CartComponentProps> = ({ searchParams }) => {
 
   return (
     <div className="flex mt-5 justify-between">
-      <div className="w-3/5">
+      <div className="w-7/12">
         <SearchBar value={filteredValue} onChange={handleChange} />
         {isLoading ? (
           <div role="status">
