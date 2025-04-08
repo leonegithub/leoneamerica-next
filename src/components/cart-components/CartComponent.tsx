@@ -29,13 +29,16 @@ const CartComponent: React.FC = () => {
 
   return (
     <div className="w-4/12 dark:bg-gray-800">
-      <div className="flex justify-end mb-4" style={{ marginTop: "25px" }}>
+      <div className="flex justify-end mb-4">
         {/* <h2 className="text-2xl">Cart</h2> */}
 
         <DeleteButton onClick={emptyCart} />
       </div>
       <div className="relative overflow-x-auto">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table
+          className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+          style={{ marginTop: "12px" }}
+        >
           <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3 rounded-s-lg">
