@@ -3,7 +3,6 @@
   background-color: var(--grigio) !important;
   border-radius: 50px;
   flex-wrap: nowrap;
-  padding: 2px !important;
 }
 
 #lens {
