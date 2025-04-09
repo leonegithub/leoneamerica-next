@@ -44,37 +44,6 @@ export default function Home() {
     <div>
       <Carousel fade data-bs-theme="dark">
         <Carousel.Item>
-          <Link target="_blank" href="products/sleep-apnea">
-            <div className="relative">
-              {/* desktop */}
-              <Image src={Mad} alt="mad" className="w-full hidden lg:block" />
-              {/* tablet */}
-              <Image
-                src={MadTablet}
-                alt="software"
-                className="w-full hidden md:block lg:hidden"
-              />
-              {/* mobile */}
-              <Image
-                src={MadMobile}
-                alt="software-mobile"
-                className="w-full block md:hidden"
-              />
-              <div className="mad-slide absolute left-10 lg:left-28 top-[25%] md:top-1/2  transform -translate-y-1/2">
-                <h3 className="mad-slide text-xl md:text-4xl lg:text-4xl">
-                  <strong>Sleep Apnea</strong>
-                </h3>
-                <h2 className="font-bold text-5xl md:text-6xl lg:text-9xl">
-                  M.A.D.
-                </h2>
-                <h3 className="text-xl md:text-5xl lg:text-6xl">
-                  Anti snoring devices
-                </h3>
-              </div>
-            </div>
-          </Link>
-        </Carousel.Item>
-        <Carousel.Item>
           <Link
             href="https://leafexpander.com/"
             target="_blank"
@@ -109,6 +78,38 @@ export default function Home() {
             </div>
           </Link>
         </Carousel.Item>
+        <Carousel.Item>
+          <Link target="_blank" href="products/sleep-apnea">
+            <div className="relative">
+              {/* desktop */}
+              <Image src={Mad} alt="mad" className="w-full hidden lg:block" />
+              {/* tablet */}
+              <Image
+                src={MadTablet}
+                alt="software"
+                className="w-full hidden md:block lg:hidden"
+              />
+              {/* mobile */}
+              <Image
+                src={MadMobile}
+                alt="software-mobile"
+                className="w-full block md:hidden"
+              />
+              <div className="mad-slide absolute left-10 lg:left-28 top-[25%] md:top-1/2  transform -translate-y-1/2">
+                <h3 className="mad-slide text-xl md:text-4xl lg:text-4xl">
+                  <strong>Sleep Apnea</strong>
+                </h3>
+                <h2 className="font-bold text-5xl md:text-6xl lg:text-9xl">
+                  M.A.D.
+                </h2>
+                <h3 className="text-xl md:text-5xl lg:text-6xl">
+                  Anti snoring devices
+                </h3>
+              </div>
+            </div>
+          </Link>
+        </Carousel.Item>
+
         <Carousel.Item>
           <Link
             href="https://www.3dleone.it/"

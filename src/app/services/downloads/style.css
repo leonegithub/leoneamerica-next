@@ -6,6 +6,10 @@
     margin-bottom: 0 !important;
     color: var(--bianco);
     padding: var(--unita-base) 0;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -17,4 +21,9 @@
       width: 100%;
     }
   }
+}
+
+.download-link img {
+  height: 100%;
+  object-fit: cover;
 }
