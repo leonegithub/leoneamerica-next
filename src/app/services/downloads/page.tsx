@@ -77,7 +77,7 @@ const Downloads = () => {
   };
 
   const depliantSection = filteringSection("depliant");
-  const bollettinoSection = filteringSection("bollettino");
+  /* const bollettinoSection = filteringSection("bollettino"); */
   const catalogoSection = filteringSection("catalogo");
 
   return (
