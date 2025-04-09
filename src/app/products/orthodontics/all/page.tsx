@@ -8,6 +8,11 @@ import "./style.css";
 import SearchBar from "@/components/searchbar";
 
 const Products = () => {
+  interface Tabella {
+    nome_tabella: string;
+    tabella_head: string[];
+    tabella_righe: string[][];
+  }
   interface Product {
     id: string;
     nome: string;
@@ -23,6 +28,7 @@ const Products = () => {
       immagine_8: string;
     };
     sezione: string;
+    tabelle: Tabella[];
   }
   const [data, setData] = useState<Product[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -68,7 +74,12 @@ const Products = () => {
     data?.filter(
       (productSection) =>
         productSection.sezione === activeTab &&
-        productSection.nome.toLowerCase().includes(titleText.toLowerCase())
+        (productSection.nome.toLowerCase().includes(titleText.toLowerCase()) ||
+          productSection.tabelle.some((tabella) =>
+            tabella.tabella_righe.some((tabella_riga) =>
+              tabella_riga[0].toLowerCase().includes(titleText.toLowerCase())
+            )
+          ))
     ) ?? [];
 
   return (
