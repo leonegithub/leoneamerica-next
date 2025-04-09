@@ -112,7 +112,13 @@ const Downloads = () => {
                 {displayingSection(catalogoSection)}
               </div>
             </div>
-            <div className="section">
+            <div className="section my-4">
+              <h1 className="blue my-4 mt-5">Depliants</h1>
+              <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
+                {displayingSection(depliantSection)}
+              </div>
+            </div>
+            {/* <div className="section">
               <h1 className=" blue mb-4 mt-5">Depliants</h1>
               <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
                 {displayingSection(depliantSection)}
@@ -123,7 +129,7 @@ const Downloads = () => {
               <div className="list gap-5 my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
                 {displayingSection(bollettinoSection)}
               </div>
-            </div>
+            </div> */}
           </>
         )}
       </div>
