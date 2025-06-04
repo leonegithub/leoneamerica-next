@@ -93,7 +93,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     if (productId) {
-      fetch(`https://php.leone.it/api/GetProdottiWeb7.php?id=${productId}`, {
+      fetch(`https://php.leone.it/api/GetProdottiWeb7_1.php?id=${productId}`, {
         cache: "no-store",
         method: "GET",
         headers: {

@@ -35,7 +35,7 @@ export default function Prodotti() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("https://php.leone.it/api/GetProdottiWeb7.php", {
+    fetch("https://php.leone.it/api/GetProdottiWeb7_1.php", {
       cache: "no-store",
       method: "GET",
       headers: {
