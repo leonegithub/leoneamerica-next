@@ -8,10 +8,6 @@ interface TableHeadProps {
 export default function TableHead({ keys, onClick }: TableHeadProps) {
   const [openPopover, setOpenPopover] = useState<string | null>(null);
 
-  const handlePopover = (key: string) => {
-    setOpenPopover(openPopover === key ? null : key);
-  };
-
   return (
     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
