@@ -21,7 +21,8 @@ export default function TableHead({ keys, onClick }: TableHeadProps) {
               <button
                 type="button"
                 tabIndex={0}
-                onClick={() => handlePopover(key)}
+                onMouseEnter={() => setOpenPopover(key)}
+                onMouseLeave={() => setOpenPopover(null)}
               >
                 <svg
                   className="w-4 h-4 text-gray-400 hover:text-gray-500 ms-3 me-2"
@@ -49,6 +50,8 @@ export default function TableHead({ keys, onClick }: TableHeadProps) {
                 role="tooltip"
                 className="absolute z-10 inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-100 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
                 style={{ top: "2.5rem", left: 0 }}
+                onMouseEnter={() => setOpenPopover(key)}
+                onMouseLeave={() => setOpenPopover(null)}
               >
                 <div className="p-3 space-y-2 lowercase">
                   image
