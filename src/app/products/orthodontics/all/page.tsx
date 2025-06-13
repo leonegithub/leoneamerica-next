@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import parse from "html-react-parser";
-import placeholder from '@/../../public/placeholder.png'
 import "./style.css";
 import SearchBar from "@/components/searchbar";
 
