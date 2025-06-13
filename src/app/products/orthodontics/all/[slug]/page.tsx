@@ -8,7 +8,7 @@ import Popup from "@/components/popup";
 import Gallery from "@/components/gallery";
 import DefaultButton from "@/components/defaultButton";
 import Link from "next/link";
-import TableHead from "@/components/TableHead";
+import TableHead, { TableHeadProps } from "@/components/TableHead";
 import TableBody from "@/components/TableBody";
 import CSVButton from "@/components/CSVButton";
 
@@ -47,7 +47,7 @@ export default function ProductDetail() {
     tabelle: [
       {
         nome_tabella: string;
-        tabella_head: string[];
+        tabella_head: TableHeadProps;
         tabella_righe: string[];
         csv_data: string;
       }
@@ -56,44 +56,63 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedTab, setSelectedTab] = useState<number>(0);
-  const [sortConfig, setSortConfig] = useState<{
-    column: string;
-    direction: "asc" | "desc";
-  } | null>(null);
+  const tabella_head = product?.tabelle[selectedTab].tabella_head;
+  const colonne = tabella_head ? Object.values(tabella_head) : []
+const [sortConfig, setSortConfig] = useState<{
+  column: string;
+  direction: "asc" | "desc";
+} | null>(null);
 
-  const sortedRows = useMemo(() => {
-    if (!product) return [];
-    const rows = product.tabelle[selectedTab].tabella_righe;
-    if (!sortConfig) return rows;
-    const colIndex = product.tabelle[selectedTab].tabella_head.indexOf(
-      sortConfig.column
-    );
-    if (colIndex === -1) return rows;
-    return [...rows].sort((a, b) => {
-      const aVal = Array.isArray(a) ? a[colIndex] : a;
-      const bVal = Array.isArray(b) ? b[colIndex] : b;
-      return sortConfig.direction === "asc"
-        ? String(aVal).localeCompare(String(bVal))
-        : String(bVal).localeCompare(String(aVal));
-    });
-  }, [product, selectedTab, sortConfig]);
+const sortedRows = useMemo(() => {
+  if (!product) return [];
+  const rows = product.tabelle[selectedTab].tabella_righe;
+  const colonne = Object.values(product.tabelle[selectedTab].tabella_head ?? {});
+  if (!sortConfig) return rows;
+  const colIndex = colonne.findIndex(
+    (col) => col.valore === sortConfig.column
+  );
+  if (colIndex === -1) return rows;
 
-  // Aggiorna la configurazione dello sort al click
-  function onSort(column: string) {
-    if (
-      sortConfig &&
-      sortConfig.column === column &&
-      sortConfig.direction === "asc"
-    ) {
-      setSortConfig({ column, direction: "desc" });
-    } else {
-      setSortConfig({ column, direction: "asc" });
-    }
+  const colKey = `colonna_${colIndex + 1}`;
+
+  // generato dall'ai, trova una soluzione migliore perché così non si legge, e francamente mi sembra troppo macchinoso
+return [...rows].sort((a, b) => {
+  const aObj = a as unknown as Record<string, string>;
+  const bObj = b as unknown as Record<string, string>;
+  const aVal = aObj[colKey];
+  const bVal = bObj[colKey];
+
+  const aNum = parseFloat((aVal || "").replace(/[^\d.-]/g, ""));
+  const bNum = parseFloat((bVal || "").replace(/[^\d.-]/g, ""));
+  if (!isNaN(aNum) && !isNaN(bNum)) {
+    return sortConfig.direction === "asc" ? aNum - bNum : bNum - aNum;
   }
+  return sortConfig.direction === "asc"
+    ? String(aVal).localeCompare(String(bVal))
+    : String(bVal).localeCompare(String(aVal));
+});
+}, [product, selectedTab, sortConfig]);
+
+// generato dall'ai, trova una soluzione migliore perché così non si legge, e francamente mi sembra troppo macchinoso
+
+function onSort(column: TableHeadProps["keys"][number]) {
+  const columnValue = column.valore;
+  console.log("Sorting by:", columnValue);
+  if (
+    sortConfig &&
+    sortConfig.column === columnValue &&
+    sortConfig.direction === "asc"
+  ) {
+    setSortConfig({ column: columnValue, direction: "desc" });
+  } else {
+    setSortConfig({ column: columnValue, direction: "asc" });
+  }
+}
+
 
   useEffect(() => {
     if (productId) {
-      fetch(`https://php.leone.it/api/GetProdottiWeb7_1.php?id=${productId}`, {
+      fetch(`https://php.leone.it/api/GetProdottiWeb7_2.php?id=${productId}`, {
         cache: "no-store",
         method: "GET",
         headers: {
@@ -231,7 +250,7 @@ export default function ProductDetail() {
             <table className="table-fixed w-full text-left text-gray-500 dark:text-gray-400">
               <TableHead
                 onClick={onSort}
-                keys={product.tabelle[selectedTab].tabella_head}
+                keys={Object.values(colonne)}
               />
               {(sortedRows.length > 0
                 ? sortedRows
@@ -240,10 +259,11 @@ export default function ProductDetail() {
                 <TableBody
                   onClick={handleLink}
                   key={index}
-                  values={Array.isArray(riga) ? riga : [riga]}
-                  columnCount={product.tabelle[selectedTab].tabella_head.length}
+                  values={Object.values(riga)}
+                  columnCount={colonne.length}
                 />
               ))}
+            </table>
               <div className="flex whitespace-nowrap gap-2">
                 {product.tabelle.map((tabella) => (
                   <CSVButton
@@ -253,7 +273,6 @@ export default function ProductDetail() {
                   />
                 ))}
               </div>
-            </table>
           </div>
         </div>
       </div>

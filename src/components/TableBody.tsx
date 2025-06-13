@@ -22,7 +22,7 @@ export default function TableBody({
     <tbody>
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         {Array.from({ length: columnCount }).map((_, index) => (
-          <td key={index} className="codice px-4 py-3">
+          <td key={index} className="codice ps-2">
             {values[index] || ""}
           </td>
         ))}

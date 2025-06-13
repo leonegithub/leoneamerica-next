@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import parse from "html-react-parser";
+import placeholder from '@/../../public/placeholder.png'
 import "./style.css";
 import SearchBar from "@/components/searchbar";
 
@@ -140,12 +141,13 @@ const Products = () => {
                       className="grid-item"
                       onClick={() => handleProductClick(product)}
                     >
-                      <Image
+                     <Image
                         width={1920}
                         height={1080}
-                        src={product.immagini.immagine_1}
+                        src={product.immagini.immagine_1 && typeof product.immagini.immagine_1 === "string"
+                          ? product.immagini.immagine_1
+                          : "/placeholder.png"}
                         alt={product.nome}
-                        className="product-image"
                       />
                     </div>
                     <p
